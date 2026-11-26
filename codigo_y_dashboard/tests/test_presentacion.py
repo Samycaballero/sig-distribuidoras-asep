@@ -53,3 +53,20 @@ def test_seis_figuras_a_300_dpi(corrida):
     assert [f.name[:4] for f in figs] == ["fig1", "fig2", "fig3", "fig4", "fig5", "fig6"]
     for f in figs:
         assert round(Image.open(f).info["dpi"][0]) == 300, f.name
+
+
+def test_fig6_sin_navegador_conserva_captura_real(tmp_path, monkeypatch):
+    """En el contenedor de Airflow no hay navegador: no se debe pisar una captura real con la maqueta."""
+    import generar_dashboard_y_graficos as g
+    monkeypatch.setenv("SIG_OUT_DIR", str(tmp_path))
+    monkeypatch.setattr(g, "_buscar_navegador", lambda: None)
+    (tmp_path / "graficos").mkdir()
+    destino = tmp_path / "graficos" / "fig6_dashboard.png"
+    destino.write_bytes(b"captura-real")
+    destino.with_suffix(".origen").write_text("captura", encoding="utf-8")
+    assert g.fig_dashboard(g.cargar()) == "fig6_dashboard.png"
+    assert destino.read_bytes() == b"captura-real"           # intacta
+    # sin captura previa, sí genera la maqueta y lo registra
+    destino.unlink(); destino.with_suffix(".origen").unlink()
+    g.fig_dashboard(g.cargar())
+    assert destino.with_suffix(".origen").read_text(encoding="utf-8") == "maqueta"

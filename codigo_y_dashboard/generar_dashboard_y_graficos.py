@@ -285,6 +285,7 @@ def fig_dashboard(D):
     nombre = "fig6_dashboard.png"
     destino = config.out_dir() / "graficos" / nombre
     html = config.out_dir() / "dashboard_interactivo.html"
+    origen = destino.with_suffix(".origen")  # "captura" o "maqueta": cómo se produjo la figura
     nav = _buscar_navegador()
     if nav and html.exists():
         with tempfile.TemporaryDirectory() as tmp:
@@ -298,9 +299,15 @@ def fig_dashboard(D):
                     from PIL import Image
                     destino.parent.mkdir(parents=True, exist_ok=True)
                     Image.open(png).convert("RGB").save(destino, dpi=(300, 300))
+                    origen.write_text("captura", encoding="utf-8")
                     return nombre
             except (OSError, subprocess.SubprocessError):
                 pass
+    # Sin navegador (p. ej. dentro del contenedor de Airflow): no pisar una captura real ya existente con la maqueta.
+    if destino.exists() and origen.exists() and origen.read_text(encoding="utf-8").strip() == "captura":
+        import logging
+        logging.getLogger("dashboard").warning("Sin navegador: se conserva la captura real existente de %s", nombre)
+        return nombre
     # maqueta de respaldo: tarjetas KPI con la descomposición 2014→2025 desde gold
     acum = {x["distribuidora"]: x for x in D["lmdi"] if x["tipo"] == "acumulada" and int(x["anio_base"]) == A0}
     fig, ax = plt.subplots(figsize=(10, 3.2))
@@ -315,6 +322,7 @@ def fig_dashboard(D):
         ax.text(j * 0.335 + 0.02, 0.15, f"Efecto clientes {float(x['efecto_clientes_gwh']):+,.1f} GWh\n"
                 f"Efecto consumo/cliente {float(x['efecto_consumo_por_cliente_gwh']):+,.1f} GWh",
                 transform=ax.transAxes, fontsize=8.5, color=TXT2)
+    origen.write_text("maqueta", encoding="utf-8")
     return _guardar(fig, nombre)
 
 
