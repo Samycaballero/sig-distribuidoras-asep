@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Consumo eléctrico por distribuidora</title>
+<style>
+:root{--bg:#f4f3ef;--surface:#fcfcfb;--surface2:#f0efea;--ink:#0b0b0b;--ink2:#52514e;--grid:#e4e3df;--s1:#2a78d6;--s2:#eb6834;--s3:#1baf7a;--cli:#6250d6;--con:#eda100;--warn-bg:#fff4d6;--warn:#7a5200;--accent:#6250d6}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#111110;--surface:#1a1a19;--surface2:#242422;--ink:#f0efec;--ink2:#c3c2b7;--grid:#383835;--s1:#3987e5;--s2:#d95926;--s3:#199e70;--cli:#9085e9;--con:#c98500;--warn-bg:#3a2e10;--warn:#f3d27a;--accent:#9085e9}}
+:root[data-theme="dark"]{--bg:#111110;--surface:#1a1a19;--surface2:#242422;--ink:#f0efec;--ink2:#c3c2b7;--grid:#383835;--s1:#3987e5;--s2:#d95926;--s3:#199e70;--cli:#9085e9;--con:#c98500;--warn-bg:#3a2e10;--warn:#f3d27a;--accent:#9085e9}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.5 system-ui,"Segoe UI",Roboto,sans-serif}
+main{max-width:1200px;margin:0 auto;padding:16px}
+h1{font-size:22px;line-height:1.25;margin:0 0 6px}h2{font-size:16px;margin:0 0 4px}h3{font-size:14px;margin:0 0 6px}
+p{margin:4px 0}.muted{color:var(--ink2);font-size:12.5px}
+.pregunta{font-size:15.5px;font-weight:600;margin:6px 0 8px;max-width:70ch}
+.meta{display:flex;flex-wrap:wrap;gap:4px 18px;color:var(--ink2);font-size:12.5px}
+.aviso{margin:10px 0 0;padding:8px 12px;border-radius:8px;background:var(--warn-bg);color:var(--warn);font-size:13px}
+.aviso a{color:inherit;font-weight:600}
+.tabs{display:flex;gap:4px;margin:16px 0 0;border-bottom:1px solid var(--grid)}
+.tabs button{font:inherit;background:none;border:0;border-bottom:3px solid transparent;padding:8px 14px;color:var(--ink2);cursor:pointer}
+.tabs button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--accent);font-weight:600}
+.card{background:var(--surface);border:1px solid var(--grid);border-radius:10px;padding:16px;margin:14px 0}
+.card>.sub{color:var(--ink2);font-size:12.5px;margin:0 0 10px}
+.filtros{display:flex;flex-wrap:wrap;gap:12px 22px;align-items:flex-end;position:sticky;top:0;z-index:5}
+.filtros fieldset{border:0;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center}
+.filtros legend,.campo>span{display:block;font-size:12px;color:var(--ink2);margin-bottom:3px;padding:0}
+select,input[type=search],button.btn{font:inherit;font-size:13.5px;padding:5px 8px;border:1px solid var(--grid);border-radius:6px;background:var(--surface);color:var(--ink)}
+button.btn{cursor:pointer;background:var(--surface2)}button.btn:hover{border-color:var(--ink2)}
+label.chk{display:inline-flex;align-items:center;gap:5px;cursor:pointer;white-space:nowrap}
+.sw{display:inline-block;width:11px;height:11px;border-radius:3px;flex:none;vertical-align:-1px}
+.adv-usd{display:none;margin:10px 0 0;padding:8px 12px;border-radius:8px;background:var(--warn-bg);color:var(--warn);font-size:13px}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin:14px 0}
+.tile{background:var(--surface);border:1px solid var(--grid);border-top:4px solid var(--c);border-radius:10px;padding:14px}
+.tile .nom{font-weight:700;color:var(--ink);display:flex;justify-content:space-between;gap:8px}
+.tile .big{font-size:28px;font-weight:700;line-height:1.15;margin:6px 0 0}
+.tile .big small{font-size:13px;font-weight:400;color:var(--ink2)}
+.tile dl{display:grid;grid-template-columns:1fr auto;gap:4px 10px;margin:10px 0 0;font-size:13px}
+.tile dt{color:var(--ink2)}.tile dd{margin:0;text-align:right;font-variant-numeric:tabular-nums}
+.tile .nota{font-size:11.5px;color:var(--ink2);margin-top:8px}
+.respuesta{font-size:14.5px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:14px}
+.grid2 .card{margin:0}
+.leyenda{display:flex;flex-wrap:wrap;gap:4px 16px;font-size:12.5px;color:var(--ink2);margin:6px 0 0}
+.leyenda span{display:inline-flex;align-items:center;gap:5px}
+.chart{width:100%;min-height:60px;position:relative}
+svg{display:block;width:100%;height:auto;overflow:visible}
+svg text{font-family:inherit}
+table{border-collapse:collapse;width:100%;font-size:13px;font-variant-numeric:tabular-nums}
+th,td{padding:6px 8px;border-bottom:1px solid var(--grid);text-align:right;vertical-align:top}
+th{color:var(--ink2);font-weight:600;font-size:12px;background:var(--surface)}
+th:first-child,td:first-child,.izq{text-align:left}
+.wrap{overflow-x:auto}.alto{max-height:560px;overflow:auto}.alto th{position:sticky;top:0}
+.tip{position:fixed;pointer-events:none;background:var(--surface);color:var(--ink);border:1px solid var(--grid);border-radius:8px;padding:8px 10px;font-size:12.5px;display:none;box-shadow:0 4px 14px #0003;max-width:340px;z-index:20}
+.tip .imp{color:var(--ink2);font-size:11.5px;margin:2px 0 4px 16px}
+.badge{display:inline-block;font-size:12px;padding:2px 8px;border-radius:999px;background:var(--surface2);border:1px solid var(--grid);color:var(--ink2);font-weight:600}
+.diag div{margin:3px 0}
+ul{margin:4px 0 0 18px;padding:0}li{margin:3px 0}
+details summary{cursor:pointer;color:var(--ink2);font-weight:600;margin-top:10px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}
+.chip{background:var(--surface2);border:1px solid var(--grid);border-radius:8px;padding:6px 10px;font-size:13px}
+.chip b{font-size:16px;display:block}
+[hidden]{display:none!important}
+footer{margin:18px 0 8px}
+@media (max-width:640px){main{padding:12px}h1{font-size:19px}.tile .big{font-size:24px}.filtros{position:static}.card{padding:12px}}
+</style>
+</head>
+<body>
+<main>
+<header>
+  <h1>Consumo eléctrico por distribuidora — Panamá</h1>
+  <p class="pregunta" id="preg"></p>
+  <div class="meta"><span id="fuente"></span><span id="consulta"></span><span>Unidad de análisis de ASEP (simulación académica)</span></div>
+  <p class="aviso" id="aviso"></p>
+</header>
+
+<nav class="tabs" role="tablist">
+  <button role="tab" id="tab-analisis" aria-controls="panel-analisis" aria-selected="true">Análisis</button>
+  <button role="tab" id="tab-calidad" aria-controls="panel-calidad" aria-selected="false">Calidad de datos</button>
+</nav>
+
+<section id="panel-analisis" role="tabpanel" aria-labelledby="tab-analisis">
+  <div class="card filtros" aria-label="Filtros">
+    <fieldset><legend>Distribuidoras</legend><span id="fdist" style="display:flex;flex-wrap:wrap;gap:6px 14px"></span></fieldset>
+    <label class="campo"><span>Año inicial</span><select id="desde"></select></label>
+    <label class="campo"><span>Año final</span><select id="hasta"></select></label>
+    <label class="campo"><span>Métrica de la serie mensual</span><select id="metrica">
+      <option value="v">Ventas (GWh)</option><option value="c">Clientes</option>
+      <option value="k">Consumo por cliente (kWh/cliente/mes)</option><option value="u">Ingreso medio (US$/kWh)</option></select></label>
+    <button class="btn" id="reset" type="button">Restablecer filtros</button>
+  </div>
+
+  <div class="card"><h2 id="tResp">Respuesta para el periodo seleccionado</h2><p class="respuesta" id="respDin"></p>
+    <p class="muted" id="reciente"></p></div>
+
+  <div class="tiles" id="tiles"></div>
+
+  <div class="card"><h2 id="tLmdi">Descomposición LMDI del cambio en ventas</h2>
+    <p class="sub">Efecto clientes + efecto consumo por cliente = cambio total (GWh). Se recalcula con los años y distribuidoras elegidos.</p>
+    <div class="leyenda"><span><i class="sw" style="background:var(--cli)"></i>Efecto clientes</span><span><i class="sw" style="background:var(--con)"></i>Efecto consumo por cliente</span><span><i class="sw" style="background:var(--ink2)"></i>Cambio total (color de la distribuidora)</span></div>
+    <div class="chart" id="gLmdi"></div>
+    <div class="wrap"><table id="tablaLmdi"></table></div>
+    <p class="muted">Método: V = C × I (clientes × consumo por cliente). Efecto clientes = L(V₁,V₀)·ln(C₁/C₀); efecto consumo por cliente = L(V₁,V₀)·ln(I₁/I₀), con L la media logarítmica. Suman exactamente el cambio. Si los efectos tienen signo opuesto, sus porcentajes del cambio neto superan el 100 % y no se interpretan como «parte» del crecimiento.</p>
+  </div>
+
+  <div class="card"><h2 id="tSerie"></h2><p class="sub" id="subSerie"></p>
+    <div class="adv-usd" id="advUsd" role="note"></div>
+    <div class="chart" id="gSerie"></div>
+    <div class="leyenda" id="leySerie"></div>
+  </div>
+
+  <div class="grid2">
+    <div class="card"><h2>Estacionalidad de las ventas</h2><p class="sub" id="subEst"></p><div class="chart" id="gEst"></div></div>
+    <div class="card"><h2>Participación en las ventas de las 3 distribuidoras</h2><p class="sub">Porcentaje de las ventas anuales (GWh) de EDEMET + ENSA + EDECHI.</p><div class="chart" id="gPart"></div></div>
+  </div>
+
+  <div class="card"><h2>Reclamos y ventas</h2>
+    <p class="sub">Reclamos de electricidad admitidos por ASEP (datos abiertos, disponibles desde 2021). <b>Correlación no implica causalidad:</b> reclamos y ventas son estacionales y pueden moverse juntos por el clima o el número de clientes.</p>
+    <div class="grid2">
+      <div><h3>Reclamos por cada 10 mil clientes (mensual)</h3><div class="chart" id="gRec"></div></div>
+      <div><h3>Reclamos del mes frente a ventas del mes</h3><div class="chart" id="gDisp"></div><div class="leyenda" id="leyDisp"></div></div>
+    </div>
+  </div>
+
+  <div class="card"><h2>Diagnóstico IA <span class="badge" id="diagEt"></span></h2>
+    <p class="sub">Texto generado a partir de los KPIs y la descomposición LMDI de la capa gold. El rótulo indica el modo realmente usado.</p>
+    <div class="diag" id="diag"></div>
+    <details><summary>Respuesta calculada (periodos de referencia)</summary><p id="resp"></p></details>
+    <details><summary>Hallazgos</summary><ul id="hall"></ul></details>
+    <details open><summary>Advertencias</summary><ul id="adv"></ul></details>
+  </div>
+</section>
+
+<section id="panel-calidad" role="tabpanel" aria-labelledby="tab-calidad" hidden>
+  <div class="card"><h2>Calidad de datos</h2>
+    <p class="sub">Ningún valor se borra sin rastro: cada incidencia guarda el valor de la fuente, la regla que la detectó y cómo se resolvió. Las cifras imputadas son estimaciones usadas solo para el análisis.</p>
+    <div class="chips" id="chips"></div>
+    <p class="muted" id="estados"></p>
+  </div>
+  <div class="card">
+    <div class="filtros" style="position:static">
+      <label class="campo"><span>Distribuidora</span><select id="qD"></select></label>
+      <label class="campo"><span>Variable</span><select id="qV"></select></label>
+      <label class="campo"><span>Regla</span><select id="qR"></select></label>
+      <label class="campo"><span>Resolución</span><select id="qT"><option value="">Todas</option><option value="imputado">Imputado</option><option value="conservado">Conservado y marcado</option><option value="otro">Otra (recuperado, corregido, informativo)</option></select></label>
+      <label class="campo"><span>Buscar (mes o texto)</span><input type="search" id="qS" placeholder="p. ej. 2021-10"></label>
+      <button class="btn" id="qReset" type="button">Limpiar</button>
+    </div>
+    <p class="muted" id="qN" aria-live="polite" style="margin-top:10px"></p>
+    <div class="wrap alto"><table id="tCal"></table></div>
+  </div>
+</section>
+
+<footer class="muted" id="pie"></footer>
+</main>
+<div class="tip" id="tip" role="tooltip"></div>
+<script>
+"use strict";
+const D=/*__DATOS__*/null;
+const TEMA={claro:"light",oscuro:"dark"}[new URLSearchParams(location.search).get("tema")];if(TEMA)document.documentElement.dataset.theme=TEMA;
+const DS=["EDEMET","ENSA","EDECHI"],COL={EDEMET:"var(--s1)",ENSA:"var(--s2)",EDECHI:"var(--s3)"};
+const MESES=["Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Dic"];
+const $=id=>document.getElementById(id);
+const nf=(x,d=0)=>x==null||!isFinite(x)?"—":x.toLocaleString("es-PA",{minimumFractionDigits:d,maximumFractionDigits:d});
+const sg=(x,d=0)=>(x>0?"+":"")+nf(x,d);
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const AN={};D.anual.forEach(r=>AN[r.d+"|"+r.a]=r);
+const RA={};D.reclamos_anual.forEach(r=>RA[r.d+"|"+r.a]=r);
+const st={sel:new Set(DS),a0:D.anio_ini,a1:D.anio_fin,m:"v"};
+const tip=$("tip");
+
+/* ---------- LMDI (misma fórmula que analisis.lmdi, con los KPIs anuales de gold) ---------- */
+const Lm=(a,b)=>Math.abs(a-b)<=1e-15*Math.max(Math.abs(a),Math.abs(b))?a:(a-b)/(Math.log(a)-Math.log(b));
+function lmdi(d,a0,a1){const p=AN[d+"|"+a0],q=AN[d+"|"+a1];if(!p||!q)return null;
+  const w=Lm(q.v,p.v),ec=w*Math.log(q.c/p.c),ei=w*Math.log((q.v/q.c)/(p.v/p.c)),dv=q.v-p.v;
+  return{d,p,q,ec,ei,dv,pc:dv?100*ec/dv:null,pi:dv?100*ei/dv:null,crec:100*(q.v/p.v-1),mismoSigno:(ec>=0)===(ei>=0)};}
+
+/* ---------- utilidades de gráficos SVG ---------- */
+function ticks(lo,hi,n=5){const span=hi-lo||1,step0=span/n,mag=Math.pow(10,Math.floor(Math.log10(step0))),f=step0/mag;
+  const step=(f<1.5?1:f<3?2:f<7?5:10)*mag,out=[];for(let v=Math.ceil(lo/step)*step;v<=hi+step*1e-9;v+=step)out.push(+v.toFixed(10));return{out,step};}
+/* Dominio redondeado hacia afuera a múltiplos del paso: siempre contiene [lo,hi] y sus extremos son ticks. */
+function dominio(lo,hi,n){const {step}=ticks(lo,hi,n);const a=Math.floor(lo/step+1e-9)*step,b=Math.max(Math.ceil(hi/step-1e-9)*step,a+step);
+  const out=[];for(let v=a;v<=b+step*1e-9;v+=step)out.push(+v.toFixed(10));return{lo:a,hi:b,out};}
+const plot=(m,W,H)=>`data-plot="${m.l},${m.t},${W-m.r},${H-m.b}"`;
+const ancho=el=>Math.max(300,Math.round(el.clientWidth||el.parentNode.clientWidth||600));
+function mostrarTip(e,html){tip.innerHTML=html;tip.style.display="block";const w=tip.offsetWidth,h=tip.offsetHeight;
+  let x=e.clientX+14,y=e.clientY+14;if(x+w>innerWidth-8)x=Math.max(8,e.clientX-w-14);if(y+h>innerHeight-8)y=Math.max(8,e.clientY-h-14);
+  tip.style.left=x+"px";tip.style.top=y+"px";}
+const ocultarTip=()=>{tip.style.display="none";};
+function etiquetasFinales(items,minGap){items.sort((a,b)=>a.y-b.y);for(let k=1;k<items.length;k++)if(items[k].y-items[k-1].y<minGap)items[k].y=items[k-1].y+minGap;return items;}
+
+/* Serie de líneas: series=[{d,pts:[{x,y,im}]}]. xMes=true: x es año+fracción de mes. */
+function lineas(el,series,o){
+  const W=ancho(el),H=W<560?250:300,m={l:o.ml||58,r:W<560?64:86,t:12,b:30};
+  const all=series.flatMap(s=>s.pts);if(!all.length){el.innerHTML='<p class="muted">Sin datos para la selección.</p>';return;}
+  const xs=all.map(p=>p.x),ys=all.map(p=>p.y);const x0=o.x0??Math.min(...xs),x1=o.x1??Math.max(...xs);
+  let y0=o.y0??Math.min(...ys),y1=Math.max(...ys);const pad=(y1-y0)*0.06||Math.abs(y1)*0.05||1;if(o.y0==null)y0-=pad;y1+=pad;
+  const T=dominio(y0,y1,W<560?4:5);if(o.y0==null)y0=T.lo;y1=T.hi;
+  const X=x=>m.l+(x-x0)/((x1-x0)||1)*(W-m.l-m.r),Y=y=>H-m.b-(y-y0)/((y1-y0)||1)*(H-m.t-m.b);
+  let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(o.aria||"")}" ${plot(m,W,H)}>`;
+  T.out.forEach(v=>{if(v<y0||v>y1)return;s+=`<line x1="${m.l}" x2="${W-m.r}" y1="${Y(v)}" y2="${Y(v)}" stroke="var(--grid)"/><text x="${m.l-6}" y="${Y(v)+4}" text-anchor="end" font-size="11" fill="var(--ink2)">${o.yfmt(v)}</text>`;});
+  if(o.ref!=null)s+=`<line x1="${m.l}" x2="${W-m.r}" y1="${Y(o.ref)}" y2="${Y(o.ref)}" stroke="var(--ink2)" stroke-dasharray="4 3"/>`;
+  (o.xticks||[]).forEach(t=>{if(t.x>=x0-1e-9&&t.x<=x1+1e-9)s+=`<line x1="${X(t.x)}" x2="${X(t.x)}" y1="${H-m.b}" y2="${H-m.b+4}" stroke="var(--ink2)"/><text x="${X(t.x)}" y="${H-10}" text-anchor="middle" font-size="11" fill="var(--ink2)">${t.l}</text>`;});
+  if(o.ylabel)s+=`<text x="${m.l}" y="${m.t-2}" font-size="11" fill="var(--ink2)">${esc(o.ylabel)}</text>`;
+  const fin=[];
+  series.forEach(se=>{if(!se.pts.length)return;
+    s+=`<polyline class="m" fill="none" stroke="${COL[se.d]}" stroke-width="2" stroke-linejoin="round" points="${se.pts.map(p=>X(p.x).toFixed(1)+","+Y(p.y).toFixed(1)).join(" ")}"/>`;
+    if(o.puntos)se.pts.forEach(p=>{s+=`<circle class="m" cx="${X(p.x)}" cy="${Y(p.y)}" r="3" fill="${COL[se.d]}"/>`;});
+    se.pts.filter(p=>p.im).forEach(p=>{const cx=X(p.x),cy=Y(p.y);s+=`<path class="m" d="M${cx},${cy-5.5}L${cx+5.5},${cy}L${cx},${cy+5.5}L${cx-5.5},${cy}Z" fill="var(--surface)" stroke="var(--ink)" stroke-width="1.6"/>`;});
+    const l=se.pts[se.pts.length-1];fin.push({d:se.d,y:Y(l.y),x:X(l.x)});});
+  etiquetasFinales(fin,14).forEach(f=>{s+=`<text x="${f.x+7}" y="${f.y+4}" font-size="12" font-weight="700" fill="${COL[f.d]}">${f.d}</text>`;});
+  s+=`<line class="cx" y1="${m.t}" y2="${H-m.b}" stroke="var(--ink2)" stroke-dasharray="3 3" visibility="hidden"/><rect x="${m.l}" y="${m.t}" width="${W-m.l-m.r}" height="${H-m.t-m.b}" fill="transparent"/></svg>`;
+  el.innerHTML=s;const svg=el.querySelector("svg"),cx=svg.querySelector(".cx");
+  const xsU=[...new Set(xs)].sort((a,b)=>a-b);
+  svg.onpointermove=e=>{const r=svg.getBoundingClientRect(),px=(e.clientX-r.left)*W/r.width;
+    if(px<m.l-4||px>W-m.r+4){ocultarTip();cx.setAttribute("visibility","hidden");return;}
+    const xv=x0+(px-m.l)/(W-m.l-m.r)*(x1-x0);let best=xsU[0];xsU.forEach(x=>{if(Math.abs(x-xv)<Math.abs(best-xv))best=x;});
+    cx.setAttribute("x1",X(best));cx.setAttribute("x2",X(best));cx.setAttribute("visibility","visible");
+    mostrarTip(e,`<b>${o.xfmt(best)}</b><br>`+series.map(se=>{const p=se.pts.find(q=>q.x===best);if(!p)return"";
+      return `<div><span class="sw" style="background:${COL[se.d]}"></span> ${se.d}: <b>${o.yfmt(p.y,true)}</b>${p.im?' <span style="white-space:nowrap">◇ imputado</span>'+o.detalleIm(p.im):""}</div>`;}).join(""));};
+  svg.onpointerleave=()=>{ocultarTip();cx.setAttribute("visibility","hidden");};
+}
+
+/* Cascada LMDI por distribuidora: efecto clientes, efecto consumo por cliente y cambio total. */
+function cascada(el,rows){
+  if(!rows.length){el.innerHTML='<p class="muted">Elija dos años distintos y al menos una distribuidora.</p>';return;}
+  const W=ancho(el),H=W<560?280:320,m={l:W<560?50:62,r:8,t:22,b:W<560?48:40};
+  const vals=rows.flatMap(r=>[0,r.ec,r.ec+r.ei,r.dv]);let y0=Math.min(...vals),y1=Math.max(...vals);const pad=(y1-y0)*0.12||1;
+  const T=dominio(y0<0?y0-pad:0,y1>0?y1+pad:0,4);y0=T.lo;y1=T.hi;const Y=y=>H-m.b-(y-y0)/(y1-y0)*(H-m.t-m.b);
+  const gw=(W-m.l-m.r)/rows.length,bw=Math.min(54,gw/4.2),fs=W<560?10:11.5;
+  let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Cascada LMDI por distribuidora" ${plot(m,W,H)}>`;
+  T.out.forEach(v=>{if(v<y0||v>y1)return;s+=`<line x1="${m.l}" x2="${W-m.r}" y1="${Y(v)}" y2="${Y(v)}" stroke="var(--grid)"/><text x="${m.l-6}" y="${Y(v)+4}" text-anchor="end" font-size="11" fill="var(--ink2)">${nf(v)}</text>`;});
+  s+=`<text x="${m.l}" y="${m.t-8}" font-size="11" fill="var(--ink2)">GWh</text><line x1="${m.l}" x2="${W-m.r}" y1="${Y(0)}" y2="${Y(0)}" stroke="var(--ink2)"/>`;
+  rows.forEach((r,k)=>{const gx=m.l+gw*k+gw/2,xs=[gx-1.25*bw,gx,gx+1.25*bw];
+    const barras=[{a:0,b:r.ec,c:"var(--cli)",n:"Efecto clientes"},{a:r.ec,b:r.ec+r.ei,c:"var(--con)",n:"Efecto consumo por cliente"},{a:0,b:r.dv,c:COL[r.d],n:"Cambio total"}];
+    barras.forEach((b,j)=>{const yt=Y(Math.max(b.a,b.b)),h=Math.max(1,Math.abs(Y(b.a)-Y(b.b))),v=b.b-b.a;
+      s+=`<rect class="m" x="${xs[j]-bw/2}" y="${yt}" width="${bw}" height="${h}" rx="2" fill="${b.c}"><title>${r.d} · ${b.n}: ${sg(v,1)} GWh</title></rect>`;
+      const ly=v>=0?yt-5:yt+h+fs+2;s+=`<text x="${xs[j]}" y="${ly}" text-anchor="middle" font-size="${fs}" fill="var(--ink)" font-weight="${j===2?700:400}">${sg(v,0)}</text>`;
+      if(j<2)s+=`<line x1="${xs[j]+bw/2}" x2="${xs[j+1]-bw/2}" y1="${Y(b.b)}" y2="${Y(b.b)}" stroke="var(--ink2)" stroke-dasharray="3 2"/>`;});
+    s+=`<text x="${gx}" y="${H-m.b+18}" text-anchor="middle" font-size="13" font-weight="700" fill="${COL[r.d]}">${r.d}</text><text x="${gx}" y="${H-m.b+33}" text-anchor="middle" font-size="11" fill="var(--ink2)">${sg(r.crec,1)} % ventas</text>`;});
+  el.innerHTML=s+"</svg>";
+}
+
+/* Barras 100 % apiladas de participación por año. */
+function participacion(el,ds,a0,a1){
+  const W=ancho(el),H=W<560?240:280,m={l:40,r:8,t:10,b:28},anios=[];for(let a=a0;a<=a1;a++)anios.push(a);
+  const Y=v=>H-m.b-v/100*(H-m.t-m.b),bw=(W-m.l-m.r)/anios.length;
+  let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Participación de mercado por año" ${plot(m,W,H)}>`;
+  [0,25,50,75,100].forEach(v=>{s+=`<line x1="${m.l}" x2="${W-m.r}" y1="${Y(v)}" y2="${Y(v)}" stroke="var(--grid)"/><text x="${m.l-5}" y="${Y(v)+4}" text-anchor="end" font-size="11" fill="var(--ink2)">${v} %</text>`;});
+  anios.forEach((a,k)=>{let acc=0;const x=m.l+bw*k+bw*0.12,w=bw*0.76;
+    DS.forEach(d=>{const r=AN[d+"|"+a];if(!r)return;const v=r.s;if(ds.includes(d)){const yt=Y(acc+v),h=Y(acc)-yt;
+      s+=`<rect class="m" x="${x}" y="${yt}" width="${w}" height="${h}" fill="${COL[d]}" stroke="var(--surface)" stroke-width="1"><title>${a} · ${d}: ${nf(v,1)} % (${nf(r.v,1)} GWh)</title></rect>`;
+      if(h>15&&w>30)s+=`<text x="${x+w/2}" y="${yt+h/2+4}" text-anchor="middle" font-size="10" fill="#fff">${nf(v,0)}</text>`;}acc+=v;});
+    if(bw>26||k%2===0)s+=`<text x="${x+w/2}" y="${H-10}" text-anchor="middle" font-size="11" fill="var(--ink2)">${bw>40?a:String(a).slice(2)}</text>`;});
+  el.innerHTML=s+"</svg>";
+}
+
+/* Dispersión reclamos vs ventas mensuales con r de Pearson por distribuidora. */
+function pearson(x,y){const n=x.length,mx=x.reduce((a,b)=>a+b,0)/n,my=y.reduce((a,b)=>a+b,0)/n;let sxy=0,sx=0,sy=0;
+  for(let k=0;k<n;k++){sxy+=(x[k]-mx)*(y[k]-my);sx+=(x[k]-mx)**2;sy+=(y[k]-my)**2;}return sxy/Math.sqrt(sx*sy);}
+function dispersion(el,grupos){
+  const all=grupos.flatMap(g=>g.pts);if(!all.length){el.innerHTML='<p class="muted">Sin datos de reclamos en el periodo (disponibles desde 2021).</p>';return;}
+  const W=ancho(el),H=W<560?250:290,m={l:52,r:12,t:14,b:40};
+  // dominio desde los datos visibles con margen, redondeado hacia afuera (el eje siempre contiene todos los puntos)
+  const xmin=Math.min(...all.map(p=>p.x)),xmax=Math.max(...all.map(p=>p.x)),ymax=Math.max(...all.map(p=>p.y));
+  const tx=dominio(Math.max(0,xmin-(xmax-xmin)*0.05),xmax+(xmax-xmin)*0.05,W<560?4:6),ty=dominio(0,ymax*1.05,4);
+  const X=v=>m.l+(v-tx.lo)/(tx.hi-tx.lo)*(W-m.l-m.r),Y=v=>H-m.b-(v-ty.lo)/(ty.hi-ty.lo)*(H-m.t-m.b);
+  let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Reclamos frente a ventas mensuales" ${plot(m,W,H)}>`;
+  ty.out.forEach(v=>{s+=`<line x1="${m.l}" x2="${W-m.r}" y1="${Y(v)}" y2="${Y(v)}" stroke="var(--grid)"/><text x="${m.l-6}" y="${Y(v)+4}" text-anchor="end" font-size="11" fill="var(--ink2)">${nf(v)}</text>`;});
+  tx.out.forEach(v=>{s+=`<text x="${X(v)}" y="${H-m.b+16}" text-anchor="middle" font-size="11" fill="var(--ink2)">${nf(v)}</text>`;});
+  s+=`<text x="${(W+m.l)/2}" y="${H-6}" text-anchor="middle" font-size="11" fill="var(--ink2)">Ventas del mes (GWh)</text><text x="${m.l}" y="${m.t-3}" font-size="11" fill="var(--ink2)">Reclamos en el mes</text>`;
+  grupos.forEach(g=>g.pts.forEach(p=>{s+=`<circle class="m" cx="${X(p.x)}" cy="${Y(p.y)}" r="3.6" fill="${COL[g.d]}" fill-opacity=".75"><title>${g.d} ${p.p}: ${nf(p.y)} reclamos; ${nf(p.x,1)} GWh</title></circle>`;}));
+  el.innerHTML=s+"</svg>";
+}
+
+/* ---------- métricas de la serie mensual ---------- */
+const MET={
+  v:{t:"Ventas mensuales de energía (GWh)",u:"GWh",val:r=>r.v/1e6,fmt:(v,t)=>nf(v,t?1:0)+(t?" GWh":""),vars:["v"]},
+  c:{t:"Clientes por distribuidora (mensual)",u:"clientes",val:r=>r.c,fmt:(v,t)=>nf(v)+(t?" clientes":""),vars:["c"]},
+  k:{t:"Consumo por cliente (kWh/cliente/mes)",u:"kWh/cliente/mes",val:r=>r.v/r.c,fmt:(v,t)=>nf(v,t?1:0)+(t?" kWh/cliente":""),vars:["v","c"]},
+  u:{t:"Ingreso medio por kWh vendido (US$/kWh)",u:"US$/kWh",val:r=>r.f!=null?r.f/r.v:null,fmt:(v)=>nf(v,3),vars:["f","v"]}};
+const UNID={c:"clientes",v:"kWh",f:"US$"};
+function detalleIm(im){return Object.entries(im).map(([k,x])=>`<div class="imp">${esc(x.var)}: valor original ${x.o==null?"no reportado":nf(x.o)+" "+UNID[k]}; motivo: ${esc(x.mot)}; método: ${esc(x.met)}</div>`).join("");}
+
+/* ---------- render ---------- */
+function render(){
+  let a0=st.a0,a1=st.a1;if(a0>a1)[a0,a1]=[a1,a0];const ds=DS.filter(d=>st.sel.has(d));const per=`${a0}→${a1}`;
+  const L=a0===a1?[]:ds.map(d=>lmdi(d,a0,a1)).filter(Boolean);
+  // respuesta dinámica
+  if(!ds.length)$("respDin").textContent="Seleccione al menos una distribuidora.";
+  else if(!L.length)$("respDin").textContent="Elija un año inicial y un año final distintos para medir el crecimiento.";
+  else{const rel=[...L].sort((x,y)=>y.crec-x.crec)[0],abs=[...L].sort((x,y)=>y.dv-x.dv)[0];
+    const expl=x=>x.mismoSigno?`${nf(x.pc,1)} % por más clientes y ${nf(x.pi,1)} % por mayor consumo por cliente`
+      :`el efecto clientes (${sg(x.ec,1)} GWh) y el efecto consumo por cliente (${sg(x.ei,1)} GWh) tienen signo opuesto`;
+    $("respDin").innerHTML=`Entre ${a0} y ${a1}, <b style="color:${COL[rel.d]}">${rel.d}</b> es la distribuidora cuyas ventas ${rel.crec>=0?"más crecen":"menos caen"} en términos relativos (${sg(rel.crec,1)} %, ${sg(rel.dv,1)} GWh): ${expl(rel)}.`+
+      (L.length>1&&abs.d===rel.d?` También es la de mayor aumento absoluto.`:"")+
+      (L.length>1&&abs.d!==rel.d?` El mayor aumento absoluto es de <b style="color:${COL[abs.d]}">${abs.d}</b> (${sg(abs.dv,1)} GWh; ${expl(abs)}).`:"");}
+  // tarjetas
+  $("tiles").innerHTML=ds.map(d=>{const x=a0===a1?null:lmdi(d,a0,a1),p=AN[d+"|"+a0],q=AN[d+"|"+a1];
+    const r0=RA[d+"|"+a0],r1=RA[d+"|"+a1];
+    const rec=r0&&r1?`${nf(r0.t,2)} → ${nf(r1.t,2)}`:r1?`${nf(r1.t,2)} (${a1})`:"sin datos";
+    const recNota=!r0&&r1?`Reclamos: datos solo desde 2021; se muestra ${a1}.`:!r1?"Reclamos: datos solo para 2021–2025.":"";
+    const pct=(v,ok)=>ok?` (${nf(v,1)} %)`:"";
+    return `<article class="tile" style="--c:${COL[d]}"><div class="nom"><span><i class="sw" style="background:${COL[d]}"></i> ${d}</span><span class="muted">${per}</span></div>
+      <div class="big">${x?sg(x.crec,1)+" %":"—"} <small>crecimiento de ventas</small></div>
+      <dl><dt>Ventas (GWh)</dt><dd>${nf(p.v,1)} → ${nf(q.v,1)}</dd>
+      <dt>Cambio total</dt><dd><b>${x?sg(x.dv,1)+" GWh":"—"}</b></dd>
+      <dt><i class="sw" style="background:var(--cli)"></i> Efecto clientes</dt><dd>${x?sg(x.ec,1)+" GWh"+pct(x.pc,x.mismoSigno):"—"}</dd>
+      <dt><i class="sw" style="background:var(--con)"></i> Efecto consumo por cliente</dt><dd>${x?sg(x.ei,1)+" GWh"+pct(x.pi,x.mismoSigno):"—"}</dd>
+      <dt>kWh/cliente/mes</dt><dd>${nf(p.k,1)} → ${nf(q.k,1)}</dd>
+      <dt>Clientes (promedio anual)</dt><dd>${nf(p.c)} → ${nf(q.c)}</dd>
+      <dt>Reclamos por 10 mil clientes/mes</dt><dd>${rec}</dd></dl>
+      <div class="nota">${x&&!x.mismoSigno?"Efectos de signo opuesto: se informan en GWh (sus % del cambio neto superan el 100 %). ":""}${recNota}</div></article>`;}).join("")||'<p class="muted">Seleccione al menos una distribuidora.</p>';
+  // LMDI
+  $("tLmdi").textContent=`Descomposición LMDI del cambio en ventas, ${per}`;
+  cascada($("gLmdi"),L);
+  $("tablaLmdi").innerHTML=L.length?`<thead><tr><th>Distribuidora</th><th>Ventas ${a0} (GWh)</th><th>Ventas ${a1} (GWh)</th><th>Cambio (GWh)</th><th>Crecimiento</th><th>Efecto clientes (GWh)</th><th>Efecto consumo por cliente (GWh)</th><th>% clientes</th><th>% consumo por cliente</th></tr></thead><tbody>`+
+    L.map(x=>`<tr><td><i class="sw" style="background:${COL[x.d]}"></i> ${x.d}</td><td>${nf(x.p.v,1)}</td><td>${nf(x.q.v,1)}</td><td>${sg(x.dv,1)}</td><td>${sg(x.crec,1)} %</td><td>${sg(x.ec,1)}</td><td>${sg(x.ei,1)}</td><td>${nf(x.pc,1)} %</td><td>${nf(x.pi,1)} %</td></tr>`).join("")+"</tbody>":"";
+  // serie mensual
+  const M=MET[st.m];$("tSerie").textContent=`${M.t}, ${a0}–${a1}`;
+  $("subSerie").textContent=`Valores mensuales del boletín ASEP. Los rombos huecos (◇) marcan meses con ${st.m==="k"?"ventas o clientes":st.m==="u"?"ventas o facturación":st.m==="v"?"ventas":"clientes"} imputados; pase el cursor para ver el valor original y el motivo.`;
+  $("advUsd").style.display=st.m==="u"?"block":"none";
+  const xt=[];for(let a=a0;a<=a1+1;a++)if(a1-a0<8||(a-a0)%2===0)xt.push({x:a,l:a});
+  lineas($("gSerie"),ds.map(d=>({d,pts:D.mensual.filter(r=>r.d===d&&+r.p.slice(0,4)>=a0&&+r.p.slice(0,4)<=a1&&M.val(r)!=null).map(r=>{
+      const im=r.im?Object.fromEntries(Object.entries(r.im).filter(([k])=>M.vars.includes(k))):null;
+      return{x:+r.p.slice(0,4)+(+r.p.slice(5)-1)/12,y:M.val(r),im:im&&Object.keys(im).length?im:null,p:r.p};})})),
+    {yfmt:M.fmt,xfmt:x=>{const a=Math.floor(x+1e-9),k=Math.round((x-a)*12);return `${MESES[k]} ${a}`},xticks:xt,x0:a0,x1:a1+11/12,ylabel:M.u,ml:st.m==="c"?70:58,detalleIm,aria:M.t});
+  $("leySerie").innerHTML=ds.map(d=>`<span><i class="sw" style="background:${COL[d]}"></i>${d}</span>`).join("")+'<span><svg width="14" height="14" viewBox="0 0 14 14" style="width:14px;display:inline"><path d="M7,1.5L12.5,7L7,12.5L1.5,7Z" fill="var(--surface)" stroke="var(--ink)" stroke-width="1.6"/></svg>Mes con valor imputado</span>';
+  // estacionalidad (gold, periodo base completo)
+  $("subEst").textContent=`Índice mensual de ventas: 1 = mes promedio del año (promedio ${D.anio_ini}–${D.anio_fin}). Sobre 1, meses de mayor consumo.`;
+  lineas($("gEst"),ds.map(d=>({d,pts:D.est.filter(r=>r.d===d).map(r=>({x:r.m,y:r.i}))})),
+    {yfmt:(v,t)=>nf(v,t?3:2),xfmt:x=>MESES[x-1],xticks:MESES.map((l,k)=>({x:k+1,l})).filter((t,k)=>ancho($("gEst"))>420||k%2===0),ref:1,puntos:true,detalleIm:()=>"",aria:"Estacionalidad"});
+  participacion($("gPart"),ds,a0,a1);
+  // reclamos
+  const r0=Math.max(a0,2021);
+  const recs=ds.map(d=>({d,pts:D.reclamos.filter(r=>r.d===d&&+r.p.slice(0,4)>=r0&&+r.p.slice(0,4)<=a1)}));
+  const xr=[];for(let a=r0;a<=a1+1;a++)xr.push({x:a,l:a});
+  if(a1<2021){$("gRec").innerHTML=$("gDisp").innerHTML='<p class="muted">Los datos de reclamos empiezan en 2021: amplíe el año final.</p>';$("leyDisp").innerHTML="";}
+  else{lineas($("gRec"),recs.map(g=>({d:g.d,pts:g.pts.map(r=>({x:+r.p.slice(0,4)+(+r.p.slice(5)-1)/12,y:r.t}))})),
+      {yfmt:(v,t)=>nf(v,t?2:1),xfmt:x=>{const a=Math.floor(x+1e-9);return `${MESES[Math.round((x-a)*12)]} ${a}`},xticks:xr,x0:r0,x1:a1+11/12,y0:0,ylabel:"por 10 mil clientes",detalleIm:()=>"",aria:"Reclamos por 10 mil clientes"});
+    dispersion($("gDisp"),recs.map(g=>({d:g.d,pts:g.pts.map(r=>({x:r.v/1e6,y:r.r,p:r.p}))})));
+    $("leyDisp").innerHTML=recs.filter(g=>g.pts.length>2).map(g=>`<span><i class="sw" style="background:${COL[g.d]}"></i>${g.d}: r = ${nf(pearson(g.pts.map(r=>r.v),g.pts.map(r=>r.r)),2)} (${g.pts.length} meses, ${g.pts[0].p} a ${g.pts[g.pts.length-1].p})</span>`).join("");}
+}
+
+/* ---------- textos fijos, filtros y pestañas ---------- */
+$("preg").textContent=D.pregunta;
+$("fuente").textContent="Fuente: "+D.fuente;
+$("consulta").textContent="Fecha de consulta: "+D.consulta;
+$("aviso").innerHTML=`⚠ ${nf(D.imputados.valores)} valores imputados en ${nf(D.imputados.filas)} filas distribuidora-mes (${D.anio_ini}–${D.anio_fin}): son estimaciones por errores u omisiones del boletín. <a href="#calidad" id="irCalidad">Ver la pestaña Calidad de datos</a>.`;
+$("advUsd").textContent=D.advertencias.find(a=>a.includes("US$/kWh"))||"El ingreso medio US$/kWh no es una tarifa.";
+$("reciente").textContent=D.reciente.length?`Año en curso (${D.reciente[0].meses} 2026 frente al mismo periodo de 2025): `+D.reciente.map(r=>`${r.distribuidora} ${sg(r.crec_ventas_pct,1)} % en ventas (${nf(r.pct_consumo_por_cliente,1)} % por consumo por cliente)`).join("; ")+".":"";
+$("fdist").innerHTML=DS.map(d=>`<label class="chk"><input type="checkbox" checked value="${d}"><i class="sw" style="background:${COL[d]}"></i>${d}</label>`).join("");
+for(let a=D.anio_ini;a<=D.anio_fin;a++){$("desde").add(new Option(a,a));$("hasta").add(new Option(a,a));}
+function sincronizar(){$("desde").value=st.a0;$("hasta").value=st.a1;$("metrica").value=st.m;document.querySelectorAll("#fdist input").forEach(c=>c.checked=st.sel.has(c.value));}
+document.querySelectorAll("#fdist input").forEach(c=>c.onchange=()=>{c.checked?st.sel.add(c.value):st.sel.delete(c.value);render();});
+$("desde").onchange=()=>{st.a0=+$("desde").value;render();};$("hasta").onchange=()=>{st.a1=+$("hasta").value;render();};
+$("metrica").onchange=()=>{st.m=$("metrica").value;render();};
+$("reset").onclick=()=>{st.sel=new Set(DS);st.a0=D.anio_ini;st.a1=D.anio_fin;st.m="v";sincronizar();render();};
+function pestaña(id){["analisis","calidad"].forEach(t=>{$("tab-"+t).setAttribute("aria-selected",t===id);$("panel-"+t).hidden=t!==id;});
+  if(id==="analisis")render();}
+$("tab-analisis").onclick=()=>pestaña("analisis");$("tab-calidad").onclick=()=>pestaña("calidad");
+$("irCalidad").onclick=e=>{e.preventDefault();pestaña("calidad");$("tab-calidad").scrollIntoView({behavior:"smooth"});};
+// diagnóstico IA y textos de gold
+$("diagEt").textContent=D.diagnostico.etiqueta||"no generado";
+$("diag").innerHTML=(D.diagnostico.texto||"Sin diagnóstico.").split("\n").map(l=>`<div>${esc(l)}</div>`).join("");
+$("resp").textContent=D.respuesta;
+$("hall").innerHTML=D.hallazgos.map(h=>`<li>${esc(h)}</li>`).join("");
+$("adv").innerHTML=D.advertencias.map(a=>`<li>${esc(a)}</li>`).join("");
+$("pie").textContent=`Fuente: ${D.fuente}. Fecha de consulta: ${D.consulta}. Elaboración propia (unidad de análisis de ASEP, simulación académica). Periodo base ${D.anio_ini}–${D.anio_fin} (años completos).`;
+// calidad de datos
+const Q=D.calidad,I=Q.incidencias;
+$("chips").innerHTML=[[nf(D.imputados.valores),"valores imputados"],[nf(D.imputados.filas),"filas distribuidora-mes con imputación"],[nf(I.length),"incidencias registradas"],[nf(Q.boletines),"boletines PDF revisados"],[nf(Q.cambios_nivel.length),"cambios de nivel conservados"]]
+  .map(([n,t])=>`<div class="chip"><b>${n}</b>${t}</div>`).join("");
+$("estados").textContent="Estado de los boletines: "+Object.entries(Q.estados).map(([k,v])=>`${k} ${nf(v)}`).join(" · ")+". Cambios de nivel sin explicar (conservados y marcados): "+(Q.cambios_nivel.join(", ")||"ninguno")+".";
+const opciones=(id,vals,todas)=>{$(id).innerHTML=`<option value="">${todas}</option>`+[...new Set(vals)].sort().map(v=>`<option>${esc(v)}</option>`).join("");};
+opciones("qD",I.map(i=>i.d),"Todas");opciones("qV",I.map(i=>i.v),"Todas");opciones("qR",I.map(i=>i.r),"Todas");
+const valor=v=>typeof v==="number"?nf(v,Number.isInteger(v)?0:2):esc(v??"—");
+function tablaCalidad(){const fD=$("qD").value,fV=$("qV").value,fR=$("qR").value,fT=$("qT").value,fS=$("qS").value.trim().toLowerCase();
+  const f=I.filter(i=>(!fD||i.d===fD)&&(!fV||i.v===fV)&&(!fR||i.r===fR)&&(!fT||i.t===fT)&&(!fS||[i.p,i.d,i.v,i.r,i.det,i.res].join(" ").toLowerCase().includes(fS)));
+  $("qN").textContent=`Mostrando ${nf(f.length)} de ${nf(I.length)} incidencias.`;
+  $("tCal").innerHTML=`<thead><tr><th>Mes</th><th class="izq">Distribuidora</th><th class="izq">Variable</th><th class="izq">Regla</th><th class="izq">Detalle</th><th>Valor de la fuente</th><th>Valor final</th><th class="izq">Resolución</th></tr></thead><tbody>`+
+    f.map(i=>`<tr><td>${i.p}</td><td class="izq">${DS.includes(i.d)?`<i class="sw" style="background:${COL[i.d]}"></i> `:""}${esc(i.d)}</td><td class="izq">${esc(i.v)}</td><td class="izq">${esc(i.r)}</td><td class="izq">${esc(i.det)}</td><td>${i.of==null?"no reportado":valor(i.of)}</td><td>${valor(i.vf)}</td><td class="izq">${esc(i.res)}</td></tr>`).join("")+"</tbody>";}
+["qD","qV","qR","qT"].forEach(id=>$(id).onchange=tablaCalidad);$("qS").oninput=tablaCalidad;
+$("qReset").onclick=()=>{["qD","qV","qR","qT","qS"].forEach(id=>$(id).value="");tablaCalidad();};
+tablaCalidad();
+sincronizar();render();
+let tRes;addEventListener("resize",()=>{clearTimeout(tRes);tRes=setTimeout(()=>{if(!$("panel-analisis").hidden)render();},150);});
+if(location.hash==="#calidad")pestaña("calidad");
+</script>
+</body>
+</html>

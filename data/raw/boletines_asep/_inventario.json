@@ -1,0 +1,1305 @@
+{
+  "fuente": "ASEP - Estadistica del Mercado Electrico Panameno (boletin mensual)",
+  "generado": "2026-11-25",
+  "boletines": [
+    {
+      "archivo": "2013_ABRIL.pdf",
+      "periodo_boletin": "2013-04",
+      "bytes": 1238525,
+      "sha256": "4034e7b874fc8c8b072c7b5b729076c6aee73211b9151fd51aaab1a976162a27",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2013/ABRIL_2013.pdf"
+    },
+    {
+      "archivo": "2013_AGOSTO.pdf",
+      "periodo_boletin": "2013-08",
+      "bytes": 599513,
+      "sha256": "540c88877a70a962b0d22965b8e484d4e0c4343aff89df7dc9e27016201763f1",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2013/AGOSTO_2013.pdf"
+    },
+    {
+      "archivo": "2013_DICIEMBRE.pdf",
+      "periodo_boletin": "2013-12",
+      "bytes": 413383,
+      "sha256": "d495ac3137064d927f24262a8a589df1fa5fa81305a073276b185585d5f21a7c",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2013/DICIEMBRE_2013.pdf"
+    },
+    {
+      "archivo": "2013_JULIO.pdf",
+      "periodo_boletin": "2013-07",
+      "bytes": 618162,
+      "sha256": "a45592b4971d80ff586c549e33c2881472e23a193d3aa2645fc987f728bf5881",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2013/JULIO_2013.pdf"
+    },
+    {
+      "archivo": "2013_JUNIO.pdf",
+      "periodo_boletin": "2013-06",
+      "bytes": 690935,
+      "sha256": "4889e02255a43f9b86ca425507475dfa1598c6f436bf37e01bc79f6227d87a7a",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2013/JUNIO_2013.pdf"
+    },
+    {
+      "archivo": "2013_MAYO.pdf",
+      "periodo_boletin": "2013-05",
+      "bytes": 1116019,
+      "sha256": "aaf636683dd8eea96fae4eb3526d815c1f8796c060090aa26f101c289cd851e4",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2013/MAYO_2013.pdf"
+    },
+    {
+      "archivo": "2013_NOVIEMBRE.pdf",
+      "periodo_boletin": "2013-11",
+      "bytes": 529265,
+      "sha256": "4cd89612e74c1efd3dd12904fc986924dcf991c7ab06916e9b99b5a825c41c95",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2013/NOVIEMBRE_2013.pdf"
+    },
+    {
+      "archivo": "2013_OCTUBRE.pdf",
+      "periodo_boletin": "2013-10",
+      "bytes": 571984,
+      "sha256": "79bfca834b720986fb564fff12b95cf5cb00b118eb71be070b25b348678699e8",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2013/OCTUBRE_2013.pdf"
+    },
+    {
+      "archivo": "2013_SEPTIEMBRE.pdf",
+      "periodo_boletin": "2013-09",
+      "bytes": 663667,
+      "sha256": "a9e02fef7c44ad77f73d3ae8a523d5de72a17115f050402dab487053c9094929",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2013/SEPTIEMBRE_2013.pdf"
+    },
+    {
+      "archivo": "2014_ABRIL.pdf",
+      "periodo_boletin": "2014-04",
+      "bytes": 580458,
+      "sha256": "450130356e897b8d1ef8da414ec985cbb52bedd16ac4394998aa6bce0e3fe3e2",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2014/ABRIL_2014.pdf"
+    },
+    {
+      "archivo": "2014_AGOSTO.pdf",
+      "periodo_boletin": "2014-08",
+      "bytes": 647462,
+      "sha256": "d8957bd690a45f070189792f3de020ce4cb91934ebc3e73cfa32e54eba091aff",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2014/AGOSTO_2014.pdf"
+    },
+    {
+      "archivo": "2014_DICIEMBRE.pdf",
+      "periodo_boletin": "2014-12",
+      "bytes": 712902,
+      "sha256": "11bf373e6d749623611f50792b7f57642995b8c04aee8f81c92aa21db33b7026",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2014/DICIEMBRE_2014.pdf"
+    },
+    {
+      "archivo": "2014_ENERO.pdf",
+      "periodo_boletin": "2014-01",
+      "bytes": 409194,
+      "sha256": "f5284c0537f8c25994763f211ad165e0ce3dffee02250c2c6a7630e4176455fd",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2014/ENERO_2014.pdf"
+    },
+    {
+      "archivo": "2014_FEBRERO.pdf",
+      "periodo_boletin": "2014-02",
+      "bytes": 449402,
+      "sha256": "9fe1954919e8a58a9bf9bc335803c02df486ee7a4b3d41857173b0d281447a54",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2014/FEBRERO_2014.pdf"
+    },
+    {
+      "archivo": "2014_JULIO.pdf",
+      "periodo_boletin": "2014-07",
+      "bytes": 625772,
+      "sha256": "a878a8394892b3bf3ac79193527a3b021ac8167dccaf0bfd18f095f3b05b5665",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2014/JULIO_2014.pdf"
+    },
+    {
+      "archivo": "2014_JUNIO.pdf",
+      "periodo_boletin": "2014-06",
+      "bytes": 564775,
+      "sha256": "012bf7e2ee1acdde47e56fe7f8604b115f2c9414e206e637c01576b091691da9",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2014/JUNIO_2014.pdf"
+    },
+    {
+      "archivo": "2014_MARZO.pdf",
+      "periodo_boletin": "2014-03",
+      "bytes": 557447,
+      "sha256": "6bcb030191a5f40a4f7c5a1c53b6f846ca138cb767663bbd0aa065ea38ae6d72",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2014/MARZO_2014.pdf"
+    },
+    {
+      "archivo": "2014_MAYO.pdf",
+      "periodo_boletin": "2014-05",
+      "bytes": 580735,
+      "sha256": "4696ba0b20ddf87a170b7969979a4d4cad6c9a4d403ecec0aada4877678b9a42",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2014/MAYO_2014.pdf"
+    },
+    {
+      "archivo": "2014_NOVIEMBRE.pdf",
+      "periodo_boletin": "2014-11",
+      "bytes": 676312,
+      "sha256": "dfad8a38706adb40650034680b0fe329c8a860e1fd4a880b0a681fdbf4268f45",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2014/NOVIEMBRE_2014.pdf"
+    },
+    {
+      "archivo": "2014_OCTUBRE.pdf",
+      "periodo_boletin": "2014-10",
+      "bytes": 643572,
+      "sha256": "42c914aa17492da0d640b83da07f01c80345275b5f048ce2016358a67f341349",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2014/OCTUBRE_2014.pdf"
+    },
+    {
+      "archivo": "2014_SEPTIEMBRE.pdf",
+      "periodo_boletin": "2014-09",
+      "bytes": 645150,
+      "sha256": "cdc407601e60197a659753fa46d570dcb3c4d21e6676d48dc0243e876e175e71",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2014/SEPTIEMBRE_2014.pdf"
+    },
+    {
+      "archivo": "2015_ABRIL.pdf",
+      "periodo_boletin": "2015-04",
+      "bytes": 384560,
+      "sha256": "1dfa50bbb8de1cd9f4508244ab38620de1100941b2ed517c1e1faad970c603ba",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2015/ABRIL_2015.pdf"
+    },
+    {
+      "archivo": "2015_AGOSTO.pdf",
+      "periodo_boletin": "2015-08",
+      "bytes": 894623,
+      "sha256": "a480223530abca76ab4872278853abf39ff897f8eedc4424b8c49db01b648b16",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2015/AGOSTO_2015.pdf"
+    },
+    {
+      "archivo": "2015_DICIEMBRE.pdf",
+      "periodo_boletin": "2015-12",
+      "bytes": 541135,
+      "sha256": "833f385520543310bbf3c880205e80d614f5dcdab3c2411951f9d9b5a953009f",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2015/DICIEMBRE_2015.pdf"
+    },
+    {
+      "archivo": "2015_ENERO.pdf",
+      "periodo_boletin": "2015-01",
+      "bytes": 655834,
+      "sha256": "711b471dce3a9d58a6273bb9f13a141760d34ae2dab5c95d7032df52a2b988f6",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2015/ENERO_2015.pdf"
+    },
+    {
+      "archivo": "2015_FEBRERO.pdf",
+      "periodo_boletin": "2015-02",
+      "bytes": 634797,
+      "sha256": "3a3b3e1cd41157179f6c52c973ca9390070360c5e4a20fe4662d2b571728e60e",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2015/FEBRERO_2015.pdf"
+    },
+    {
+      "archivo": "2015_JULIO.pdf",
+      "periodo_boletin": "2015-07",
+      "bytes": 1096567,
+      "sha256": "377c9c41abec702810fed62019a8742d45f9437be132f24bc457a6ba95961534",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2015/JULIO_2015.pdf"
+    },
+    {
+      "archivo": "2015_JUNIO.pdf",
+      "periodo_boletin": "2015-06",
+      "bytes": 961085,
+      "sha256": "7cb87394ffbcd25874cd851ff402b7c3ed5ff569d6368fe828d6b5f1491370d9",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2015/JUNIO_2015.pdf"
+    },
+    {
+      "archivo": "2015_MARZO.pdf",
+      "periodo_boletin": "2015-03",
+      "bytes": 491458,
+      "sha256": "2c723ec45c63e87385eb7e9934a975885e96a8361a5dbf17ef1828f3b7ba7291",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2015/MARZO_2015.pdf"
+    },
+    {
+      "archivo": "2015_MAYO.pdf",
+      "periodo_boletin": "2015-05",
+      "bytes": 643283,
+      "sha256": "c9da71fd676e6f22af40b244227fcf5b85d47c95bbf1992246d5b44ce0b81884",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2015/MAYO_2015.pdf"
+    },
+    {
+      "archivo": "2015_NOVIEMBRE.pdf",
+      "periodo_boletin": "2015-11",
+      "bytes": 587473,
+      "sha256": "59b5a1611d26d7155d86b9a1ea59b636a18739172ba2b5efea1c306ea1a3926c",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2015/NOVIEMBRE_2015.pdf"
+    },
+    {
+      "archivo": "2015_OCTUBRE.pdf",
+      "periodo_boletin": "2015-10",
+      "bytes": 576322,
+      "sha256": "42478c0ed6e615f1d95b91b0a99312f302436f6b6a075dedd58814e0d1a8db01",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2015/OCTUBRE_2015.pdf"
+    },
+    {
+      "archivo": "2015_SEPTIEMBRE.pdf",
+      "periodo_boletin": "2015-09",
+      "bytes": 820487,
+      "sha256": "1b605d1a912c2a253544dee1a4ad3a7b3a57a2650c936acab27ec5e8a7770414",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2015/SEPTIEMBRE_2015.pdf"
+    },
+    {
+      "archivo": "2016_ABRIL.pdf",
+      "periodo_boletin": "2016-04",
+      "bytes": 525061,
+      "sha256": "e3e923925a7da834ddb64ce230411c1bb7e5a342b18e5254ae9f523bb1ea1c7a",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2016/ABRIL_2016.pdf"
+    },
+    {
+      "archivo": "2016_AGOSTO.pdf",
+      "periodo_boletin": "2016-08",
+      "bytes": 970799,
+      "sha256": "c94bedcea4164e6622461355f821fdad5bccf91d833c917dce148282b89397bc",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2016/AGOSTO_2016.pdf"
+    },
+    {
+      "archivo": "2016_DICIEMBRE.pdf",
+      "periodo_boletin": "2016-12",
+      "bytes": 1055183,
+      "sha256": "86a03eaef883fd76b91c9bbccdcf6ed7979409686802f9282a906f29cbe8163a",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2016/DICIEMBRE_2016.pdf"
+    },
+    {
+      "archivo": "2016_ENERO.pdf",
+      "periodo_boletin": "2016-01",
+      "bytes": 491687,
+      "sha256": "396b54fafb31ab49200ecf2486bcdeafe5857b7560e365af0e7eeb509a34f712",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2016/ENERO_2016.pdf"
+    },
+    {
+      "archivo": "2016_FEBRERO.pdf",
+      "periodo_boletin": "2016-02",
+      "bytes": 539159,
+      "sha256": "a90b45906dd650fdcbececccb5228cd58d8d9c3d7b2c776a1d266e240b1845d9",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2016/FEBRERO_2016.pdf"
+    },
+    {
+      "archivo": "2016_JULIO.pdf",
+      "periodo_boletin": "2016-07",
+      "bytes": 993987,
+      "sha256": "cc00dbecbc401afe5ba19e56d0cd953e3c7c2c606c1803426b50f5e09823b32e",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2016/JULIO_2016.pdf"
+    },
+    {
+      "archivo": "2016_JUNIO.pdf",
+      "periodo_boletin": "2016-06",
+      "bytes": 957414,
+      "sha256": "8a59a58d5dde88b4919dadd76c4e4d9aa79adff6fe187869212cdd02ec76417e",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2016/JUNIO_2016.pdf"
+    },
+    {
+      "archivo": "2016_MARZO.pdf",
+      "periodo_boletin": "2016-03",
+      "bytes": 509407,
+      "sha256": "cad898628018b5ef194a2169c08543360d0ec25ba4947fc62b68e72739ffbf0c",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2016/MARZO_2016.pdf"
+    },
+    {
+      "archivo": "2016_MAYO.pdf",
+      "periodo_boletin": "2016-05",
+      "bytes": 918997,
+      "sha256": "8f969949c0b462654070694c3f9bfaffc80c57a7dc0476cabe19e129bc2715b7",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2016/MAYO_2016.pdf"
+    },
+    {
+      "archivo": "2016_NOVIEMBRE.pdf",
+      "periodo_boletin": "2016-11",
+      "bytes": 1103627,
+      "sha256": "47ab2a3c77469ec81ab59c83d22fca7072b4e139cc6cb10acbde0976c75473c5",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2016/NOVIEMBRE_2016.pdf"
+    },
+    {
+      "archivo": "2016_OCTUBRE.pdf",
+      "periodo_boletin": "2016-10",
+      "bytes": 957583,
+      "sha256": "956035528edae72b80006072d1c80b073cb05ba7b607acbf30c46b17b2f2cb6e",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2016/OCTUBRE_2016.pdf"
+    },
+    {
+      "archivo": "2016_SEPTIEMBRE.pdf",
+      "periodo_boletin": "2016-09",
+      "bytes": 888668,
+      "sha256": "9f6ef2c349c2535c714fe7520544af934699d85750e8553eeb3d5224dd5d5d32",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2016/SEPTIEMBRE_2016.pdf"
+    },
+    {
+      "archivo": "2017_ABRIL.pdf",
+      "periodo_boletin": "2017-04",
+      "bytes": 1226008,
+      "sha256": "3c780b6c2d7ee4bb36c2b56c9b9ad53c715225f82c42813c1db11dadc34ab4da",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2017/abril_2017.pdf"
+    },
+    {
+      "archivo": "2017_AGOSTO.pdf",
+      "periodo_boletin": "2017-08",
+      "bytes": 818765,
+      "sha256": "f537a76e52fc70aea8903c5aed0ce212c03b0833d25151651175287a35861873",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2017/agosto_2017.pdf"
+    },
+    {
+      "archivo": "2017_DICIEMBRE.pdf",
+      "periodo_boletin": "2017-12",
+      "bytes": 789677,
+      "sha256": "4e2ae16c95b5f54e12778d82f297bdff2fd3d61b808bf69da4c6da172bafea75",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2017/diciembre_2017.pdf"
+    },
+    {
+      "archivo": "2017_ENERO.pdf",
+      "periodo_boletin": "2017-01",
+      "bytes": 1340804,
+      "sha256": "be85abd9711e54c717cb2cb0636ad52c4111e54834ec4b56077ca141b0fedf0b",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2017/enero_2017.pdf"
+    },
+    {
+      "archivo": "2017_FEBRERO.pdf",
+      "periodo_boletin": "2017-02",
+      "bytes": 1250273,
+      "sha256": "882809637bdd530b534c22296a16eb75750f60c1fe99578122ce5067aab3e467",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2017/febrero_2017.pdf"
+    },
+    {
+      "archivo": "2017_JULIO.pdf",
+      "periodo_boletin": "2017-07",
+      "bytes": 1195639,
+      "sha256": "793df0c318ea395872289e5b6be2e3c56ea65f99dcc13c073d7e886adf56458b",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2017/julio_2017.pdf"
+    },
+    {
+      "archivo": "2017_JUNIO.pdf",
+      "periodo_boletin": "2017-06",
+      "bytes": 1239496,
+      "sha256": "f8bf117e9c18c64e8b2f683354e630107f4f85df74afe901b90fe947ee54d2d4",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2017/junio_2017.pdf"
+    },
+    {
+      "archivo": "2017_MARZO.pdf",
+      "periodo_boletin": "2017-03",
+      "bytes": 1177978,
+      "sha256": "593857dfdc3fbe36d6450a9723dd27f2bd36d62b505bd0d09fd91eb7f35149ce",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2017/marzo_2017.pdf"
+    },
+    {
+      "archivo": "2017_MAYO.pdf",
+      "periodo_boletin": "2017-05",
+      "bytes": 1239394,
+      "sha256": "22fe7a1bf3fb5573cea6c1d8e8740338adb6d2d6888e96430b902c14a6ed7e6d",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2017/mayo_2017.pdf"
+    },
+    {
+      "archivo": "2017_NOVIEMBRE.pdf",
+      "periodo_boletin": "2017-11",
+      "bytes": 749455,
+      "sha256": "f8e9a4edfab114345d8a392c753914dd498eb0f6e5eff29799e64359f9bd4e07",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2017/noviembre_2017.pdf"
+    },
+    {
+      "archivo": "2017_OCTUBRE.pdf",
+      "periodo_boletin": "2017-10",
+      "bytes": 814102,
+      "sha256": "fd01738e1d52bb1bb82774c24b1c4d860d5cdd60b8531011e5c6026c078a9b8c",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2017/octubre_2017.pdf"
+    },
+    {
+      "archivo": "2017_SEPTIEMBRE.pdf",
+      "periodo_boletin": "2017-09",
+      "bytes": 1175693,
+      "sha256": "2ce69a3c8226885903d980c60ae859290fa3e31fbe9fd5966ba43e64c2306c8a",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2017/septiembre_2017.pdf"
+    },
+    {
+      "archivo": "2018_ABRIL.pdf",
+      "periodo_boletin": "2018-04",
+      "bytes": 673275,
+      "sha256": "cdb7824e258b5e918bad10a7a44ea0fd1dc7ea309f3c0da8ff18f46ae97d9e66",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2018/ABRIL_2018.pdf"
+    },
+    {
+      "archivo": "2018_AGOSTO.pdf",
+      "periodo_boletin": "2018-08",
+      "bytes": 593268,
+      "sha256": "d88764557f71e0e50aa7a6e4b7c39d8fd7376baea199882440ee7920809e971a",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2018/AGOSTO_2018.pdf"
+    },
+    {
+      "archivo": "2018_DICIEMBRE.pdf",
+      "periodo_boletin": "2018-12",
+      "bytes": 656933,
+      "sha256": "b09d27eef1f3558ddab99b6fd622961c8d9b254e63c4f8cd0475f2fdb0647a3e",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2018/DICIEMBRE_2018.pdf"
+    },
+    {
+      "archivo": "2018_ENERO.pdf",
+      "periodo_boletin": "2018-01",
+      "bytes": 620717,
+      "sha256": "d97dbf868c3bd4e96c01e6a7ff491454b7e962632a3efd7b6d5f46d9bcb802a3",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2018/ENERO_2018.pdf"
+    },
+    {
+      "archivo": "2018_FEBRERO.pdf",
+      "periodo_boletin": "2018-02",
+      "bytes": 703410,
+      "sha256": "a99711799499179a6a83ec9f0f33c607f72af812f0c235eb7bc91f473a798b9f",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2018/FEBRERO_2018.pdf"
+    },
+    {
+      "archivo": "2018_JULIO.pdf",
+      "periodo_boletin": "2018-07",
+      "bytes": 593516,
+      "sha256": "1af834ee1b6ea762e24dda835d6d8be84f585afd9fde2872cf47faee40bd89e0",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2018/JULIO_2018.pdf"
+    },
+    {
+      "archivo": "2018_JUNIO.pdf",
+      "periodo_boletin": "2018-06",
+      "bytes": 599843,
+      "sha256": "8a677f581b10ccd73eb37257387b9082af1c6947cac2a1309e0cdfe628752af3",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2018/JUNIO_2018.pdf"
+    },
+    {
+      "archivo": "2018_MARZO.pdf",
+      "periodo_boletin": "2018-03",
+      "bytes": 613768,
+      "sha256": "223a9d7e6b5f96011b6d0a4e79f26f63c30a64e75a81f36ad7f0fa99bd9a8c42",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2018/MARZO_2018.pdf"
+    },
+    {
+      "archivo": "2018_MAYO.pdf",
+      "periodo_boletin": "2018-05",
+      "bytes": 690729,
+      "sha256": "281854ad3b2c4eea665f7e1bc08572b9e0a2f9df69ba88c329ee94948cc2893e",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2018/MAYO_2018.pdf"
+    },
+    {
+      "archivo": "2018_NOVIEMBRE.pdf",
+      "periodo_boletin": "2018-11",
+      "bytes": 701455,
+      "sha256": "4e5f35cb2db6feed238b592453d162ae7d0c51a0f3bf436edf142b4104159a1e",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2018/NOVIEMBRE_2018.pdf"
+    },
+    {
+      "archivo": "2018_OCTUBRE.pdf",
+      "periodo_boletin": "2018-10",
+      "bytes": 706179,
+      "sha256": "af3976d48351d55f611a6c3c5155679a9eff18e57de4a1d8b3644e3fac735c9b",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2018/OCTUBRE_2018.pdf"
+    },
+    {
+      "archivo": "2018_SEPTIEMBRE.pdf",
+      "periodo_boletin": "2018-09",
+      "bytes": 685347,
+      "sha256": "a32aeceb0f0f0f743a4bf40914baa385e0dba424aa3d543089a5217409f9b0c1",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2018/SEPTIEMBRE_2018.pdf"
+    },
+    {
+      "archivo": "2019_ABRIL.pdf",
+      "periodo_boletin": "2019-04",
+      "bytes": 726764,
+      "sha256": "b8da03a0b54e5db3cceb182f1529056a0f514a46eed435a2c86c976378d19dfb",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2019/ABRIL_2019.pdf"
+    },
+    {
+      "archivo": "2019_AGOSTO.pdf",
+      "periodo_boletin": "2019-08",
+      "bytes": 707334,
+      "sha256": "5672e738359f3bb23494376ce92a575b52f01da69222d90da73b3342c68a69da",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2019/AGOSTO_2019.pdf"
+    },
+    {
+      "archivo": "2019_DICIEMBRE.pdf",
+      "periodo_boletin": "2019-12",
+      "bytes": 914149,
+      "sha256": "47a048a0efba32fbec5730726803aa2e44850cb5ddf3c493c838aead14bd178b",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2019/DICIEMBRE_2019.pdf"
+    },
+    {
+      "archivo": "2019_ENERO.pdf",
+      "periodo_boletin": "2019-01",
+      "bytes": 692903,
+      "sha256": "5617b91d355466af2dc4f9d784002ffb315f4f6a1ebba829f3bc2a2bf5193f59",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2019/ENERO_2019.pdf"
+    },
+    {
+      "archivo": "2019_FEBRERO.pdf",
+      "periodo_boletin": "2019-02",
+      "bytes": 719701,
+      "sha256": "18eff88ccf785abf25999e6b3bccede93e02d7a31bcfaab77807b803029b7077",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2019/FEBRERO_2019.pdf"
+    },
+    {
+      "archivo": "2019_JULIO.pdf",
+      "periodo_boletin": "2019-07",
+      "bytes": 715591,
+      "sha256": "77af59c5da03093ce6d4ba58795857b51430f68eab269725f3a7551e634cd086",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2019/JULIO_2019.pdf"
+    },
+    {
+      "archivo": "2019_JUNIO.pdf",
+      "periodo_boletin": "2019-06",
+      "bytes": 705430,
+      "sha256": "54959e7d88ba8cd58f7863fc49ea3d3957e3684d0bdf4c37b26005082370242f",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2019/JUNIO_2019.pdf"
+    },
+    {
+      "archivo": "2019_MARZO.pdf",
+      "periodo_boletin": "2019-03",
+      "bytes": 785804,
+      "sha256": "5db3eaa6e3fbb7d550b186ad8fe3a70c5f20d6347880b5a41b821f9b68f02a1f",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2019/MARZO_2019.pdf"
+    },
+    {
+      "archivo": "2019_MAYO.pdf",
+      "periodo_boletin": "2019-05",
+      "bytes": 707548,
+      "sha256": "a5c7df24b2bfd689592c343604f9888df5c81f250613e29a17abce2428f9fe02",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2019/MAYO_2019.pdf"
+    },
+    {
+      "archivo": "2019_NOVIEMBRE.pdf",
+      "periodo_boletin": "2019-11",
+      "bytes": 705725,
+      "sha256": "8ed72c0aeeb85953346058bf25a99f1541c932b36aee30a3651595c7d337d8d1",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2019/NOVIEMBRE_2019.pdf"
+    },
+    {
+      "archivo": "2019_OCTUBRE.pdf",
+      "periodo_boletin": "2019-10",
+      "bytes": 707818,
+      "sha256": "7c2e8210d1c04f9f3f3e03c36dfdc55ad7971d8ce79234ceee0489709e725f0d",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2019/OCTUBRE_2019.pdf"
+    },
+    {
+      "archivo": "2019_SEPTIEMBRE.pdf",
+      "periodo_boletin": "2019-09",
+      "bytes": 696264,
+      "sha256": "67aa0b847edb28ebdd26a9a840c256a57fbdceacd1c600126cf3e304e03e3d75",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2019/SEPTIEMBRE_2019.pdf"
+    },
+    {
+      "archivo": "2020_ABRIL.pdf",
+      "periodo_boletin": "2020-04",
+      "bytes": 1413964,
+      "sha256": "3e43a8f81a33cb869a596c85bd31f0959cdb4f66474aeedcf121c6de5634a677",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2020/ABRIL_2020.pdf"
+    },
+    {
+      "archivo": "2020_AGOSTO.pdf",
+      "periodo_boletin": "2020-08",
+      "bytes": 791275,
+      "sha256": "312674119bc8e40f403200b9e55b66f61d1f88efe3871ca4c2a7a865a274d322",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2020/AGOSTO_2020.pdf"
+    },
+    {
+      "archivo": "2020_DICIEMBRE.pdf",
+      "periodo_boletin": "2020-12",
+      "bytes": 999001,
+      "sha256": "997f173a02906aa5c550834f24342bbde0a73ecf01feed7afafd754adb434021",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2020/DICIEMBRE_2020.pdf"
+    },
+    {
+      "archivo": "2020_ENERO.pdf",
+      "periodo_boletin": "2020-01",
+      "bytes": 710483,
+      "sha256": "73c229d64fdb99424d2500c52eeb45aebcf904a909914f665b86cc3823afc362",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2020/ENERO_2020.pdf"
+    },
+    {
+      "archivo": "2020_FEBRERO.pdf",
+      "periodo_boletin": "2020-02",
+      "bytes": 799542,
+      "sha256": "9b8b3d37cbfbb2938ded1a056cb4f0abd25eff947c390762fe7538d88a70ab4c",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2020/FEBRERO_2020.pdf"
+    },
+    {
+      "archivo": "2020_JULIO.pdf",
+      "periodo_boletin": "2020-07",
+      "bytes": 778927,
+      "sha256": "44266c2af5a7e25a17728bbeae639b552ba8c1a111cd420c797f45e5c3858897",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2020/JULIO_2020.pdf"
+    },
+    {
+      "archivo": "2020_JUNIO.pdf",
+      "periodo_boletin": "2020-06",
+      "bytes": 1313539,
+      "sha256": "740ac5aad9133f4bbd4c05e67cc48ae8bf1496b9f41d4ca4bf0ba1b2c448b86a",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2020/JUNIO_2020.pdf"
+    },
+    {
+      "archivo": "2020_MARZO.pdf",
+      "periodo_boletin": "2020-03",
+      "bytes": 1421718,
+      "sha256": "e988040fa9b9adbcdfb79a7d996ac741219dd35ee38694c36c96ecf9caefc0e8",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2020/MARZO_2020.pdf"
+    },
+    {
+      "archivo": "2020_MAYO.pdf",
+      "periodo_boletin": "2020-05",
+      "bytes": 1396233,
+      "sha256": "3f4440b4cfff80b94f6f3178610db1d8305ee7d3bf18eb0875c30a32ec6bca90",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2020/MAYO_2020.pdf"
+    },
+    {
+      "archivo": "2020_NOVIEMBRE.pdf",
+      "periodo_boletin": "2020-11",
+      "bytes": 781521,
+      "sha256": "96b32ff380e103cbedc314007b2004cd765fe6b30fb16570b9ab6b33fa76e460",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2020/NOVIEMBRE_2020.pdf"
+    },
+    {
+      "archivo": "2020_OCTUBRE.pdf",
+      "periodo_boletin": "2020-10",
+      "bytes": 785605,
+      "sha256": "9fc3f8201c374e3f0f50502ba4a4df608d2688d246084c641b0e03e681c80567",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2020/OCTUBRE_2020.pdf"
+    },
+    {
+      "archivo": "2020_SEPTIEMBRE.pdf",
+      "periodo_boletin": "2020-09",
+      "bytes": 745445,
+      "sha256": "83847cbd66a0dcc0592ad64b82eaefff437b5ae8e22c0bb482405de0e391522d",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2020/SEPTIEMBRE_2020.pdf"
+    },
+    {
+      "archivo": "2021_ABRIL.pdf",
+      "periodo_boletin": "2021-04",
+      "bytes": 883464,
+      "sha256": "4f8e0b5ab3ab4340f689daf43b53fc1759050fe464fa3667f86811ea323aa732",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2021/ABRIL_2021.pdf"
+    },
+    {
+      "archivo": "2021_AGOSTO.pdf",
+      "periodo_boletin": "2021-08",
+      "bytes": 868770,
+      "sha256": "488659fde2f505c23cf7c49cb3bb091448efc83acdaa3fd8573cd9d4d19d64c4",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2021/AGOSTO_2021.pdf"
+    },
+    {
+      "archivo": "2021_DICIEMBRE.pdf",
+      "periodo_boletin": "2021-12",
+      "bytes": 1110312,
+      "sha256": "766df7b1d026ee60e829be62f225aca95e8a552e2cc0069a28548cebc66cc0e4",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2021/DICIEMBRE_2021.pdf"
+    },
+    {
+      "archivo": "2021_ENERO.pdf",
+      "periodo_boletin": "2021-01",
+      "bytes": 919795,
+      "sha256": "e1de8a1966b167c35854d876ec70d0060c38b1b91cd762c02ce64e10215ca443",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2021/ENERO_2021.pdf"
+    },
+    {
+      "archivo": "2021_FEBRERO.pdf",
+      "periodo_boletin": "2021-02",
+      "bytes": 916609,
+      "sha256": "c542f247ad6322025e78004fbb646785ba3116ef90dd694c283906895b645f32",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2021/FEBRERO_2021.pdf"
+    },
+    {
+      "archivo": "2021_JULIO.pdf",
+      "periodo_boletin": "2021-07",
+      "bytes": 860979,
+      "sha256": "c4beb29358218bb42bd00b35d7d1b8ad417f541fc1e323b575cfc49c531bfe62",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2021/JULIO_2021.pdf"
+    },
+    {
+      "archivo": "2021_JUNIO.pdf",
+      "periodo_boletin": "2021-06",
+      "bytes": 862554,
+      "sha256": "dfdf46b565ebbf9f0479d5914af1dee1575d209d409e24774e291263d98b271f",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2021/JUNIO_2021.pdf"
+    },
+    {
+      "archivo": "2021_MARZO.pdf",
+      "periodo_boletin": "2021-03",
+      "bytes": 907351,
+      "sha256": "f8a5b73462e444f1f83c3b04ae92aa314acb10024ec50d4b2a174bf39f26e515",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2021/MARZO_2021.pdf"
+    },
+    {
+      "archivo": "2021_MAYO.pdf",
+      "periodo_boletin": "2021-05",
+      "bytes": 866109,
+      "sha256": "254733a2eb1a918be927e0401e239a42a69c008dec89b7962919064d2bc4ce9a",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2021/MAYO_2021.pdf"
+    },
+    {
+      "archivo": "2021_NOVIEMBRE.pdf",
+      "periodo_boletin": "2021-11",
+      "bytes": 1152606,
+      "sha256": "d5163c40cfaf5642c57a1891071d8607863e266ba7628a0996da108fc82b6ef5",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2021/NOVIEMBRE_2021.pdf"
+    },
+    {
+      "archivo": "2021_OCTUBRE.pdf",
+      "periodo_boletin": "2021-10",
+      "bytes": 1128689,
+      "sha256": "8f582cf7dd64e1e5f1e1a177bdccbd39d9856e0cbd9e23e65a769bfe3399c555",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2021/OCTUBRE_2021.pdf"
+    },
+    {
+      "archivo": "2021_SEPTIEMBRE.pdf",
+      "periodo_boletin": "2021-09",
+      "bytes": 1131063,
+      "sha256": "18e28daa56315cd34fe2c9556beda6b90b8799e9476a0875ebd579c860378ffc",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2021/SEPTIEMBRE_2021.pdf"
+    },
+    {
+      "archivo": "2022_ABRIL.pdf",
+      "periodo_boletin": "2022-04",
+      "bytes": 1103823,
+      "sha256": "3e20180f18537fd5e9796a17ff670cdce434caa66611973fd2120c7993954834",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2022/ABRIL_2022.pdf"
+    },
+    {
+      "archivo": "2022_AGOSTO.pdf",
+      "periodo_boletin": "2022-08",
+      "bytes": 934027,
+      "sha256": "4b81e195b04ed742d66489077b2f94fa3b877ccca94d2966ea1202954d6c2472",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2022/AGOSTO_2022.pdf"
+    },
+    {
+      "archivo": "2022_DICIEMBRE.pdf",
+      "periodo_boletin": "2022-12",
+      "bytes": 752568,
+      "sha256": "0c33f6acb130beeeae0d6e77c0d1b0a22115beda71ea468b20cf3c5651afc50c",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2022/DICIEMBRE_2022.pdf"
+    },
+    {
+      "archivo": "2022_ENERO.pdf",
+      "periodo_boletin": "2022-01",
+      "bytes": 1084636,
+      "sha256": "40e02e64b1e25559ca67a30aaaaa2892090f001d469f5d2530dbc080bcd75f87",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2022/ENERO_2022.pdf"
+    },
+    {
+      "archivo": "2022_FEBRERO.pdf",
+      "periodo_boletin": "2022-02",
+      "bytes": 1075595,
+      "sha256": "afcdbf07e5f9ab1b00014f7263a2270de54de458ce825f7740ce8b1cefd249b6",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2022/FEBRERO_2022.pdf"
+    },
+    {
+      "archivo": "2022_JULIO.pdf",
+      "periodo_boletin": "2022-07",
+      "bytes": 958640,
+      "sha256": "699132d5239a28064c27216a7bacea925b316a0b7cfbc56e0182935bdca55314",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2022/JULIO_2022.pdf"
+    },
+    {
+      "archivo": "2022_JUNIO.pdf",
+      "periodo_boletin": "2022-06",
+      "bytes": 1024129,
+      "sha256": "f15c3ce24e0a899ba78f921261d924442b53216eaf0daef469ef2e275484a5e6",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2022/JUNIO_2022.pdf"
+    },
+    {
+      "archivo": "2022_MARZO.pdf",
+      "periodo_boletin": "2022-03",
+      "bytes": 1044471,
+      "sha256": "92f699f823d8492e5c3cb98dd8d03cf27adbf667abe47b5e5a26a19d6f91345d",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2022/MARZO_2022.pdf"
+    },
+    {
+      "archivo": "2022_MAYO.pdf",
+      "periodo_boletin": "2022-05",
+      "bytes": 1116076,
+      "sha256": "5c58c836064c1655549248f6a80acf12fe2b0a99f95c5cd9ecaf5808922189b9",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2022/MAYO_2022.pdf"
+    },
+    {
+      "archivo": "2022_NOVIEMBRE.pdf",
+      "periodo_boletin": "2022-11",
+      "bytes": 774328,
+      "sha256": "2e5fe3babb72f959c9da736411f519661f4d0bb65bac2c80c79c8e0795b4421b",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2022/NOVIEMBRE_2022.pdf"
+    },
+    {
+      "archivo": "2022_OCTUBRE.pdf",
+      "periodo_boletin": "2022-10",
+      "bytes": 915683,
+      "sha256": "a391af88344df8ec0b0bff9aa6f993f00da26d7e0b3959abeaffe5698ed7ebe9",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2022/OCTUBRE_2022.pdf"
+    },
+    {
+      "archivo": "2022_SEPTIEMBRE.pdf",
+      "periodo_boletin": "2022-09",
+      "bytes": 937323,
+      "sha256": "d2f74a61f963a70f93315ae877d7ce76244e2757ed277ad96407973de0a13121",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2022/SEPTIEMBRE_2022.pdf"
+    },
+    {
+      "archivo": "2023_ABRIL.pdf",
+      "periodo_boletin": "2023-04",
+      "bytes": 727020,
+      "sha256": "cfb64ab7630b12f086688f3fd0628dcb1534a6f26a679900630352a6bacc1b69",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2023/ABRIL_2023.pdf"
+    },
+    {
+      "archivo": "2023_AGOSTO.pdf",
+      "periodo_boletin": "2023-08",
+      "bytes": 750418,
+      "sha256": "9a4a36a047c642272acffee3e4b96864971d2b1ed038fe4a539d96f06134decf",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2023/AGOSTO_2023.pdf"
+    },
+    {
+      "archivo": "2023_DICIEMBRE.pdf",
+      "periodo_boletin": "2023-12",
+      "bytes": 749578,
+      "sha256": "f2fba8957b7c7fd3eece4434c0bc477f57cd84e6b4382e0236f1c2e894d0046f",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2023/DICIEMBRE_2023.pdf"
+    },
+    {
+      "archivo": "2023_ENERO.pdf",
+      "periodo_boletin": "2023-01",
+      "bytes": 731389,
+      "sha256": "501b44a60b2ea1b50ce8bf49a3b10a0afd38be422c8fc168f35abdf1867f60df",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2023/ENERO_2023.pdf"
+    },
+    {
+      "archivo": "2023_FEBRERO.pdf",
+      "periodo_boletin": "2023-02",
+      "bytes": 732447,
+      "sha256": "4642c02458922e9dfdad4066af9e7f7d2841f4e6885bad8d89be49319082785f",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2023/FEBRERO_2023.pdf"
+    },
+    {
+      "archivo": "2023_JULIO.pdf",
+      "periodo_boletin": "2023-07",
+      "bytes": 751271,
+      "sha256": "0f7adb9785712339780eb40817a641e3df6ab3d8491e36a951f6e4bb833d594a",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2023/JULIO_2023.pdf"
+    },
+    {
+      "archivo": "2023_JUNIO.pdf",
+      "periodo_boletin": "2023-06",
+      "bytes": 748505,
+      "sha256": "c580838229d4b7192fb139eaf00625eed59e22b11c580e88c70bd053a2097870",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2023/JUNIO_2023.pdf"
+    },
+    {
+      "archivo": "2023_MARZO.pdf",
+      "periodo_boletin": "2023-03",
+      "bytes": 733638,
+      "sha256": "ee3e1b6da3b368c9ca2274569f87cfb8188c38f766699481d4e4cb5c52c78507",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2023/MARZO_2023.pdf"
+    },
+    {
+      "archivo": "2023_MAYO.pdf",
+      "periodo_boletin": "2023-05",
+      "bytes": 726622,
+      "sha256": "b54aecafc0bc4bbb0ac4e12658586d082282fd58980c74eac2fed2a81c79a306",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2023/MAYO_2023.pdf"
+    },
+    {
+      "archivo": "2023_NOVIEMBRE.pdf",
+      "periodo_boletin": "2023-11",
+      "bytes": 740509,
+      "sha256": "02f70e624a296afec08b4fa11077b1c81f5df24f186f84ef724e523c398236f1",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2023/NOVIEMBRE_2023.pdf"
+    },
+    {
+      "archivo": "2023_OCTUBRE.pdf",
+      "periodo_boletin": "2023-10",
+      "bytes": 748099,
+      "sha256": "048bdf4c3c685a8bb4a6af5be927a9ed2449d4df773f203967d4e29a01f82c7c",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2023/OCTUBRE_2023.pdf"
+    },
+    {
+      "archivo": "2023_SEPTIEMBRE.pdf",
+      "periodo_boletin": "2023-09",
+      "bytes": 759650,
+      "sha256": "17ce945f4892d76e78052969550e569a777315bab0bd79cf598c22af3b15803a",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2023/SEPTIEMBRE_2023.pdf"
+    },
+    {
+      "archivo": "2024_ABRIL.pdf",
+      "periodo_boletin": "2024-04",
+      "bytes": 731581,
+      "sha256": "3f6fa2843b23c70acdbcea74fef4773bbed26eaa22bdad688114ae7dbbf50803",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2024/ABRIL_2024.pdf"
+    },
+    {
+      "archivo": "2024_AGOSTO.pdf",
+      "periodo_boletin": "2024-08",
+      "bytes": 733481,
+      "sha256": "cfb585dbdcbd95b07d747bed61d59dd759ed7fa926b8dac842bac0ee7e8eb477",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2024/AGOSTO_2024.pdf"
+    },
+    {
+      "archivo": "2024_DICIEMBRE.pdf",
+      "periodo_boletin": "2024-12",
+      "bytes": 786148,
+      "sha256": "963b143d5b47a19874f19bb11c15fc9ad5fa56d681f4623f4a0e7060e967f2ec",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2024/DICIEMBRE_2024.pdf"
+    },
+    {
+      "archivo": "2024_ENERO.pdf",
+      "periodo_boletin": "2024-01",
+      "bytes": 743143,
+      "sha256": "eff8535439f7b6715997bd40cce1a7b815b74301ac1db60be414ba93e72abfd8",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2024/ENERO_2024.pdf"
+    },
+    {
+      "archivo": "2024_FEBRERO.pdf",
+      "periodo_boletin": "2024-02",
+      "bytes": 745158,
+      "sha256": "07fdf774f4bfc920116a22b9b7536da0b3c6e22ec510c24dd84383fad44e0da5",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2024/FEBRERO_2024.pdf"
+    },
+    {
+      "archivo": "2024_JULIO.pdf",
+      "periodo_boletin": "2024-07",
+      "bytes": 742174,
+      "sha256": "604c37fd9e5d4d9642c1c74708d80dd31c0d170c5bc095951e3de57b936d3735",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2024/JULIO_2024.pdf"
+    },
+    {
+      "archivo": "2024_JUNIO.pdf",
+      "periodo_boletin": "2024-06",
+      "bytes": 746124,
+      "sha256": "43ed0e21c1f9ed0aadcf740883a8b723dce594b5c1c6bb27c04918d8b8d222e9",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2024/JUNIO_2024.pdf"
+    },
+    {
+      "archivo": "2024_MARZO.pdf",
+      "periodo_boletin": "2024-03",
+      "bytes": 746899,
+      "sha256": "b1437933fbb89f61e7c9086365d52f8f77ac3a15a35a2766b453a00a7f1ff08c",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2024/MARZO_2024.pdf"
+    },
+    {
+      "archivo": "2024_MAYO.pdf",
+      "periodo_boletin": "2024-05",
+      "bytes": 749093,
+      "sha256": "6743c9640478582281be8f124262cc1a127aa951b5798389c2a0a23a5585017c",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2024/MAYO_2024.pdf"
+    },
+    {
+      "archivo": "2024_NOVIEMBRE.pdf",
+      "periodo_boletin": "2024-11",
+      "bytes": 789404,
+      "sha256": "945e5abe683b6ac0e36575599edb6d3df7e0dc967a8cd23b5dc9a22d9cb84b2a",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2024/NOVIEMBRE_2024.pdf"
+    },
+    {
+      "archivo": "2024_OCTUBRE.pdf",
+      "periodo_boletin": "2024-10",
+      "bytes": 803419,
+      "sha256": "480a59db0ce8a3633e31a080334da7d70bc8d9a351d2af54102f44aafe0f6c29",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2024/OCTUBRE_2024.pdf"
+    },
+    {
+      "archivo": "2024_SEPTIEMBRE.pdf",
+      "periodo_boletin": "2024-09",
+      "bytes": 761108,
+      "sha256": "f595f07ac3fbc439f81fce65a7a2681fdad5bd2cef90287a64cbc611f50da587",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2024/SEPTIEMBRE_2024.pdf"
+    },
+    {
+      "archivo": "2025_ABRIL.pdf",
+      "periodo_boletin": "2025-04",
+      "bytes": 767178,
+      "sha256": "ad7aa9c740ff6c23cfdbd4b2b22b5a7eed086c7d00484e942e4f4874e5148070",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2025/ABRIL_2025.pdf"
+    },
+    {
+      "archivo": "2025_AGOSTO.pdf",
+      "periodo_boletin": "2025-08",
+      "bytes": 1255356,
+      "sha256": "8cee30867d09cf317c8e215674993828275db2d5c3d94b468fdf1f274bded898",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2025/AGOSTO_2025.pdf"
+    },
+    {
+      "archivo": "2025_DICIEMBRE.pdf",
+      "periodo_boletin": "2025-12",
+      "bytes": 1245165,
+      "sha256": "638135e5f0eea3117e9ecc02232f6181d44ab8afc688b22e03e6b3342c9990e7",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2025/DICIEMBRE_2025.pdf"
+    },
+    {
+      "archivo": "2025_ENERO.pdf",
+      "periodo_boletin": "2025-01",
+      "bytes": 784839,
+      "sha256": "abf55f3998d46d3237d46da39ed9686f7c9eee81dd1b5f8572a0be21b931c828",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2025/ENERO_2025.pdf"
+    },
+    {
+      "archivo": "2025_FEBRERO.pdf",
+      "periodo_boletin": "2025-02",
+      "bytes": 776273,
+      "sha256": "c83ba3d378a884c375e374a4a227037782b615f23b25f3bf5cc9e3a2fdc65bf0",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2025/FEBRERO_2025.pdf"
+    },
+    {
+      "archivo": "2025_JULIO.pdf",
+      "periodo_boletin": "2025-07",
+      "bytes": 1217343,
+      "sha256": "599eb22ebc12cd9086f731e6136a75b81fefd3d670fc8d5d6eba22130cf48a37",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2025/JULIO_2025.pdf"
+    },
+    {
+      "archivo": "2025_JUNIO.pdf",
+      "periodo_boletin": "2025-06",
+      "bytes": 1320685,
+      "sha256": "830df66f74117631f090219323deb4a0b6776e02ba96cd81dc1c4fae6dca61fd",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2025/JUNIO_2025.pdf"
+    },
+    {
+      "archivo": "2025_MARZO.pdf",
+      "periodo_boletin": "2025-03",
+      "bytes": 774650,
+      "sha256": "f6e64bdbc47b05e25abd40557f6d12f35956104a0034d06f2d7fdb6c3cc5ba0b",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2025/MARZO_2025.pdf"
+    },
+    {
+      "archivo": "2025_MAYO.pdf",
+      "periodo_boletin": "2025-05",
+      "bytes": 1277504,
+      "sha256": "4a279da860f2c34c9d177edea16543cbc4f54a3211971895be7fa602380f88d8",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2025/MAYO_2025.pdf"
+    },
+    {
+      "archivo": "2025_NOVIEMBRE.pdf",
+      "periodo_boletin": "2025-11",
+      "bytes": 1233673,
+      "sha256": "4a4938224a942946aa845fc1e865264c567bda09527319df41d12d5f941b6dd1",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2025/NOVIEMBRE_2025.pdf"
+    },
+    {
+      "archivo": "2025_OCTUBRE.pdf",
+      "periodo_boletin": "2025-10",
+      "bytes": 1231540,
+      "sha256": "064dbee0e1163ea5e983b2915064e8ccde0203e6eeedfb659b74b1f427646d33",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2025/OCTUBRE_2025.pdf"
+    },
+    {
+      "archivo": "2025_SEPTIEMBRE.pdf",
+      "periodo_boletin": "2025-09",
+      "bytes": 1247254,
+      "sha256": "1520a03b8babf6ec9d8d271ef5304f05b55ce27f8efc6470ba0188d84146381a",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2025/SEPTIEMBRE_2025.pdf"
+    },
+    {
+      "archivo": "2026_ABRIL.pdf",
+      "periodo_boletin": "2026-04",
+      "bytes": 1046224,
+      "sha256": "771cad4675cb3bc19e80585dccaa6b298cea8fbcc786e162b8e484c48a934bd4",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2026/ABRIL_2026.pdf"
+    },
+    {
+      "archivo": "2026_AGOSTO.pdf",
+      "periodo_boletin": "2026-08",
+      "bytes": 1032847,
+      "sha256": "d4f1f6070f071c81291af5d56624c2ac4f511a1685277d456fe578244eb2898a",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2026/AGOSTO_2026.pdf"
+    },
+    {
+      "archivo": "2026_ENERO.pdf",
+      "periodo_boletin": "2026-01",
+      "bytes": 1058538,
+      "sha256": "082daef37f269327547edc37dedf3c47124291dd5abc8ca2d65a0ee5dc9a4c54",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2026/ENERO_2026.pdf"
+    },
+    {
+      "archivo": "2026_FEBRERO.pdf",
+      "periodo_boletin": "2026-02",
+      "bytes": 1080838,
+      "sha256": "98989ed21de39d9056d74c2e18fc95660106f6e4fc4305ffcec65e1e7a68c4be",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2026/FEBRERO_2026.pdf"
+    },
+    {
+      "archivo": "2026_JULIO.pdf",
+      "periodo_boletin": "2026-07",
+      "bytes": 1082787,
+      "sha256": "4f5aa6aa859edc46712ed3f05399946115d1c55619f7b8a6f130604e9d63bed0",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2026/JULIO_2026.pdf"
+    },
+    {
+      "archivo": "2026_JUNIO.pdf",
+      "periodo_boletin": "2026-06",
+      "bytes": 1051627,
+      "sha256": "f49251c3898100a931913745e97fd73d1f131f966f2be93b2c5969fe9ae2be4e",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2026/JUNIO_2026.pdf"
+    },
+    {
+      "archivo": "2026_MARZO.pdf",
+      "periodo_boletin": "2026-03",
+      "bytes": 1034941,
+      "sha256": "6f963573945e1a7180f6eb15d9c85582687c6881244ce0743263ef54de1b13d0",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2026/MARZO_2026.pdf"
+    },
+    {
+      "archivo": "2026_MAYO.pdf",
+      "periodo_boletin": "2026-05",
+      "bytes": 1052041,
+      "sha256": "9190677bc8b1e7c81035ae4aa987d4f107825e07079810a079355eb351a865bc",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2026/MAYO_2026.pdf"
+    },
+    {
+      "archivo": "2026_SEPTIEMBRE.pdf",
+      "periodo_boletin": "2026-09",
+      "bytes": 1087607,
+      "sha256": "768dfccc9fbecb781adbd09555a2ff87c62d500e60ada04183e7afa94a4fd318",
+      "fecha_descarga": "2026-11-25",
+      "url": "https://asep.gob.pa/wp-content/uploads/electricidad/estadisticas_mensuales/2026/SEPTIEMBRE_2026.pdf"
+    }
+  ],
+  "descargados_en_esta_corrida": [],
+  "errores_descarga": [],
+  "faltantes": []
+}

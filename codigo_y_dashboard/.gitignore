@@ -1,0 +1,13 @@
+# entornos y secretos
+.env
+.venv/
+venv/
+*.pem
+credentials*
+# python
+__pycache__/
+*.pyc
+.pytest_cache/
+# salidas regenerables
+# (los datos viven en ../data; si el repo incluye esa carpeta, ignorar data/gold/mongo_fallback_*.json)
+.claude/

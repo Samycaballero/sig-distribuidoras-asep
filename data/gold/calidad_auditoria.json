@@ -1,0 +1,2643 @@
+{
+ "politica": "Limpieza y calidad (silver) de la serie mensual de clientes / ventas / facturacion por distribuidora.\n\n\n  * Ningun valor se borra sin rastro: cada fila guarda el valor de la fuente (*_fuente), el valor final usado en el\n    analisis, la(s) regla(s) que lo marcaron (*_flags) y el metodo de imputacion (*_imputacion).\n  * Valores ERRONEOS o NO REPORTADOS se marcan y se IMPUTAN solo para el analisis:\n      - clientes    : interpolacion lineal en el tiempo entre los valores validos vecinos;\n      - ventas      : interpolacion lineal de kWh/cliente/mes entre vecinos validos x clientes finales;\n      - facturacion : interpolacion lineal de US$/kWh entre vecinos validos x ventas finales.\n  * Saltos que PERSISTEN (cambio de nivel) no se corrigen: se marcan como posible cambio de definicion/cobertura.",
+ "reglas": "R1 faltante              : boletin sin tabla de texto o valor ilegible / fuera de rango fisico.\n  R2 arrastre_mes_anterior : valor identico al del mes anterior publicado (la distribuidora no reporto y ASEP repitio la cifra).\n  R3 atipico_puntual       : el valor se aleja > umbral de la mediana de los 2 meses validos previos Y de los 2 posteriores\n                             (pico aislado; clientes 3 %, ventas 20 %, US$/kWh 30 %).\n  R4 kwh_cliente_fuera_banda: kWh/cliente/mes fuera de [0,6 ; 1,6] x la mediana historica de la distribuidora.\n  R5 salto_mm              : variacion contra el mes valido anterior > 3 % (clientes) o > 20 % (ventas). Se clasifica en\n                             atipico (R3, se imputa), cambio_de_nivel (persiste 3 meses: se conserva y se documenta) o\n                             salto_no_persistente (se conserva).\n  Nivel boletin: total_no_cuadra (total publicado != suma), etiqueta_mes_tabla distinta, transcripcion_manual,\n  unidades/moneda inferidas por magnitud (factor registrado), numero_mal_formado reinterpretado.",
+ "umbrales": {
+  "clientes": 0.03,
+  "ventas_kwh": 0.2,
+  "usd_kwh": 0.3,
+  "salto_clientes": 0.03,
+  "salto_ventas": 0.2,
+  "banda_kwh_cliente": [
+   0.6,
+   1.6
+  ],
+  "meses_persistencia": 3
+ },
+ "boletines": {
+  "total": 162,
+  "por_estado": {
+   "TRANSCRIPCION_MANUAL": 1,
+   "OK": 139,
+   "OK_CON_OBSERVACIONES": 15,
+   "SECCION_AUSENTE": 1,
+   "TABLA_EN_IMAGEN": 2,
+   "TOTAL_NO_CUADRA": 4
+  },
+  "con_observaciones": [
+   {
+    "archivo": "2013_ABRIL.pdf",
+    "periodo": "2013-04",
+    "estado": "TRANSCRIPCION_MANUAL",
+    "detalle": "transcripcion_manual",
+    "pagina": "12",
+    "moneda": "B/.",
+    "unidad_declarada": "GWh",
+    "concepto_monetario": "ingresos"
+   },
+   {
+    "archivo": "2013_JUNIO.pdf",
+    "periodo": "2013-06",
+    "estado": "OK_CON_OBSERVACIONES",
+    "detalle": "",
+    "pagina": "11",
+    "moneda": "B/.",
+    "unidad_declarada": "MWh",
+    "concepto_monetario": "ingresos"
+   },
+   {
+    "archivo": "2013_JULIO.pdf",
+    "periodo": "2013-07",
+    "estado": "OK_CON_OBSERVACIONES",
+    "detalle": "",
+    "pagina": "11",
+    "moneda": "B/.",
+    "unidad_declarada": "MWh",
+    "concepto_monetario": "ingresos"
+   },
+   {
+    "archivo": "2013_AGOSTO.pdf",
+    "periodo": "2013-08",
+    "estado": "OK_CON_OBSERVACIONES",
+    "detalle": "",
+    "pagina": "11",
+    "moneda": "B/.",
+    "unidad_declarada": "MWh",
+    "concepto_monetario": "ingresos"
+   },
+   {
+    "archivo": "2013_SEPTIEMBRE.pdf",
+    "periodo": "2013-09",
+    "estado": "OK_CON_OBSERVACIONES",
+    "detalle": "",
+    "pagina": "11",
+    "moneda": "B/.",
+    "unidad_declarada": "MWh",
+    "concepto_monetario": "ingresos"
+   },
+   {
+    "archivo": "2013_OCTUBRE.pdf",
+    "periodo": "2013-10",
+    "estado": "OK_CON_OBSERVACIONES",
+    "detalle": "",
+    "pagina": "11",
+    "moneda": "B/.",
+    "unidad_declarada": "MWh",
+    "concepto_monetario": "ingresos"
+   },
+   {
+    "archivo": "2014_ENERO.pdf",
+    "periodo": "2014-01",
+    "estado": "OK_CON_OBSERVACIONES",
+    "detalle": "",
+    "pagina": "12",
+    "moneda": "B/.",
+    "unidad_declarada": "MWh",
+    "concepto_monetario": "ingresos"
+   },
+   {
+    "archivo": "2014_MARZO.pdf",
+    "periodo": "2014-03",
+    "estado": "SECCION_AUSENTE",
+    "detalle": "12 paginas; la seccion de clientes no aparece fuera del indice",
+    "pagina": "",
+    "moneda": "",
+    "unidad_declarada": "",
+    "concepto_monetario": ""
+   },
+   {
+    "archivo": "2014_JULIO.pdf",
+    "periodo": "2014-07",
+    "estado": "OK_CON_OBSERVACIONES",
+    "detalle": "",
+    "pagina": "14",
+    "moneda": "B/.",
+    "unidad_declarada": "MWh",
+    "concepto_monetario": "ingresos"
+   },
+   {
+    "archivo": "2014_SEPTIEMBRE.pdf",
+    "periodo": "2014-09",
+    "estado": "OK_CON_OBSERVACIONES",
+    "detalle": "",
+    "pagina": "15",
+    "moneda": "B/.",
+    "unidad_declarada": "MWh",
+    "concepto_monetario": "ingresos"
+   },
+   {
+    "archivo": "2014_NOVIEMBRE.pdf",
+    "periodo": "2014-11",
+    "estado": "OK_CON_OBSERVACIONES",
+    "detalle": "",
+    "pagina": "15",
+    "moneda": "B/.",
+    "unidad_declarada": "MWh",
+    "concepto_monetario": "ingresos"
+   },
+   {
+    "archivo": "2015_FEBRERO.pdf",
+    "periodo": "2015-02",
+    "estado": "OK_CON_OBSERVACIONES",
+    "detalle": "",
+    "pagina": "13",
+    "moneda": "B/.",
+    "unidad_declarada": "MWh",
+    "concepto_monetario": "ingresos"
+   },
+   {
+    "archivo": "2015_MARZO.pdf",
+    "periodo": "2015-03",
+    "estado": "OK_CON_OBSERVACIONES",
+    "detalle": "",
+    "pagina": "13",
+    "moneda": "B/.",
+    "unidad_declarada": "MWh",
+    "concepto_monetario": "ingresos"
+   },
+   {
+    "archivo": "2015_ABRIL.pdf",
+    "periodo": "2015-04",
+    "estado": "OK_CON_OBSERVACIONES",
+    "detalle": "",
+    "pagina": "14",
+    "moneda": "B/.",
+    "unidad_declarada": "MWh",
+    "concepto_monetario": "ingresos"
+   },
+   {
+    "archivo": "2015_MAYO.pdf",
+    "periodo": "2015-05",
+    "estado": "TABLA_EN_IMAGEN",
+    "detalle": "seccion en pag. 14 sin numeros en texto (3 imagenes)",
+    "pagina": "",
+    "moneda": "",
+    "unidad_declarada": "",
+    "concepto_monetario": ""
+   },
+   {
+    "archivo": "2015_JUNIO.pdf",
+    "periodo": "2015-06",
+    "estado": "TABLA_EN_IMAGEN",
+    "detalle": "seccion en pag. 14 sin numeros en texto (2 imagenes)",
+    "pagina": "",
+    "moneda": "",
+    "unidad_declarada": "",
+    "concepto_monetario": ""
+   },
+   {
+    "archivo": "2016_AGOSTO.pdf",
+    "periodo": "2016-08",
+    "estado": "OK_CON_OBSERVACIONES",
+    "detalle": "",
+    "pagina": "16",
+    "moneda": "US$",
+    "unidad_declarada": "kWh",
+    "concepto_monetario": "ingresos"
+   },
+   {
+    "archivo": "2016_OCTUBRE.pdf",
+    "periodo": "2016-10",
+    "estado": "OK_CON_OBSERVACIONES",
+    "detalle": "",
+    "pagina": "16",
+    "moneda": "US$",
+    "unidad_declarada": "kWh",
+    "concepto_monetario": "ingresos"
+   },
+   {
+    "archivo": "2017_JUNIO.pdf",
+    "periodo": "2017-06",
+    "estado": "OK",
+    "detalle": "etiqueta_mes_tabla=MAYO",
+    "pagina": "17",
+    "moneda": "US$",
+    "unidad_declarada": "kWh",
+    "concepto_monetario": "ingresos"
+   },
+   {
+    "archivo": "2017_NOVIEMBRE.pdf",
+    "periodo": "2017-11",
+    "estado": "TOTAL_NO_CUADRA",
+    "detalle": "total_no_cuadra_clientes;total_no_cuadra_ventas;total_no_cuadra_facturacion",
+    "pagina": "18",
+    "moneda": "US$",
+    "unidad_declarada": "kWh",
+    "concepto_monetario": "ingresos"
+   },
+   {
+    "archivo": "2017_DICIEMBRE.pdf",
+    "periodo": "2017-12",
+    "estado": "TOTAL_NO_CUADRA",
+    "detalle": "total_no_cuadra_clientes;total_no_cuadra_ventas;total_no_cuadra_facturacion",
+    "pagina": "18",
+    "moneda": "US$",
+    "unidad_declarada": "kWh",
+    "concepto_monetario": "ingresos"
+   },
+   {
+    "archivo": "2018_MAYO.pdf",
+    "periodo": "2018-05",
+    "estado": "TOTAL_NO_CUADRA",
+    "detalle": "total_no_cuadra_clientes;total_no_cuadra_ventas;total_no_cuadra_facturacion",
+    "pagina": "18",
+    "moneda": "US$",
+    "unidad_declarada": "kWh",
+    "concepto_monetario": "ingresos"
+   },
+   {
+    "archivo": "2019_ENERO.pdf",
+    "periodo": "2019-01",
+    "estado": "TOTAL_NO_CUADRA",
+    "detalle": "total_no_cuadra_facturacion",
+    "pagina": "18",
+    "moneda": "US$",
+    "unidad_declarada": "kWh",
+    "concepto_monetario": "ingresos"
+   },
+   {
+    "archivo": "2019_DICIEMBRE.pdf",
+    "periodo": "2019-12",
+    "estado": "OK",
+    "detalle": "etiqueta_mes_tabla=NOVIEMBRE",
+    "pagina": "18",
+    "moneda": "US$",
+    "unidad_declarada": "kWh",
+    "concepto_monetario": "ingresos"
+   },
+   {
+    "archivo": "2020_MARZO.pdf",
+    "periodo": "2020-03",
+    "estado": "OK",
+    "detalle": "etiqueta_mes_tabla=FEBRERO",
+    "pagina": "18",
+    "moneda": "US$",
+    "unidad_declarada": "kWh",
+    "concepto_monetario": "ingresos"
+   },
+   {
+    "archivo": "2021_OCTUBRE.pdf",
+    "periodo": "2021-10",
+    "estado": "OK_CON_OBSERVACIONES",
+    "detalle": "",
+    "pagina": "19",
+    "moneda": "US$",
+    "unidad_declarada": "kWh",
+    "concepto_monetario": "facturacion"
+   }
+  ]
+ },
+ "resumen_incidencias": {
+  "clientes:faltante": 9,
+  "ventas_kwh:faltante": 9,
+  "facturacion_usd:faltante": 9,
+  "clientes:arrastre_mes_anterior": 52,
+  "ventas_kwh:arrastre_mes_anterior": 49,
+  "facturacion_usd:arrastre_mes_anterior": 52,
+  "clientes:salto_mm": 8,
+  "ventas_kwh:salto_mm": 3,
+  "ventas_kwh:atipico_puntual": 1,
+  "ventas_kwh:kwh_cliente_fuera_banda": 1,
+  "clientes:atipico_puntual": 1,
+  "ventas_kwh:unidad_mixta_en_boletin": 2,
+  "facturacion_usd:numero_mal_formado": 2,
+  "facturacion_usd:unidad_mixta_en_boletin": 1,
+  "(tabla):transcripcion_manual": 1,
+  "(tabla):seccion_ausente": 1,
+  "(tabla):tabla_en_imagen": 2,
+  "(tabla):etiqueta_mes_tabla_distinta": 3,
+  "(tabla):total_no_cuadra": 4
+ },
+ "filas_imputadas": 67,
+ "filas_imputadas_periodo_base": 67,
+ "incidencias": [
+  {
+   "periodo": "2013-04",
+   "distribuidora": "(boletin)",
+   "variable": "(tabla)",
+   "regla": "transcripcion_manual",
+   "detalle": "transcripcion_manual",
+   "valor_fuente": "2013_ABRIL.pdf",
+   "valor_final": null,
+   "resolucion": "recuperado (transcripcion verificada: las 3 empresas suman el total)"
+  },
+  {
+   "periodo": "2013-12",
+   "variable": "clientes",
+   "regla": "salto_mm",
+   "detalle": "salto_mm(+3.0%;salto_no_persistente)",
+   "valor_fuente": 123928.0,
+   "valor_final": 123928,
+   "resolucion": "conservado (marcado)",
+   "distribuidora": "EDECHI"
+  },
+  {
+   "periodo": "2014-03",
+   "distribuidora": "(boletin)",
+   "variable": "(tabla)",
+   "regla": "seccion_ausente",
+   "detalle": "12 paginas; la seccion de clientes no aparece fuera del indice",
+   "valor_fuente": "2014_MARZO.pdf",
+   "valor_final": null,
+   "resolucion": "irrecuperable: mes imputado"
+  },
+  {
+   "periodo": "2014-03",
+   "variable": "clientes",
+   "regla": "faltante",
+   "detalle": "faltante(SECCION_AUSENTE)",
+   "valor_fuente": null,
+   "valor_final": 121511,
+   "resolucion": "imputado (interpolacion_lineal_clientes)",
+   "distribuidora": "EDECHI"
+  },
+  {
+   "periodo": "2014-03",
+   "variable": "facturacion_usd",
+   "regla": "faltante",
+   "detalle": "faltante(SECCION_AUSENTE)",
+   "valor_fuente": null,
+   "valor_final": 7967446.7,
+   "resolucion": "imputado (interpolacion_usd_por_kwh)",
+   "distribuidora": "EDECHI"
+  },
+  {
+   "periodo": "2014-03",
+   "variable": "ventas_kwh",
+   "regla": "faltante",
+   "detalle": "faltante(SECCION_AUSENTE)",
+   "valor_fuente": null,
+   "valor_final": 50896012.0,
+   "resolucion": "imputado (interpolacion_kwh_por_cliente)",
+   "distribuidora": "EDECHI"
+  },
+  {
+   "periodo": "2014-03",
+   "variable": "clientes",
+   "regla": "faltante",
+   "detalle": "faltante(SECCION_AUSENTE)",
+   "valor_fuente": null,
+   "valor_final": 411855,
+   "resolucion": "imputado (interpolacion_lineal_clientes)",
+   "distribuidora": "EDEMET"
+  },
+  {
+   "periodo": "2014-03",
+   "variable": "facturacion_usd",
+   "regla": "faltante",
+   "detalle": "faltante(SECCION_AUSENTE)",
+   "valor_fuente": null,
+   "valor_final": 57622323.3,
+   "resolucion": "imputado (interpolacion_usd_por_kwh)",
+   "distribuidora": "EDEMET"
+  },
+  {
+   "periodo": "2014-03",
+   "variable": "ventas_kwh",
+   "regla": "faltante",
+   "detalle": "faltante(SECCION_AUSENTE)",
+   "valor_fuente": null,
+   "valor_final": 299390288.0,
+   "resolucion": "imputado (interpolacion_kwh_por_cliente)",
+   "distribuidora": "EDEMET"
+  },
+  {
+   "periodo": "2014-03",
+   "variable": "clientes",
+   "regla": "faltante",
+   "detalle": "faltante(SECCION_AUSENTE)",
+   "valor_fuente": null,
+   "valor_final": 401442,
+   "resolucion": "imputado (interpolacion_lineal_clientes)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2014-03",
+   "variable": "facturacion_usd",
+   "regla": "faltante",
+   "detalle": "faltante(SECCION_AUSENTE)",
+   "valor_fuente": null,
+   "valor_final": 47791694.89,
+   "resolucion": "imputado (interpolacion_usd_por_kwh)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2014-03",
+   "variable": "ventas_kwh",
+   "regla": "faltante",
+   "detalle": "faltante(SECCION_AUSENTE)",
+   "valor_fuente": null,
+   "valor_final": 249603261.0,
+   "resolucion": "imputado (interpolacion_kwh_por_cliente)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2014-04",
+   "variable": "clientes",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 121191.0,
+   "valor_final": 121830,
+   "resolucion": "imputado (interpolacion_lineal_clientes)",
+   "distribuidora": "EDECHI"
+  },
+  {
+   "periodo": "2014-04",
+   "variable": "facturacion_usd",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 7946995.0,
+   "valor_final": 7987755.01,
+   "resolucion": "imputado (interpolacion_usd_por_kwh)",
+   "distribuidora": "EDECHI"
+  },
+  {
+   "periodo": "2014-04",
+   "variable": "ventas_kwh",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 50914589.0,
+   "valor_final": 50876630.0,
+   "resolucion": "imputado (interpolacion_kwh_por_cliente)",
+   "distribuidora": "EDECHI"
+  },
+  {
+   "periodo": "2014-04",
+   "variable": "clientes",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 410653.0,
+   "valor_final": 413058,
+   "resolucion": "imputado (interpolacion_lineal_clientes)",
+   "distribuidora": "EDEMET"
+  },
+  {
+   "periodo": "2014-04",
+   "variable": "facturacion_usd",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 56831170.0,
+   "valor_final": 58418501.39,
+   "resolucion": "imputado (interpolacion_usd_por_kwh)",
+   "distribuidora": "EDEMET"
+  },
+  {
+   "periodo": "2014-04",
+   "variable": "ventas_kwh",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 295646048.0,
+   "valor_final": 303151334.0,
+   "resolucion": "imputado (interpolacion_kwh_por_cliente)",
+   "distribuidora": "EDEMET"
+  },
+  {
+   "periodo": "2014-04",
+   "variable": "clientes",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 402732.0,
+   "valor_final": 400152,
+   "resolucion": "imputado (interpolacion_lineal_clientes)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2014-04",
+   "variable": "facturacion_usd",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 47639877.0,
+   "valor_final": 47942326.32,
+   "resolucion": "imputado (interpolacion_usd_por_kwh)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2014-04",
+   "variable": "ventas_kwh",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 249245482.0,
+   "valor_final": 249953607.0,
+   "resolucion": "imputado (interpolacion_kwh_por_cliente)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2014-05",
+   "variable": "clientes",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 121191.0,
+   "valor_final": 122150,
+   "resolucion": "imputado (interpolacion_lineal_clientes)",
+   "distribuidora": "EDECHI"
+  },
+  {
+   "periodo": "2014-05",
+   "variable": "facturacion_usd",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 7946995.0,
+   "valor_final": 8007918.81,
+   "resolucion": "imputado (interpolacion_usd_por_kwh)",
+   "distribuidora": "EDECHI"
+  },
+  {
+   "periodo": "2014-05",
+   "variable": "ventas_kwh",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 50914589.0,
+   "valor_final": 50856443.0,
+   "resolucion": "imputado (interpolacion_kwh_por_cliente)",
+   "distribuidora": "EDECHI"
+  },
+  {
+   "periodo": "2014-05",
+   "variable": "clientes",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 410653.0,
+   "valor_final": 414260,
+   "resolucion": "imputado (interpolacion_lineal_clientes)",
+   "distribuidora": "EDEMET"
+  },
+  {
+   "periodo": "2014-05",
+   "variable": "facturacion_usd",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 56831170.0,
+   "valor_final": 59219716.28,
+   "resolucion": "imputado (interpolacion_usd_por_kwh)",
+   "distribuidora": "EDEMET"
+  },
+  {
+   "periodo": "2014-05",
+   "variable": "ventas_kwh",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 295646048.0,
+   "valor_final": 306929186.0,
+   "resolucion": "imputado (interpolacion_kwh_por_cliente)",
+   "distribuidora": "EDEMET"
+  },
+  {
+   "periodo": "2014-05",
+   "variable": "clientes",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 402732.0,
+   "valor_final": 398861,
+   "resolucion": "imputado (interpolacion_lineal_clientes)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2014-05",
+   "variable": "facturacion_usd",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 47639877.0,
+   "valor_final": 48091763.84,
+   "resolucion": "imputado (interpolacion_usd_por_kwh)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2014-05",
+   "variable": "ventas_kwh",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 249245482.0,
+   "valor_final": 250296520.0,
+   "resolucion": "imputado (interpolacion_kwh_por_cliente)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2014-08",
+   "variable": "clientes",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 398969.0,
+   "valor_final": 399694,
+   "resolucion": "imputado (interpolacion_lineal_clientes)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2014-08",
+   "variable": "facturacion_usd",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 51121000.0,
+   "valor_final": 50115361.08,
+   "resolucion": "imputado (interpolacion_usd_por_kwh)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2014-08",
+   "variable": "ventas_kwh",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 265908000.0,
+   "valor_final": 260708815.0,
+   "resolucion": "imputado (interpolacion_kwh_por_cliente)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2015-01",
+   "variable": "clientes",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 125089.0,
+   "valor_final": 125106,
+   "resolucion": "imputado (interpolacion_lineal_clientes)",
+   "distribuidora": "EDECHI"
+  },
+  {
+   "periodo": "2015-01",
+   "variable": "facturacion_usd",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 8513140.0,
+   "valor_final": 11926799.39,
+   "resolucion": "imputado (interpolacion_usd_por_kwh)",
+   "distribuidora": "EDECHI"
+  },
+  {
+   "periodo": "2015-01",
+   "variable": "ventas_kwh",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 55247948.0,
+   "valor_final": 57731628.0,
+   "resolucion": "imputado (interpolacion_kwh_por_cliente)",
+   "distribuidora": "EDECHI"
+  },
+  {
+   "periodo": "2015-01",
+   "variable": "clientes",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 424490.0,
+   "valor_final": 424207,
+   "resolucion": "imputado (interpolacion_lineal_clientes)",
+   "distribuidora": "EDEMET"
+  },
+  {
+   "periodo": "2015-01",
+   "variable": "facturacion_usd",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 62485489.0,
+   "valor_final": 66262738.92,
+   "resolucion": "imputado (interpolacion_usd_por_kwh)",
+   "distribuidora": "EDEMET"
+  },
+  {
+   "periodo": "2015-01",
+   "variable": "ventas_kwh",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 325469876.0,
+   "valor_final": 314929551.0,
+   "resolucion": "imputado (interpolacion_kwh_por_cliente)",
+   "distribuidora": "EDEMET"
+  },
+  {
+   "periodo": "2015-01",
+   "variable": "clientes",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 406902.0,
+   "valor_final": 407478,
+   "resolucion": "imputado (interpolacion_lineal_clientes)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2015-01",
+   "variable": "facturacion_usd",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 47803000.0,
+   "valor_final": 51182239.71,
+   "resolucion": "imputado (interpolacion_usd_por_kwh)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2015-01",
+   "variable": "ventas_kwh",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 247551000.0,
+   "valor_final": 242312408.0,
+   "resolucion": "imputado (interpolacion_kwh_por_cliente)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2015-04",
+   "variable": "clientes",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 125841.0,
+   "valor_final": 126347,
+   "resolucion": "imputado (interpolacion_lineal_clientes)",
+   "distribuidora": "EDECHI"
+  },
+  {
+   "periodo": "2015-04",
+   "variable": "facturacion_usd",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 15601427.79,
+   "valor_final": 14915588.28,
+   "resolucion": "imputado (interpolacion_usd_por_kwh)",
+   "distribuidora": "EDECHI"
+  },
+  {
+   "periodo": "2015-04",
+   "variable": "ventas_kwh",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 60216820.0,
+   "valor_final": 60870429.0,
+   "resolucion": "imputado (interpolacion_kwh_por_cliente)",
+   "distribuidora": "EDECHI"
+  },
+  {
+   "periodo": "2015-04",
+   "variable": "clientes",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 427672.0,
+   "valor_final": 427466,
+   "resolucion": "imputado (interpolacion_lineal_clientes)",
+   "distribuidora": "EDEMET"
+  },
+  {
+   "periodo": "2015-04",
+   "variable": "facturacion_usd",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 76970241.71,
+   "valor_final": 73049449.63,
+   "resolucion": "imputado (interpolacion_usd_por_kwh)",
+   "distribuidora": "EDEMET"
+  },
+  {
+   "periodo": "2015-04",
+   "variable": "ventas_kwh",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 334851750.0,
+   "valor_final": 338897252.0,
+   "resolucion": "imputado (interpolacion_kwh_por_cliente)",
+   "distribuidora": "EDEMET"
+  },
+  {
+   "periodo": "2015-04",
+   "variable": "clientes",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 408734.0,
+   "valor_final": 409374,
+   "resolucion": "imputado (interpolacion_lineal_clientes)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2015-04",
+   "variable": "facturacion_usd",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 59839514.23,
+   "valor_final": 60279943.2,
+   "resolucion": "imputado (interpolacion_usd_por_kwh)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2015-04",
+   "variable": "ventas_kwh",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 262474930.0,
+   "valor_final": 264563581.0,
+   "resolucion": "imputado (interpolacion_kwh_por_cliente)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2015-05",
+   "distribuidora": "(boletin)",
+   "variable": "(tabla)",
+   "regla": "tabla_en_imagen",
+   "detalle": "seccion en pag. 14 sin numeros en texto (3 imagenes)",
+   "valor_fuente": "2015_MAYO.pdf",
+   "valor_final": null,
+   "resolucion": "irrecuperable sin OCR: mes imputado"
+  },
+  {
+   "periodo": "2015-05",
+   "variable": "clientes",
+   "regla": "faltante",
+   "detalle": "faltante(TABLA_EN_IMAGEN)",
+   "valor_fuente": null,
+   "valor_final": 126852,
+   "resolucion": "imputado (interpolacion_lineal_clientes)",
+   "distribuidora": "EDECHI"
+  },
+  {
+   "periodo": "2015-05",
+   "variable": "facturacion_usd",
+   "regla": "faltante",
+   "detalle": "faltante(TABLA_EN_IMAGEN)",
+   "valor_fuente": null,
+   "valor_final": 14212144.55,
+   "resolucion": "imputado (interpolacion_usd_por_kwh)",
+   "distribuidora": "EDECHI"
+  },
+  {
+   "periodo": "2015-05",
+   "variable": "ventas_kwh",
+   "regla": "faltante",
+   "detalle": "faltante(TABLA_EN_IMAGEN)",
+   "valor_fuente": null,
+   "valor_final": 61527333.0,
+   "resolucion": "imputado (interpolacion_kwh_por_cliente)",
+   "distribuidora": "EDECHI"
+  },
+  {
+   "periodo": "2015-05",
+   "variable": "clientes",
+   "regla": "faltante",
+   "detalle": "faltante(TABLA_EN_IMAGEN)",
+   "valor_fuente": null,
+   "valor_final": 427259,
+   "resolucion": "imputado (interpolacion_lineal_clientes)",
+   "distribuidora": "EDEMET"
+  },
+  {
+   "periodo": "2015-05",
+   "variable": "facturacion_usd",
+   "regla": "faltante",
+   "detalle": "faltante(TABLA_EN_IMAGEN)",
+   "valor_fuente": null,
+   "valor_final": 69012031.36,
+   "resolucion": "imputado (interpolacion_usd_por_kwh)",
+   "distribuidora": "EDEMET"
+  },
+  {
+   "periodo": "2015-05",
+   "variable": "ventas_kwh",
+   "regla": "faltante",
+   "detalle": "faltante(TABLA_EN_IMAGEN)",
+   "valor_fuente": null,
+   "valor_final": 342938690.0,
+   "resolucion": "imputado (interpolacion_kwh_por_cliente)",
+   "distribuidora": "EDEMET"
+  },
+  {
+   "periodo": "2015-05",
+   "variable": "clientes",
+   "regla": "faltante",
+   "detalle": "faltante(TABLA_EN_IMAGEN)",
+   "valor_fuente": null,
+   "valor_final": 410014,
+   "resolucion": "imputado (interpolacion_lineal_clientes)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2015-05",
+   "variable": "facturacion_usd",
+   "regla": "faltante",
+   "detalle": "faltante(TABLA_EN_IMAGEN)",
+   "valor_fuente": null,
+   "valor_final": 60721001.91,
+   "resolucion": "imputado (interpolacion_usd_por_kwh)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2015-05",
+   "variable": "ventas_kwh",
+   "regla": "faltante",
+   "detalle": "faltante(TABLA_EN_IMAGEN)",
+   "valor_fuente": null,
+   "valor_final": 266657477.0,
+   "resolucion": "imputado (interpolacion_kwh_por_cliente)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2015-06",
+   "distribuidora": "(boletin)",
+   "variable": "(tabla)",
+   "regla": "tabla_en_imagen",
+   "detalle": "seccion en pag. 14 sin numeros en texto (2 imagenes)",
+   "valor_fuente": "2015_JUNIO.pdf",
+   "valor_final": null,
+   "resolucion": "irrecuperable sin OCR: mes imputado"
+  },
+  {
+   "periodo": "2015-06",
+   "variable": "clientes",
+   "regla": "faltante",
+   "detalle": "faltante(TABLA_EN_IMAGEN)",
+   "valor_fuente": null,
+   "valor_final": 127358,
+   "resolucion": "imputado (interpolacion_lineal_clientes)",
+   "distribuidora": "EDECHI"
+  },
+  {
+   "periodo": "2015-06",
+   "variable": "facturacion_usd",
+   "regla": "faltante",
+   "detalle": "faltante(TABLA_EN_IMAGEN)",
+   "valor_fuente": null,
+   "valor_final": 13490957.71,
+   "resolucion": "imputado (interpolacion_usd_por_kwh)",
+   "distribuidora": "EDECHI"
+  },
+  {
+   "periodo": "2015-06",
+   "variable": "ventas_kwh",
+   "regla": "faltante",
+   "detalle": "faltante(TABLA_EN_IMAGEN)",
+   "valor_fuente": null,
+   "valor_final": 62187532.0,
+   "resolucion": "imputado (interpolacion_kwh_por_cliente)",
+   "distribuidora": "EDECHI"
+  },
+  {
+   "periodo": "2015-06",
+   "variable": "clientes",
+   "regla": "faltante",
+   "detalle": "faltante(TABLA_EN_IMAGEN)",
+   "valor_fuente": null,
+   "valor_final": 427052,
+   "resolucion": "imputado (interpolacion_lineal_clientes)",
+   "distribuidora": "EDEMET"
+  },
+  {
+   "periodo": "2015-06",
+   "variable": "facturacion_usd",
+   "regla": "faltante",
+   "detalle": "faltante(TABLA_EN_IMAGEN)",
+   "valor_fuente": null,
+   "valor_final": 64858161.42,
+   "resolucion": "imputado (interpolacion_usd_por_kwh)",
+   "distribuidora": "EDEMET"
+  },
+  {
+   "periodo": "2015-06",
+   "variable": "ventas_kwh",
+   "regla": "faltante",
+   "detalle": "faltante(TABLA_EN_IMAGEN)",
+   "valor_fuente": null,
+   "valor_final": 346976062.0,
+   "resolucion": "imputado (interpolacion_kwh_por_cliente)",
+   "distribuidora": "EDEMET"
+  },
+  {
+   "periodo": "2015-06",
+   "variable": "clientes",
+   "regla": "faltante",
+   "detalle": "faltante(TABLA_EN_IMAGEN)",
+   "valor_fuente": null,
+   "valor_final": 410653,
+   "resolucion": "imputado (interpolacion_lineal_clientes)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2015-06",
+   "variable": "facturacion_usd",
+   "regla": "faltante",
+   "detalle": "faltante(TABLA_EN_IMAGEN)",
+   "valor_fuente": null,
+   "valor_final": 61162688.21,
+   "resolucion": "imputado (interpolacion_usd_por_kwh)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2015-06",
+   "variable": "ventas_kwh",
+   "regla": "faltante",
+   "detalle": "faltante(TABLA_EN_IMAGEN)",
+   "valor_fuente": null,
+   "valor_final": 268756616.0,
+   "resolucion": "imputado (interpolacion_kwh_por_cliente)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2015-10",
+   "variable": "clientes",
+   "regla": "salto_mm",
+   "detalle": "salto_mm(+10.6%;cambio_de_nivel)",
+   "valor_fuente": 141475.0,
+   "valor_final": 141475,
+   "resolucion": "conservado (marcado)",
+   "distribuidora": "EDECHI"
+  },
+  {
+   "periodo": "2015-11",
+   "variable": "clientes",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 141475.0,
+   "valor_final": 141737,
+   "resolucion": "imputado (interpolacion_lineal_clientes)",
+   "distribuidora": "EDECHI"
+  },
+  {
+   "periodo": "2015-11",
+   "variable": "facturacion_usd",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 13240847.0,
+   "valor_final": 13401513.66,
+   "resolucion": "imputado (interpolacion_usd_por_kwh)",
+   "distribuidora": "EDECHI"
+  },
+  {
+   "periodo": "2015-11",
+   "variable": "ventas_kwh",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 66366596.0,
+   "valor_final": 67451573.0,
+   "resolucion": "imputado (interpolacion_kwh_por_cliente)",
+   "distribuidora": "EDECHI"
+  },
+  {
+   "periodo": "2015-11",
+   "variable": "clientes",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 440778.0,
+   "valor_final": 441494,
+   "resolucion": "imputado (interpolacion_lineal_clientes)",
+   "distribuidora": "EDEMET"
+  },
+  {
+   "periodo": "2015-11",
+   "variable": "facturacion_usd",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 61224409.0,
+   "valor_final": 61124958.04,
+   "resolucion": "imputado (interpolacion_usd_por_kwh)",
+   "distribuidora": "EDEMET"
+  },
+  {
+   "periodo": "2015-11",
+   "variable": "ventas_kwh",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 356617650.0,
+   "valor_final": 356615251.0,
+   "resolucion": "imputado (interpolacion_kwh_por_cliente)",
+   "distribuidora": "EDEMET"
+  },
+  {
+   "periodo": "2015-11",
+   "variable": "clientes",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 417689.0,
+   "valor_final": 418908,
+   "resolucion": "imputado (interpolacion_lineal_clientes)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2015-11",
+   "variable": "facturacion_usd",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 53724333.0,
+   "valor_final": 54005853.15,
+   "resolucion": "imputado (interpolacion_usd_por_kwh)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2015-11",
+   "variable": "ventas_kwh",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 278958299.0,
+   "valor_final": 279725900.0,
+   "resolucion": "imputado (interpolacion_kwh_por_cliente)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2016-05",
+   "variable": "clientes",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 425290.0,
+   "valor_final": 427020,
+   "resolucion": "imputado (interpolacion_lineal_clientes)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2016-05",
+   "variable": "facturacion_usd",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 45088658.0,
+   "valor_final": 43705293.83,
+   "resolucion": "imputado (interpolacion_usd_por_kwh)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2016-05",
+   "variable": "ventas_kwh",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 293153353.0,
+   "valor_final": 290559877.0,
+   "resolucion": "imputado (interpolacion_kwh_por_cliente)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2016-09",
+   "variable": "clientes",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 431995.0,
+   "valor_final": 433500,
+   "resolucion": "imputado (interpolacion_lineal_clientes)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2016-09",
+   "variable": "facturacion_usd",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 45438258.0,
+   "valor_final": 45376354.99,
+   "resolucion": "imputado (interpolacion_usd_por_kwh)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2017-02",
+   "variable": "facturacion_usd",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 13196927.0,
+   "valor_final": 13458271.38,
+   "resolucion": "imputado (interpolacion_usd_por_kwh)",
+   "distribuidora": "EDECHI"
+  },
+  {
+   "periodo": "2017-06",
+   "distribuidora": "(boletin)",
+   "variable": "(tabla)",
+   "regla": "etiqueta_mes_tabla_distinta",
+   "detalle": "etiqueta_mes_tabla=MAYO",
+   "valor_fuente": "2017_JUNIO.pdf",
+   "valor_final": null,
+   "resolucion": "informativo (se usa el mes del boletin)"
+  },
+  {
+   "periodo": "2017-06",
+   "variable": "clientes",
+   "regla": "salto_mm",
+   "detalle": "salto_mm(+4.7%;salto_no_persistente)",
+   "valor_fuente": 468010.0,
+   "valor_final": 468010,
+   "resolucion": "conservado (marcado)",
+   "distribuidora": "EDEMET"
+  },
+  {
+   "periodo": "2017-07",
+   "variable": "clientes",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 444925.0,
+   "valor_final": 446252,
+   "resolucion": "imputado (interpolacion_lineal_clientes)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2017-09",
+   "variable": "clientes",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 447580.0,
+   "valor_final": 448078,
+   "resolucion": "imputado (interpolacion_lineal_clientes)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2017-09",
+   "variable": "facturacion_usd",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 53689105.0,
+   "valor_final": 52533003.95,
+   "resolucion": "imputado (interpolacion_usd_por_kwh)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2017-09",
+   "variable": "ventas_kwh",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 295077583.0,
+   "valor_final": 291000368.0,
+   "resolucion": "imputado (interpolacion_kwh_por_cliente)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2017-10",
+   "variable": "clientes",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 447580.0,
+   "valor_final": 448576,
+   "resolucion": "imputado (interpolacion_lineal_clientes)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2017-10",
+   "variable": "facturacion_usd",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 53689105.0,
+   "valor_final": 51386758.23,
+   "resolucion": "imputado (interpolacion_usd_por_kwh)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2017-10",
+   "variable": "ventas_kwh",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 295077583.0,
+   "valor_final": 286913366.0,
+   "resolucion": "imputado (interpolacion_kwh_por_cliente)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2017-11",
+   "distribuidora": "(boletin)",
+   "variable": "(tabla)",
+   "regla": "total_no_cuadra",
+   "detalle": "total_no_cuadra_clientes;total_no_cuadra_ventas;total_no_cuadra_facturacion",
+   "valor_fuente": "2017_NOVIEMBRE.pdf",
+   "valor_final": null,
+   "resolucion": "total publicado no se usa; valores por empresa evaluados con R2-R4"
+  },
+  {
+   "periodo": "2017-11",
+   "distribuidora": "EDEMET",
+   "variable": "ventas_kwh",
+   "regla": "unidad_mixta_en_boletin",
+   "detalle": "342,351.597 escrito en MWh mientras las otras empresas usan kWh (factor x1000)",
+   "valor_fuente": "342,351.597",
+   "valor_final": "342351597",
+   "resolucion": "corregido por magnitud (factor registrado), conservado"
+  },
+  {
+   "periodo": "2017-11",
+   "variable": "clientes",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 447580.0,
+   "valor_final": 449073,
+   "resolucion": "imputado (interpolacion_lineal_clientes)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2017-11",
+   "variable": "facturacion_usd",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 53689105.0,
+   "valor_final": 50250409.65,
+   "resolucion": "imputado (interpolacion_usd_por_kwh)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2017-11",
+   "variable": "ventas_kwh",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 295077583.0,
+   "valor_final": 282816577.0,
+   "resolucion": "imputado (interpolacion_kwh_por_cliente)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2017-12",
+   "distribuidora": "(boletin)",
+   "variable": "(tabla)",
+   "regla": "total_no_cuadra",
+   "detalle": "total_no_cuadra_clientes;total_no_cuadra_ventas;total_no_cuadra_facturacion",
+   "valor_fuente": "2017_DICIEMBRE.pdf",
+   "valor_final": null,
+   "resolucion": "total publicado no se usa; valores por empresa evaluados con R2-R4"
+  },
+  {
+   "periodo": "2018-02",
+   "variable": "clientes",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 449995.0,
+   "valor_final": 450888,
+   "resolucion": "imputado (interpolacion_lineal_clientes)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2018-02",
+   "variable": "facturacion_usd",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 50182000.0,
+   "valor_final": 51413531.62,
+   "resolucion": "imputado (interpolacion_usd_por_kwh)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2018-02",
+   "variable": "ventas_kwh",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 275225000.0,
+   "valor_final": 278497104.0,
+   "resolucion": "imputado (interpolacion_kwh_por_cliente)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2018-04",
+   "variable": "clientes",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 451780.0,
+   "valor_final": 451222,
+   "resolucion": "imputado (interpolacion_lineal_clientes)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2018-05",
+   "distribuidora": "(boletin)",
+   "variable": "(tabla)",
+   "regla": "total_no_cuadra",
+   "detalle": "total_no_cuadra_clientes;total_no_cuadra_ventas;total_no_cuadra_facturacion",
+   "valor_fuente": "2018_MAYO.pdf",
+   "valor_final": null,
+   "resolucion": "total publicado no se usa; valores por empresa evaluados con R2-R4"
+  },
+  {
+   "periodo": "2018-05",
+   "variable": "clientes",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 152571.0,
+   "valor_final": 153472,
+   "resolucion": "imputado (interpolacion_lineal_clientes)",
+   "distribuidora": "EDECHI"
+  },
+  {
+   "periodo": "2018-05",
+   "variable": "facturacion_usd",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 13633449.18,
+   "valor_final": 13460481.03,
+   "resolucion": "imputado (interpolacion_usd_por_kwh)",
+   "distribuidora": "EDECHI"
+  },
+  {
+   "periodo": "2018-05",
+   "variable": "ventas_kwh",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 72264384.0,
+   "valor_final": 71591347.0,
+   "resolucion": "imputado (interpolacion_kwh_por_cliente)",
+   "distribuidora": "EDECHI"
+  },
+  {
+   "periodo": "2018-05",
+   "variable": "clientes",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 478190.0,
+   "valor_final": 480116,
+   "resolucion": "imputado (interpolacion_lineal_clientes)",
+   "distribuidora": "EDEMET"
+  },
+  {
+   "periodo": "2018-05",
+   "variable": "facturacion_usd",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 59611919.2,
+   "valor_final": 60244377.37,
+   "resolucion": "imputado (interpolacion_usd_por_kwh)",
+   "distribuidora": "EDEMET"
+  },
+  {
+   "periodo": "2018-05",
+   "variable": "ventas_kwh",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 352433076.0,
+   "valor_final": 356310866.0,
+   "resolucion": "imputado (interpolacion_kwh_por_cliente)",
+   "distribuidora": "EDEMET"
+  },
+  {
+   "periodo": "2018-05",
+   "distribuidora": "ENSA",
+   "variable": "facturacion_usd",
+   "regla": "numero_mal_formado",
+   "detalle": "texto de la fuente: '54,128.000.00'",
+   "valor_fuente": "54,128.000.00",
+   "valor_final": "54128000.0",
+   "resolucion": "reinterpretado (puntos como separador de miles) y validado por banda US$/kWh"
+  },
+  {
+   "periodo": "2018-06",
+   "variable": "clientes",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 450665.0,
+   "valor_final": 450994,
+   "resolucion": "imputado (interpolacion_lineal_clientes)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2018-08",
+   "variable": "clientes",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 155080.0,
+   "valor_final": 154154,
+   "resolucion": "imputado (interpolacion_lineal_clientes)",
+   "distribuidora": "EDECHI"
+  },
+  {
+   "periodo": "2018-08",
+   "variable": "facturacion_usd",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 13337033.0,
+   "valor_final": 13238576.48,
+   "resolucion": "imputado (interpolacion_usd_por_kwh)",
+   "distribuidora": "EDECHI"
+  },
+  {
+   "periodo": "2018-08",
+   "variable": "ventas_kwh",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 70240126.0,
+   "valor_final": 70422561.0,
+   "resolucion": "imputado (interpolacion_kwh_por_cliente)",
+   "distribuidora": "EDECHI"
+  },
+  {
+   "periodo": "2018-10",
+   "variable": "clientes",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 453097.0,
+   "valor_final": 454138,
+   "resolucion": "imputado (interpolacion_lineal_clientes)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2018-10",
+   "variable": "facturacion_usd",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 48645116.37,
+   "valor_final": 48531154.68,
+   "resolucion": "imputado (interpolacion_usd_por_kwh)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2018-10",
+   "variable": "ventas_kwh",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 261954596.0,
+   "valor_final": 261439915.0,
+   "resolucion": "imputado (interpolacion_kwh_por_cliente)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2018-11",
+   "variable": "clientes",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 156375.0,
+   "valor_final": 156662,
+   "resolucion": "imputado (interpolacion_lineal_clientes)",
+   "distribuidora": "EDECHI"
+  },
+  {
+   "periodo": "2018-11",
+   "variable": "facturacion_usd",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 13284854.0,
+   "valor_final": 13358602.51,
+   "resolucion": "imputado (interpolacion_usd_por_kwh)",
+   "distribuidora": "EDECHI"
+  },
+  {
+   "periodo": "2018-11",
+   "variable": "ventas_kwh",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 71047702.0,
+   "valor_final": 75356641.0,
+   "resolucion": "imputado (interpolacion_kwh_por_cliente)",
+   "distribuidora": "EDECHI"
+  },
+  {
+   "periodo": "2019-01",
+   "distribuidora": "(boletin)",
+   "variable": "(tabla)",
+   "regla": "total_no_cuadra",
+   "detalle": "total_no_cuadra_facturacion",
+   "valor_fuente": "2019_ENERO.pdf",
+   "valor_final": null,
+   "resolucion": "total publicado no se usa; valores por empresa evaluados con R2-R4"
+  },
+  {
+   "periodo": "2019-01",
+   "variable": "clientes",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 156950.0,
+   "valor_final": 156743,
+   "resolucion": "imputado (interpolacion_lineal_clientes)",
+   "distribuidora": "EDECHI"
+  },
+  {
+   "periodo": "2019-01",
+   "variable": "facturacion_usd",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 13351213.0,
+   "valor_final": 13959151.2,
+   "resolucion": "imputado (interpolacion_usd_por_kwh)",
+   "distribuidora": "EDECHI"
+  },
+  {
+   "periodo": "2019-01",
+   "variable": "ventas_kwh",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 79680915.0,
+   "valor_final": 73556500.0,
+   "resolucion": "imputado (interpolacion_kwh_por_cliente)",
+   "distribuidora": "EDECHI"
+  },
+  {
+   "periodo": "2019-01",
+   "variable": "clientes",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 490458.0,
+   "valor_final": 489410,
+   "resolucion": "imputado (interpolacion_lineal_clientes)",
+   "distribuidora": "EDEMET"
+  },
+  {
+   "periodo": "2019-01",
+   "variable": "facturacion_usd",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 58618841.0,
+   "valor_final": 62338856.33,
+   "resolucion": "imputado (interpolacion_usd_por_kwh)",
+   "distribuidora": "EDEMET"
+  },
+  {
+   "periodo": "2019-01",
+   "variable": "ventas_kwh",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 364673759.0,
+   "valor_final": 341285223.0,
+   "resolucion": "imputado (interpolacion_kwh_por_cliente)",
+   "distribuidora": "EDEMET"
+  },
+  {
+   "periodo": "2019-01",
+   "distribuidora": "ENSA",
+   "variable": "facturacion_usd",
+   "regla": "numero_mal_formado",
+   "detalle": "texto de la fuente: '57,135.000.00'",
+   "valor_fuente": "57,135.000.00",
+   "valor_final": "57135000.0",
+   "resolucion": "reinterpretado (puntos como separador de miles) y validado por banda US$/kWh"
+  },
+  {
+   "periodo": "2019-03",
+   "variable": "clientes",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 156536.0,
+   "valor_final": 157230,
+   "resolucion": "imputado (interpolacion_lineal_clientes)",
+   "distribuidora": "EDECHI"
+  },
+  {
+   "periodo": "2019-03",
+   "variable": "facturacion_usd",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 14298339.0,
+   "valor_final": 14566643.96,
+   "resolucion": "imputado (interpolacion_usd_por_kwh)",
+   "distribuidora": "EDECHI"
+  },
+  {
+   "periodo": "2019-03",
+   "variable": "ventas_kwh",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 67447984.0,
+   "valor_final": 68719892.0,
+   "resolucion": "imputado (interpolacion_kwh_por_cliente)",
+   "distribuidora": "EDECHI"
+  },
+  {
+   "periodo": "2019-03",
+   "variable": "clientes",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 488362.0,
+   "valor_final": 496720,
+   "resolucion": "imputado (interpolacion_lineal_clientes)",
+   "distribuidora": "EDEMET"
+  },
+  {
+   "periodo": "2019-03",
+   "variable": "facturacion_usd",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 65053520.0,
+   "valor_final": 65303188.42,
+   "resolucion": "imputado (interpolacion_usd_por_kwh)",
+   "distribuidora": "EDEMET"
+  },
+  {
+   "periodo": "2019-03",
+   "variable": "ventas_kwh",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 317993516.0,
+   "valor_final": 319012735.0,
+   "resolucion": "imputado (interpolacion_kwh_por_cliente)",
+   "distribuidora": "EDEMET"
+  },
+  {
+   "periodo": "2019-03",
+   "variable": "clientes",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 458092.0,
+   "valor_final": 463818,
+   "resolucion": "imputado (interpolacion_lineal_clientes)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2019-03",
+   "variable": "facturacion_usd",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 53248721.0,
+   "valor_final": 53881611.71,
+   "resolucion": "imputado (interpolacion_usd_por_kwh)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2019-03",
+   "variable": "ventas_kwh",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 242321563.0,
+   "valor_final": 245350582.0,
+   "resolucion": "imputado (interpolacion_kwh_por_cliente)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2019-04",
+   "variable": "clientes",
+   "regla": "salto_mm",
+   "detalle": "salto_mm(+3.4%;cambio_de_nivel)",
+   "valor_fuente": 505078.0,
+   "valor_final": 505078,
+   "resolucion": "conservado (marcado)",
+   "distribuidora": "EDEMET"
+  },
+  {
+   "periodo": "2019-11",
+   "variable": "clientes",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 466144.0,
+   "valor_final": 466644,
+   "resolucion": "imputado (interpolacion_lineal_clientes)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2019-11",
+   "variable": "facturacion_usd",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 51763000.0,
+   "valor_final": 50968772.2,
+   "resolucion": "imputado (interpolacion_usd_por_kwh)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2019-11",
+   "variable": "ventas_kwh",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 263123000.0,
+   "valor_final": 258807852.0,
+   "resolucion": "imputado (interpolacion_kwh_por_cliente)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2019-12",
+   "distribuidora": "(boletin)",
+   "variable": "(tabla)",
+   "regla": "etiqueta_mes_tabla_distinta",
+   "detalle": "etiqueta_mes_tabla=NOVIEMBRE",
+   "valor_fuente": "2019_DICIEMBRE.pdf",
+   "valor_final": null,
+   "resolucion": "informativo (se usa el mes del boletin)"
+  },
+  {
+   "periodo": "2020-02",
+   "variable": "clientes",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 525240.0,
+   "valor_final": 524429,
+   "resolucion": "imputado (interpolacion_lineal_clientes)",
+   "distribuidora": "EDEMET"
+  },
+  {
+   "periodo": "2020-02",
+   "variable": "facturacion_usd",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 60768909.0,
+   "valor_final": 58474988.83,
+   "resolucion": "imputado (interpolacion_usd_por_kwh)",
+   "distribuidora": "EDEMET"
+  },
+  {
+   "periodo": "2020-02",
+   "variable": "ventas_kwh",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 315305398.0,
+   "valor_final": 303242914.0,
+   "resolucion": "imputado (interpolacion_kwh_por_cliente)",
+   "distribuidora": "EDEMET"
+  },
+  {
+   "periodo": "2020-03",
+   "distribuidora": "(boletin)",
+   "variable": "(tabla)",
+   "regla": "etiqueta_mes_tabla_distinta",
+   "detalle": "etiqueta_mes_tabla=FEBRERO",
+   "valor_fuente": "2020_MARZO.pdf",
+   "valor_final": null,
+   "resolucion": "informativo (se usa el mes del boletin)"
+  },
+  {
+   "periodo": "2020-03",
+   "variable": "clientes",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 161727.0,
+   "valor_final": 162564,
+   "resolucion": "imputado (interpolacion_lineal_clientes)",
+   "distribuidora": "EDECHI"
+  },
+  {
+   "periodo": "2020-03",
+   "variable": "facturacion_usd",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 13649810.0,
+   "valor_final": 13594637.81,
+   "resolucion": "imputado (interpolacion_usd_por_kwh)",
+   "distribuidora": "EDECHI"
+  },
+  {
+   "periodo": "2020-03",
+   "variable": "ventas_kwh",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 66585452.0,
+   "valor_final": 66869169.0,
+   "resolucion": "imputado (interpolacion_kwh_por_cliente)",
+   "distribuidora": "EDECHI"
+  },
+  {
+   "periodo": "2020-03",
+   "variable": "clientes",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 525240.0,
+   "valor_final": 523619,
+   "resolucion": "imputado (interpolacion_lineal_clientes)",
+   "distribuidora": "EDEMET"
+  },
+  {
+   "periodo": "2020-03",
+   "variable": "facturacion_usd",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 60768909.0,
+   "valor_final": 56185516.18,
+   "resolucion": "imputado (interpolacion_usd_por_kwh)",
+   "distribuidora": "EDEMET"
+  },
+  {
+   "periodo": "2020-03",
+   "variable": "ventas_kwh",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 315305398.0,
+   "valor_final": 291216218.0,
+   "resolucion": "imputado (interpolacion_kwh_por_cliente)",
+   "distribuidora": "EDEMET"
+  },
+  {
+   "periodo": "2020-03",
+   "variable": "clientes",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 468630.0,
+   "valor_final": 467844,
+   "resolucion": "imputado (interpolacion_lineal_clientes)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2020-03",
+   "variable": "facturacion_usd",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 47733000.0,
+   "valor_final": 44994903.14,
+   "resolucion": "imputado (interpolacion_usd_por_kwh)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2020-03",
+   "variable": "ventas_kwh",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 247075000.0,
+   "valor_final": 239653459.0,
+   "resolucion": "imputado (interpolacion_kwh_por_cliente)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2020-09",
+   "variable": "facturacion_usd",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 11579362.0,
+   "valor_final": 11720681.26,
+   "resolucion": "imputado (interpolacion_usd_por_kwh)",
+   "distribuidora": "EDECHI"
+  },
+  {
+   "periodo": "2020-09",
+   "variable": "ventas_kwh",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 61356307.0,
+   "valor_final": 62080349.0,
+   "resolucion": "imputado (interpolacion_kwh_por_cliente)",
+   "distribuidora": "EDECHI"
+  },
+  {
+   "periodo": "2020-09",
+   "variable": "facturacion_usd",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 49452272.0,
+   "valor_final": 49569054.11,
+   "resolucion": "imputado (interpolacion_usd_por_kwh)",
+   "distribuidora": "EDEMET"
+  },
+  {
+   "periodo": "2020-09",
+   "variable": "ventas_kwh",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 263698542.0,
+   "valor_final": 263818716.0,
+   "resolucion": "imputado (interpolacion_kwh_por_cliente)",
+   "distribuidora": "EDEMET"
+  },
+  {
+   "periodo": "2020-12",
+   "variable": "clientes",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 166013.0,
+   "valor_final": 166278,
+   "resolucion": "imputado (interpolacion_lineal_clientes)",
+   "distribuidora": "EDECHI"
+  },
+  {
+   "periodo": "2020-12",
+   "variable": "facturacion_usd",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 11926025.0,
+   "valor_final": 12071164.41,
+   "resolucion": "imputado (interpolacion_usd_por_kwh)",
+   "distribuidora": "EDECHI"
+  },
+  {
+   "periodo": "2020-12",
+   "variable": "ventas_kwh",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 62768937.0,
+   "valor_final": 69267404.0,
+   "resolucion": "imputado (interpolacion_kwh_por_cliente)",
+   "distribuidora": "EDECHI"
+  },
+  {
+   "periodo": "2021-01",
+   "variable": "ventas_kwh",
+   "regla": "salto_mm",
+   "detalle": "salto_mm(+20.7%;salto_no_persistente)",
+   "valor_fuente": 75786266.0,
+   "valor_final": 75786266.0,
+   "resolucion": "conservado (marcado)",
+   "distribuidora": "EDECHI"
+  },
+  {
+   "periodo": "2021-02",
+   "variable": "ventas_kwh",
+   "regla": "salto_mm",
+   "detalle": "salto_mm(-20.8%;salto_no_persistente)",
+   "valor_fuente": 253899558.0,
+   "valor_final": 253899558.0,
+   "resolucion": "conservado (marcado)",
+   "distribuidora": "EDEMET"
+  },
+  {
+   "periodo": "2021-03",
+   "variable": "clientes",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 478364.0,
+   "valor_final": 480296,
+   "resolucion": "imputado (interpolacion_lineal_clientes)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2021-03",
+   "variable": "facturacion_usd",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 35563000.0,
+   "valor_final": 37389714.14,
+   "resolucion": "imputado (interpolacion_usd_por_kwh)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2021-03",
+   "variable": "ventas_kwh",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 226736000.0,
+   "valor_final": 239043777.0,
+   "resolucion": "imputado (interpolacion_kwh_por_cliente)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2021-05",
+   "variable": "clientes",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 167418.0,
+   "valor_final": 167709,
+   "resolucion": "imputado (interpolacion_lineal_clientes)",
+   "distribuidora": "EDECHI"
+  },
+  {
+   "periodo": "2021-05",
+   "variable": "facturacion_usd",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 12266419.0,
+   "valor_final": 12122634.87,
+   "resolucion": "imputado (interpolacion_usd_por_kwh)",
+   "distribuidora": "EDECHI"
+  },
+  {
+   "periodo": "2021-05",
+   "variable": "ventas_kwh",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 69688230.0,
+   "valor_final": 69005254.0,
+   "resolucion": "imputado (interpolacion_kwh_por_cliente)",
+   "distribuidora": "EDECHI"
+  },
+  {
+   "periodo": "2021-10",
+   "variable": "ventas_kwh",
+   "regla": "atipico_puntual",
+   "detalle": "atipico_puntual",
+   "valor_fuente": 828014691.0,
+   "valor_final": 276827978.0,
+   "resolucion": "imputado (interpolacion_kwh_por_cliente)",
+   "distribuidora": "EDEMET"
+  },
+  {
+   "periodo": "2021-10",
+   "variable": "ventas_kwh",
+   "regla": "kwh_cliente_fuera_banda",
+   "detalle": "kwh_cliente_fuera_banda",
+   "valor_fuente": 828014691.0,
+   "valor_final": 276827978.0,
+   "resolucion": "imputado (interpolacion_kwh_por_cliente)",
+   "distribuidora": "EDEMET"
+  },
+  {
+   "periodo": "2021-10",
+   "variable": "ventas_kwh",
+   "regla": "salto_mm",
+   "detalle": "salto_mm(+196.2%;atipico)",
+   "valor_fuente": 828014691.0,
+   "valor_final": 276827978.0,
+   "resolucion": "imputado (interpolacion_kwh_por_cliente)",
+   "distribuidora": "EDEMET"
+  },
+  {
+   "periodo": "2021-10",
+   "distribuidora": "ENSA",
+   "variable": "facturacion_usd",
+   "regla": "unidad_mixta_en_boletin",
+   "detalle": "39,819 escrito en miles de US$ mientras las otras empresas usan US$ (factor x1000)",
+   "valor_fuente": "39,819",
+   "valor_final": "39819000.0",
+   "resolucion": "corregido por magnitud (factor registrado), conservado"
+  },
+  {
+   "periodo": "2021-10",
+   "distribuidora": "ENSA",
+   "variable": "ventas_kwh",
+   "regla": "unidad_mixta_en_boletin",
+   "detalle": "249,949 escrito en MWh mientras las otras empresas usan kWh (factor x1000)",
+   "valor_fuente": "249,949",
+   "valor_final": "249949000",
+   "resolucion": "corregido por magnitud (factor registrado), conservado"
+  },
+  {
+   "periodo": "2021-12",
+   "variable": "clientes",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 491960.0,
+   "valor_final": 493616,
+   "resolucion": "imputado (interpolacion_lineal_clientes)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2021-12",
+   "variable": "facturacion_usd",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 39986930.0,
+   "valor_final": 42458526.2,
+   "resolucion": "imputado (interpolacion_usd_por_kwh)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2021-12",
+   "variable": "ventas_kwh",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 240632020.0,
+   "valor_final": 244547808.0,
+   "resolucion": "imputado (interpolacion_kwh_por_cliente)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2022-03",
+   "variable": "facturacion_usd",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 46046698.0,
+   "valor_final": 50205075.07,
+   "resolucion": "imputado (interpolacion_usd_por_kwh)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2022-07",
+   "variable": "clientes",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 503063.0,
+   "valor_final": 504346,
+   "resolucion": "imputado (interpolacion_lineal_clientes)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2022-07",
+   "variable": "facturacion_usd",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 54324170.0,
+   "valor_final": 52249585.92,
+   "resolucion": "imputado (interpolacion_usd_por_kwh)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2022-07",
+   "variable": "ventas_kwh",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 252361393.0,
+   "valor_final": 253836270.0,
+   "resolucion": "imputado (interpolacion_kwh_por_cliente)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2023-03",
+   "variable": "clientes",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 175981.0,
+   "valor_final": 176210,
+   "resolucion": "imputado (interpolacion_lineal_clientes)",
+   "distribuidora": "EDECHI"
+  },
+  {
+   "periodo": "2023-03",
+   "variable": "facturacion_usd",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 13344735.18,
+   "valor_final": 13840610.96,
+   "resolucion": "imputado (interpolacion_usd_por_kwh)",
+   "distribuidora": "EDECHI"
+  },
+  {
+   "periodo": "2023-03",
+   "variable": "ventas_kwh",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 70027627.0,
+   "valor_final": 72270217.0,
+   "resolucion": "imputado (interpolacion_kwh_por_cliente)",
+   "distribuidora": "EDECHI"
+  },
+  {
+   "periodo": "2023-03",
+   "variable": "clientes",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 566725.0,
+   "valor_final": 567513,
+   "resolucion": "imputado (interpolacion_lineal_clientes)",
+   "distribuidora": "EDEMET"
+  },
+  {
+   "periodo": "2023-03",
+   "variable": "facturacion_usd",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 56183335.14,
+   "valor_final": 58545103.75,
+   "resolucion": "imputado (interpolacion_usd_por_kwh)",
+   "distribuidora": "EDEMET"
+  },
+  {
+   "periodo": "2023-03",
+   "variable": "ventas_kwh",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 286553975.0,
+   "valor_final": 298621643.0,
+   "resolucion": "imputado (interpolacion_kwh_por_cliente)",
+   "distribuidora": "EDEMET"
+  },
+  {
+   "periodo": "2023-11",
+   "variable": "clientes",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 525108.0,
+   "valor_final": 525862,
+   "resolucion": "imputado (interpolacion_lineal_clientes)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2024-01",
+   "variable": "clientes",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 526617.0,
+   "valor_final": 528039,
+   "resolucion": "imputado (interpolacion_lineal_clientes)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2024-01",
+   "variable": "facturacion_usd",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 54784716.79,
+   "valor_final": 57842566.17,
+   "resolucion": "imputado (interpolacion_usd_por_kwh)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2024-01",
+   "variable": "ventas_kwh",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 279785978.0,
+   "valor_final": 282759723.0,
+   "resolucion": "imputado (interpolacion_kwh_por_cliente)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2024-02",
+   "variable": "clientes",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 526617.0,
+   "valor_final": 529460,
+   "resolucion": "imputado (interpolacion_lineal_clientes)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2024-02",
+   "variable": "facturacion_usd",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 54784716.79,
+   "valor_final": 60955034.07,
+   "resolucion": "imputado (interpolacion_usd_por_kwh)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2024-02",
+   "variable": "ventas_kwh",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 279785978.0,
+   "valor_final": 285745413.0,
+   "resolucion": "imputado (interpolacion_kwh_por_cliente)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2024-12",
+   "variable": "clientes",
+   "regla": "salto_mm",
+   "detalle": "salto_mm(+3.6%;salto_no_persistente)",
+   "valor_fuente": 186939.0,
+   "valor_final": 186939,
+   "resolucion": "conservado (marcado)",
+   "distribuidora": "EDECHI"
+  },
+  {
+   "periodo": "2025-02",
+   "variable": "clientes",
+   "regla": "atipico_puntual",
+   "detalle": "atipico_puntual",
+   "valor_fuente": 178403.0,
+   "valor_final": 187572,
+   "resolucion": "imputado (interpolacion_lineal_clientes)",
+   "distribuidora": "EDECHI"
+  },
+  {
+   "periodo": "2025-02",
+   "variable": "clientes",
+   "regla": "salto_mm",
+   "detalle": "salto_mm(-3.2%;atipico)",
+   "valor_fuente": 178403.0,
+   "valor_final": 187572,
+   "resolucion": "imputado (interpolacion_lineal_clientes)",
+   "distribuidora": "EDECHI"
+  },
+  {
+   "periodo": "2025-03",
+   "variable": "clientes",
+   "regla": "salto_mm",
+   "detalle": "salto_mm(+3.5%;salto_no_persistente)",
+   "valor_fuente": 190839.0,
+   "valor_final": 190839,
+   "resolucion": "conservado (marcado)",
+   "distribuidora": "EDECHI"
+  },
+  {
+   "periodo": "2025-03",
+   "variable": "clientes",
+   "regla": "salto_mm",
+   "detalle": "salto_mm(+4.8%;salto_no_persistente)",
+   "valor_fuente": 604163.0,
+   "valor_final": 604163,
+   "resolucion": "conservado (marcado)",
+   "distribuidora": "EDEMET"
+  },
+  {
+   "periodo": "2025-03",
+   "variable": "clientes",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 531711.0,
+   "valor_final": 533303,
+   "resolucion": "imputado (interpolacion_lineal_clientes)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2025-03",
+   "variable": "facturacion_usd",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 50839930.97,
+   "valor_final": 52361041.91,
+   "resolucion": "imputado (interpolacion_usd_por_kwh)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2025-03",
+   "variable": "ventas_kwh",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 268711728.0,
+   "valor_final": 273649411.0,
+   "resolucion": "imputado (interpolacion_kwh_por_cliente)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2025-04",
+   "variable": "clientes",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 531711.0,
+   "valor_final": 534896,
+   "resolucion": "imputado (interpolacion_lineal_clientes)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2025-04",
+   "variable": "facturacion_usd",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 50839930.97,
+   "valor_final": 53908108.32,
+   "resolucion": "imputado (interpolacion_usd_por_kwh)",
+   "distribuidora": "ENSA"
+  },
+  {
+   "periodo": "2025-04",
+   "variable": "ventas_kwh",
+   "regla": "arrastre_mes_anterior",
+   "detalle": "arrastre_mes_anterior",
+   "valor_fuente": 268711728.0,
+   "valor_final": 278611774.0,
+   "resolucion": "imputado (interpolacion_kwh_por_cliente)",
+   "distribuidora": "ENSA"
+  }
+ ],
+ "cambios_de_encabezado": [
+  {
+   "campo": "concepto_monetario",
+   "desde": "ingresos",
+   "hacia": "facturacion",
+   "ultimo_periodo_anterior": "2020-04",
+   "primer_periodo": "2020-05"
+  },
+  {
+   "campo": "moneda",
+   "desde": "B/.",
+   "hacia": "US$",
+   "ultimo_periodo_anterior": "2015-04",
+   "primer_periodo": "2015-07"
+  },
+  {
+   "campo": "moneda",
+   "desde": "US$",
+   "hacia": "B/.",
+   "ultimo_periodo_anterior": "2023-12",
+   "primer_periodo": "2024-01"
+  },
+  {
+   "campo": "unidad_declarada",
+   "desde": "GWh",
+   "hacia": "MWh",
+   "ultimo_periodo_anterior": "2013-04",
+   "primer_periodo": "2013-05"
+  },
+  {
+   "campo": "unidad_declarada",
+   "desde": "MWh",
+   "hacia": "kWh",
+   "ultimo_periodo_anterior": "2015-04",
+   "primer_periodo": "2015-07"
+  }
+ ],
+ "cambios_de_nivel": [
+  {
+   "periodo": "2019-04",
+   "variable": "clientes",
+   "regla": "salto_mm",
+   "detalle": "salto_mm(+3.4%;cambio_de_nivel)",
+   "valor_fuente": 505078.0,
+   "valor_final": 505078,
+   "resolucion": "conservado (marcado)",
+   "distribuidora": "EDEMET"
+  },
+  {
+   "periodo": "2015-10",
+   "variable": "clientes",
+   "regla": "salto_mm",
+   "detalle": "salto_mm(+10.6%;cambio_de_nivel)",
+   "valor_fuente": 141475.0,
+   "valor_final": 141475,
+   "resolucion": "conservado (marcado)",
+   "distribuidora": "EDECHI"
+  }
+ ],
+ "unidades": {
+  "ventas_factor": {
+   "1": 433,
+   "1000": 44
+  },
+  "facturacion_factor": {
+   "1": 467,
+   "1000": 10
+  },
+  "moneda_declarada": {
+   "B/.": 171,
+   "US$": 306
+  },
+  "nota": "B/. y US$ circulan a la par (1:1); no se convierte. Factor = multiplicador aplicado al numero escrito para llevarlo a kWh / US$ (inferido por magnitud, no por el encabezado)."
+ },
+ "ckan": {
+  "modo": "copia_local",
+  "manifiesto": "manifiesto_ckan_2026-11-25.json",
+  "archivos": [
+   {
+    "archivo": "reclamos_electricidad_2021.csv",
+    "estado": "OK",
+    "meses": 12,
+    "detalle": "",
+    "last_modified": "2022-01-27T16:28:36.527121",
+    "fecha_descarga": "2026-11-25"
+   },
+   {
+    "archivo": "reclamos_electricidad_2022.csv",
+    "estado": "OK",
+    "meses": 12,
+    "detalle": "",
+    "last_modified": "2023-01-04T20:09:16.018341",
+    "fecha_descarga": "2026-11-25"
+   },
+   {
+    "archivo": "reclamos_electricidad_2023.csv",
+    "estado": "OK",
+    "meses": 12,
+    "detalle": "",
+    "last_modified": "2024-01-08T17:29:30.467330",
+    "fecha_descarga": "2026-11-25"
+   },
+   {
+    "archivo": "reclamos_electricidad_2024.csv",
+    "estado": "OK",
+    "meses": 12,
+    "detalle": "",
+    "last_modified": "2025-01-13T14:44:54.548967",
+    "fecha_descarga": "2026-11-25"
+   },
+   {
+    "archivo": "reclamos_electricidad_2025.csv",
+    "estado": "OK",
+    "meses": 11,
+    "detalle": "anio incompleto: meses 1-11",
+    "last_modified": "2025-12-16T19:35:15.156726",
+    "fecha_descarga": "2026-11-25"
+   },
+   {
+    "archivo": "reclamos_electricidad_2026.csv",
+    "estado": "OK",
+    "meses": 1,
+    "detalle": "anio incompleto: meses 1-1",
+    "last_modified": "2026-02-10T21:15:49.093334",
+    "fecha_descarga": "2026-11-25"
+   },
+   {
+    "archivo": "reclamos_sector_2021.csv",
+    "estado": "OK",
+    "meses": 12,
+    "detalle": "",
+    "last_modified": "2022-01-27T16:34:37.572994",
+    "fecha_descarga": "2026-11-25"
+   },
+   {
+    "archivo": "reclamos_sector_2022.csv",
+    "estado": "OK",
+    "meses": 12,
+    "detalle": "",
+    "last_modified": "2023-01-04T20:05:19.343525",
+    "fecha_descarga": "2026-11-25"
+   },
+   {
+    "archivo": "reclamos_sector_2023.csv",
+    "estado": "OK",
+    "meses": 12,
+    "detalle": "",
+    "last_modified": "2024-01-08T17:04:00.981031",
+    "fecha_descarga": "2026-11-25"
+   },
+   {
+    "archivo": "reclamos_sector_2024.csv",
+    "estado": "OK",
+    "meses": 12,
+    "detalle": "",
+    "last_modified": "2025-01-13T14:37:20.309201",
+    "fecha_descarga": "2026-11-25"
+   },
+   {
+    "archivo": "reclamos_sector_2025.csv",
+    "estado": "OK",
+    "meses": 11,
+    "detalle": "anio incompleto: meses 1-11",
+    "last_modified": "2025-12-16T19:29:32.368042",
+    "fecha_descarga": "2026-11-25"
+   },
+   {
+    "archivo": "reclamos_sector_2026.csv",
+    "estado": "OK",
+    "meses": 1,
+    "detalle": "anio incompleto: meses 1-1",
+    "last_modified": "2026-02-10T21:02:26.974461",
+    "fecha_descarga": "2026-11-25"
+   }
+  ],
+  "cruce_suma_distribuidoras_vs_sector_electricidad": {
+   "meses_comparados": 60,
+   "meses_que_no_cuadran": [
+    {
+     "periodo": "2023-01",
+     "suma_distribuidoras": 327,
+     "sector_electricidad": 357,
+     "cuadra": false
+    },
+    {
+     "periodo": "2023-04",
+     "suma_distribuidoras": 557,
+     "sector_electricidad": 601,
+     "cuadra": false
+    },
+    {
+     "periodo": "2023-05",
+     "suma_distribuidoras": 657,
+     "sector_electricidad": 694,
+     "cuadra": false
+    },
+    {
+     "periodo": "2023-06",
+     "suma_distribuidoras": 905,
+     "sector_electricidad": 945,
+     "cuadra": false
+    },
+    {
+     "periodo": "2023-07",
+     "suma_distribuidoras": 851,
+     "sector_electricidad": 900,
+     "cuadra": false
+    },
+    {
+     "periodo": "2023-08",
+     "suma_distribuidoras": 968,
+     "sector_electricidad": 999,
+     "cuadra": false
+    },
+    {
+     "periodo": "2023-09",
+     "suma_distribuidoras": 852,
+     "sector_electricidad": 549,
+     "cuadra": false
+    },
+    {
+     "periodo": "2023-11",
+     "suma_distribuidoras": 494,
+     "sector_electricidad": 495,
+     "cuadra": false
+    }
+   ]
+  }
+ }
+}
