@@ -2486,8 +2486,8 @@
   "nota": "B/. y US$ circulan a la par (1:1); no se convierte. Factor = multiplicador aplicado al numero escrito para llevarlo a kWh / US$ (inferido por magnitud, no por el encabezado)."
  },
  "ckan": {
-  "modo": "copia_local",
-  "manifiesto": "manifiesto_ckan_2026-11-25.json",
+  "modo": "red",
+  "manifiesto": "manifiesto_ckan_2026-11-26.json",
   "archivos": [
    {
     "archivo": "reclamos_electricidad_2021.csv",

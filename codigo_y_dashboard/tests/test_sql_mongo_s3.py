@@ -2,6 +2,7 @@ import csv
 import json
 import logging
 import sqlite3
+from unittest.mock import MagicMock, patch
 
 import boto3
 import mongomock
@@ -81,16 +82,47 @@ def test_s3_sin_bucket_se_omite(caplog):
 
 def test_s3_publica_con_moto(tmp_path, monkeypatch):
     # datos minimos: moto emula S3 en memoria (no es una cuenta AWS real)
-    for sub, nombre in (("raw/ckan", "a.csv"), ("silver", "b.csv"), ("gold", "c.json")):
-        (tmp_path / sub).mkdir(parents=True)
-        (tmp_path / sub / nombre).write_text("x", encoding="utf-8")
-    monkeypatch.setenv("SIG_DATA_DIR", str(tmp_path))
-    monkeypatch.setenv("SIG_OUT_DIR", str(tmp_path / "out"))
-    monkeypatch.setenv("AWS_ACCESS_KEY_ID", "test")
-    monkeypatch.setenv("AWS_SECRET_ACCESS_KEY", "test")
+    _datos_minimos(tmp_path, monkeypatch)
     monkeypatch.setenv("AWS_DEFAULT_REGION", "us-east-1")
     with mock_aws():
         boto3.client("s3").create_bucket(Bucket="sig-test")
         r = s3_publish.publicar(env={"S3_BUCKET": "sig-test"})
         keys = sorted(o["Key"].split("/", 2)[2] for o in boto3.client("s3").list_objects_v2(Bucket="sig-test")["Contents"])
-    assert r["estado"] == "publicado" and keys == ["bronze/ckan/a.csv", "gold/c.json", "silver/b.csv"]
+    # solo gold (sin fallback de Mongo) + dashboard; bronze/silver no se publican
+    assert r["estado"] == "publicado" and r["modo"] == "Amazon S3" and r["endpoint"] is None
+    assert keys == ["dashboard/dashboard_interactivo.html", "gold/c.json", "gold/kpi_summary.json"]
+
+
+def _datos_minimos(tmp_path, monkeypatch):
+    for sub, nombre in (("raw/ckan", "a.csv"), ("silver", "b.csv"), ("gold", "c.json"), ("gold", "kpi_summary.json"),
+                        ("gold", "mongo_fallback_x.json"), ("out", "dashboard_interactivo.html")):
+        (tmp_path / sub).mkdir(parents=True, exist_ok=True)
+        (tmp_path / sub / nombre).write_text("x", encoding="utf-8")
+    monkeypatch.setenv("SIG_DATA_DIR", str(tmp_path))
+    monkeypatch.setenv("SIG_OUT_DIR", str(tmp_path / "out"))
+    monkeypatch.setenv("AWS_ACCESS_KEY_ID", "test")
+    monkeypatch.setenv("AWS_SECRET_ACCESS_KEY", "test")
+
+
+def test_s3_destino_etiqueta_honesta():
+    assert s3_publish.destino({}) == (None, "Amazon S3")
+    assert s3_publish.destino({"AWS_ENDPOINT_URL": "http://minio:9000"}) == ("http://minio:9000", "S3 compatible (MinIO local)")
+    assert s3_publish.destino({"AWS_ENDPOINT_URL": "https://s3.us-east-1.amazonaws.com"})[1] == "Amazon S3"
+
+
+def test_s3_minio_usa_endpoint_y_path_style(tmp_path, monkeypatch):
+    _datos_minimos(tmp_path, monkeypatch)
+    cliente = MagicMock()
+    with patch("boto3.Session.client", return_value=cliente) as fabrica:
+        r = s3_publish.publicar(env={"S3_BUCKET": "sig-distribuidoras-asep", "AWS_ENDPOINT_URL": "http://localhost:9000"})
+    kw = fabrica.call_args.kwargs
+    assert kw["endpoint_url"] == "http://localhost:9000" and kw["config"].s3 == {"addressing_style": "path"}
+    assert r["modo"] == "S3 compatible (MinIO local)" and r["archivos"] == 3 == cliente.upload_file.call_count
+
+
+def test_s3_error_de_subida_no_es_silencioso(tmp_path, monkeypatch):
+    _datos_minimos(tmp_path, monkeypatch)
+    cliente = MagicMock()
+    cliente.upload_file.side_effect = RuntimeError("bucket inexistente")
+    with patch("boto3.Session.client", return_value=cliente), pytest.raises(RuntimeError, match="bucket inexistente"):
+        s3_publish.publicar(env={"S3_BUCKET": "x", "AWS_ENDPOINT_URL": "http://localhost:9000"})

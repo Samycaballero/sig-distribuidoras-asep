@@ -1,0 +1,86 @@
+# Apache Airflow 2.10.5 (standalone: webserver + scheduler + SequentialExecutor + SQLite) para el DAG del SIG ASEP.
+# + MinIO local (almacenamiento S3 compatible, NO es Amazon AWS) para la tarea publicar_s3_opcional.
+# Uso: docker compose up -d   (desde esta carpeta). UI Airflow http://localhost:8080 ; consola MinIO http://127.0.0.1:9101
+# Requiere ../codigo_y_dashboard/.env con MINIO_ROOT_USER / MINIO_ROOT_PASSWORD (ver .env.example y README.md).
+name: sig-asep-airflow
+
+services:
+  minio:
+    # El repositorio oficial minio/minio ya no existe en Docker Hub (404 verificado el 2026-11-26).
+    # Se usa el fork comunitario pgsty/minio (no oficial), autorizado por el usuario y ya usado en otro proyecto suyo.
+    image: pgsty/minio:RELEASE.2026-08-04T00-00-00Z
+    command: server /data --console-address ":9001"
+    ports:
+      - "127.0.0.1:9100:9000"   # API S3 (9100 en el host: 9000/9001 ya los usa otro MinIO del usuario)
+      - "127.0.0.1:9101:9001"   # consola web
+    env_file:
+      - path: ../codigo_y_dashboard/.env   # MINIO_ROOT_USER / MINIO_ROOT_PASSWORD (obligatorio)
+        required: true
+    volumes:
+      - minio-data:/data
+    healthcheck:
+      test: ["CMD", "mc", "ready", "local"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    restart: unless-stopped
+
+  minio-init:
+    image: pgsty/mc:RELEASE.2026-09-16T00-00-00Z   # fork comunitario del cliente mc (mismo origen que el servidor)
+    depends_on:
+      minio:
+        condition: service_healthy
+    env_file:
+      - path: ../codigo_y_dashboard/.env
+        required: true
+    entrypoint: ["/bin/sh", "-c"]
+    # idempotente: --ignore-existing no falla si el bucket ya existe
+    command:
+      - mc alias set local http://minio:9000 "$$MINIO_ROOT_USER" "$$MINIO_ROOT_PASSWORD" >/dev/null && mc mb --ignore-existing local/sig-distribuidoras-asep
+    restart: "no"
+
+  airflow:
+    build:
+      context: .
+      additional_contexts:
+        codigo: ../codigo_y_dashboard
+    image: sig-asep-airflow:2.10.5
+    command: standalone
+    depends_on:
+      minio:
+        condition: service_healthy
+      minio-init:
+        condition: service_completed_successfully
+    ports:
+      - "127.0.0.1:8080:8080"
+    env_file:
+      - path: ../codigo_y_dashboard/.env   # opcional (GEMINI_API_KEY, etc.)
+        required: false
+    environment:
+      AIRFLOW__CORE__LOAD_EXAMPLES: "false"
+      AIRFLOW__CORE__DAGS_FOLDER: /opt/airflow/dags
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: sqlite:////opt/airflow/db/airflow.db
+      AIRFLOW__WEBSERVER__EXPOSE_CONFIG: "false"
+      SIG_DATA_DIR: /opt/airflow/data
+      # MongoDB 9.0.2 del host (Docker Desktop reenvia host.docker.internal:27017 aunque mongod escuche en 127.0.0.1)
+      MONGO_URI: ${MONGO_URI:-mongodb://host.docker.internal:27017}
+      MONGO_STRICT: "1"
+      MONGO_DB: sig_distribuidoras
+      # Dentro de la red de compose MinIO es "minio" (el .env dice localhost:9100, valido solo en el host)
+      AWS_ENDPOINT_URL: http://minio:9000
+    volumes:
+      - ../codigo_y_dashboard:/opt/airflow/dags
+      - ../data:/opt/airflow/data
+      - ./logs:/opt/airflow/logs
+      - airflow-db:/opt/airflow/db
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "-s", "http://localhost:8080/health"]
+      interval: 15s
+      timeout: 10s
+      retries: 20
+      start_period: 60s
+    restart: unless-stopped
+
+volumes:
+  airflow-db:
+  minio-data:

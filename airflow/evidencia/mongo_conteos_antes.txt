@@ -1,0 +1,3 @@
+﻿mongo 9.0.2 uri mongodb://host.docker.internal:27017
+boletines_asep: 162
+manifiesto_ckan: 12

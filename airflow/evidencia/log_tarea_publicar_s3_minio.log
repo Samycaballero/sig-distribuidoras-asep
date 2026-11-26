@@ -1,0 +1,29 @@
+[2026-11-26T22:38:18.029+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-11-26T22:38:18.048+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_sig_distribuidoras_asep_mensual.publicar_s3_opcional manual__2026-11-26T22:36:59+00:00 [queued]>
+[2026-11-26T22:38:18.060+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_sig_distribuidoras_asep_mensual.publicar_s3_opcional manual__2026-11-26T22:36:59+00:00 [queued]>
+[2026-11-26T22:38:18.067+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 3
+[2026-11-26T22:38:18.086+0000] {taskinstance.py:2890} INFO - Executing <Task(PythonOperator): publicar_s3_opcional> on 2026-11-26 22:36:59+00:00
+[2026-11-26T22:38:18.094+0000] {standard_task_runner.py:72} INFO - Started process 480 to run task
+[2026-11-26T22:38:18.099+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'dag_sig_distribuidoras_asep_mensual', 'publicar_s3_opcional', 'manual__2026-11-26T22:36:59+00:00', '--job-id', '31', '--raw', '--subdir', 'DAGS_FOLDER/orquestacion_airflow_dag.py', '--cfg-path', '/tmp/tmpye16z40x']
+[2026-11-26T22:38:18.102+0000] {standard_task_runner.py:105} INFO - Job 31: Subtask publicar_s3_opcional
+[2026-11-26T22:38:18.158+0000] {task_command.py:467} INFO - Running <TaskInstance: dag_sig_distribuidoras_asep_mensual.publicar_s3_opcional manual__2026-11-26T22:36:59+00:00 [running]> on host 5f52ec39e8b3
+[2026-11-26T22:38:18.508+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='direccion_tecnologia' AIRFLOW_CTX_DAG_ID='dag_sig_distribuidoras_asep_mensual' AIRFLOW_CTX_TASK_ID='publicar_s3_opcional' AIRFLOW_CTX_EXECUTION_DATE='2026-11-26T22:36:59+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-11-26T22:36:59+00:00'
+[2026-11-26T22:38:18.510+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-11-26T22:38:18.657+0000] {credentials.py:1147} INFO - Found credentials in environment variables.
+[2026-11-26T22:38:19.365+0000] {s3_publish.py:56} INFO - S3 subido: s3://sig-distribuidoras-asep/sig-distribuidoras-asep/2026-11-26/gold/calidad_auditoria.json (75628 bytes)
+[2026-11-26T22:38:19.391+0000] {s3_publish.py:56} INFO - S3 subido: s3://sig-distribuidoras-asep/sig-distribuidoras-asep/2026-11-26/gold/diagnostico_ia.json (1716 bytes)
+[2026-11-26T22:38:19.418+0000] {s3_publish.py:56} INFO - S3 subido: s3://sig-distribuidoras-asep/sig-distribuidoras-asep/2026-11-26/gold/estacionalidad_mensual.csv (981 bytes)
+[2026-11-26T22:38:19.443+0000] {s3_publish.py:56} INFO - S3 subido: s3://sig-distribuidoras-asep/sig-distribuidoras-asep/2026-11-26/gold/kpi_anual.csv (4250 bytes)
+[2026-11-26T22:38:19.472+0000] {s3_publish.py:56} INFO - S3 subido: s3://sig-distribuidoras-asep/sig-distribuidoras-asep/2026-11-26/gold/kpi_summary.json (63050 bytes)
+[2026-11-26T22:38:19.497+0000] {s3_publish.py:56} INFO - S3 subido: s3://sig-distribuidoras-asep/sig-distribuidoras-asep/2026-11-26/gold/lmdi_descomposicion.csv (6195 bytes)
+[2026-11-26T22:38:19.521+0000] {s3_publish.py:56} INFO - S3 subido: s3://sig-distribuidoras-asep/sig-distribuidoras-asep/2026-11-26/gold/reclamos_anual.csv (661 bytes)
+[2026-11-26T22:38:19.547+0000] {s3_publish.py:56} INFO - S3 subido: s3://sig-distribuidoras-asep/sig-distribuidoras-asep/2026-11-26/gold/reclamos_mensual.csv (9220 bytes)
+[2026-11-26T22:38:19.581+0000] {s3_publish.py:56} INFO - S3 subido: s3://sig-distribuidoras-asep/sig-distribuidoras-asep/2026-11-26/gold/sig_distribuidoras.db (188416 bytes)
+[2026-11-26T22:38:19.616+0000] {s3_publish.py:56} INFO - S3 subido: s3://sig-distribuidoras-asep/sig-distribuidoras-asep/2026-11-26/dashboard/dashboard_interactivo.html (172671 bytes)
+[2026-11-26T22:38:19.617+0000] {s3_publish.py:57} INFO - S3 [S3 compatible (MinIO local)]: 10 archivos subidos a s3://sig-distribuidoras-asep/sig-distribuidoras-asep/2026-11-26
+[2026-11-26T22:38:19.618+0000] {python.py:240} INFO - Done. Returned value was: {'estado': 'publicado', 'modo': 'S3 compatible (MinIO local)', 'endpoint': 'http://minio:9000', 'bucket': 'sig-distribuidoras-asep', 'prefijo': 'sig-distribuidoras-asep/2026-11-26', 'archivos': 10, 'claves': ['sig-distribuidoras-asep/2026-11-26/gold/calidad_auditoria.json', 'sig-distribuidoras-asep/2026-11-26/gold/diagnostico_ia.json', 'sig-distribuidoras-asep/2026-11-26/gold/estacionalidad_mensual.csv', 'sig-distribuidoras-asep/2026-11-26/gold/kpi_anual.csv', 'sig-distribuidoras-asep/2026-11-26/gold/kpi_summary.json', 'sig-distribuidoras-asep/2026-11-26/gold/lmdi_descomposicion.csv', 'sig-distribuidoras-asep/2026-11-26/gold/reclamos_anual.csv', 'sig-distribuidoras-asep/2026-11-26/gold/reclamos_mensual.csv', 'sig-distribuidoras-asep/2026-11-26/gold/sig_distribuidoras.db', 'sig-distribuidoras-asep/2026-11-26/dashboard/dashboard_interactivo.html']}
+[2026-11-26T22:38:19.637+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-11-26T22:38:19.638+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=dag_sig_distribuidoras_asep_mensual, task_id=publicar_s3_opcional, run_id=manual__2026-11-26T22:36:59+00:00, execution_date=20261126T223659, start_date=20261126T223818, end_date=20261126T223819
+[2026-11-26T22:38:19.681+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-11-26T22:38:19.698+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-11-26T22:38:19.699+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

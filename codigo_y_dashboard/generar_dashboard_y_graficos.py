@@ -120,11 +120,13 @@ def fig_arquitectura(D):
     caja(4.2, 2.0, 1.75, 3.3, "data/silver", "mercado_mensual\n\nReglas R1–R5\n\nImputación\nauditada (valor\nde la fuente\nconservado)", azul)
     caja(6.25, 2.0, 1.75, 3.3, "data/gold", "KPIs anuales\n\nLMDI\n(clientes × kWh\npor cliente)\n\nkpi_summary.json\ncalidad_auditoria", azul)
     caja(8.3, 4.35, 1.65, 1.55, "SQLite", "Modelo estrella\nsig_distribuidoras.db\nvistas vw_bi_*", azul)
-    caja(8.3, 2.45, 1.65, 1.6, "MongoDB", "Boletines y\nmanifiesto\n(sin servidor:\nfallback JSON)", gris, real=False)
-    caja(8.3, 0.75, 1.65, 1.4, "AWS S3", "Publicación\nopcional", gris, real=False)
+    caja(8.3, 2.45, 1.65, 1.6, "MongoDB", "Boletines y\nmanifiesto\n(servidor local;\nJSON solo de respaldo)", azul)
+    caja(8.3, 0.75, 1.65, 1.4, "S3 compatible", "MinIO local\n(API S3; no es\nAmazon AWS)", azul)
     caja(10.2, 4.35, 1.7, 1.55, "Dashboard", "HTML interactivo\nautocontenido\n(sin conexión)", azul)
     caja(10.2, 2.6, 1.7, 1.45, "Figuras", "6 PNG para\ninforme y\npresentación", azul)
-    caja(10.2, 0.75, 1.7, 1.55, "Diagnóstico IA", f"Usado hoy:\n{etiqueta_ia}\n(LLM: opcional)", gris, real=False)
+    # "Proveedor (modelo)" en dos líneas para que no se salga de la caja
+    caja(10.2, 0.75, 1.7, 1.55, "Diagnóstico IA",
+         "Usado hoy:\n" + etiqueta_ia.replace(" (", "\n(", 1) + "\n(validar el texto)", azul)
     for y in (5.3, 3.5, 1.7):
         flecha(1.9, y, 2.15, min(max(y, 2.3), 5.0))
     flecha(3.9, 3.65, 4.2, 3.65)
@@ -135,10 +137,9 @@ def fig_arquitectura(D):
         flecha(9.95, 5.1, 10.2, y)
     fig.subplots_adjust(left=0.01, right=0.99, top=0.9, bottom=0.06)
     ax.add_patch(FancyBboxPatch((2.15, 0.12), 5.85, 0.55, boxstyle="round,pad=0.02,rounding_size=0.1", fc="white", ec=C_CLI, lw=1.4))
-    ax.text(5.07, 0.39, "Orquestación: DAG de Airflow (ejecutado aquí con --run-local; Airflow real: opcional)",
+    ax.text(5.07, 0.39, "Orquestación: DAG en Apache Airflow 2.10.5 (Docker); alternativa sin Airflow: --run-local",
             ha="center", va="center", fontsize=7.4, color=TXT)
     ax.plot([], [], color=azul, lw=1.6, label="Implementado y ejecutado en esta corrida")
-    ax.plot([], [], color=gris, lw=1.6, ls=(0, (4, 3)), label="Opcional o con respaldo (no requerido para ejecutar)")
     ax.legend(loc="lower right", bbox_to_anchor=(1.0, -0.06), frameon=False, fontsize=8, ncol=2)
     ax.set_title("Arquitectura del SIG de distribuidoras: fuentes → bronze / silver / gold → almacenamiento → dashboard e IA",
                  loc="left", fontsize=11.5, color=TXT)

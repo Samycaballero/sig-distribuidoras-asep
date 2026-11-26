@@ -89,6 +89,7 @@ else:
         schedule="0 6 20 * *",  # mensual (supuesto: el boletin del mes anterior ya esta publicado el dia 20)
         start_date=datetime(2025, 1, 1, tzinfo=timezone(timedelta(hours=-5))),
         catchup=False,
+        max_active_runs=1,  # las tareas reescriben los mismos archivos de silver/gold: nunca dos runs a la vez
         tags=["SIG", "Energia", "ASEP"],
     ) as dag:
         _ops = {tid: PythonOperator(task_id=tid, python_callable=fn) for tid, (fn, _) in TAREAS.items()}

@@ -1,0 +1,4 @@
+# logs de tareas/scheduler generados por Airflow (la metadata SQLite vive en el volumen Docker airflow-db)
+logs/
+*.db
+standalone_admin_password.txt

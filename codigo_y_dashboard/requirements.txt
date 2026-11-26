@@ -1,4 +1,4 @@
-# Python 3.10+ (probado con 3.12.10 en Windows; en Windows conviene un venv en una ruta corta, p. ej. C:env-sig)
+# Python 3.10+ (probado con 3.12.10 en Windows; en Windows conviene un venv en una ruta corta, p. ej. C:\venv-sig)
 # --- extraccion PDF ---
 pypdf>=6.0
 # --- graficos ---

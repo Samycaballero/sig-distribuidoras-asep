@@ -1,0 +1,5 @@
+﻿dag_id                              | fileloc                                       | owners               | is_paused
+====================================+===============================================+======================+==========
+dag_sig_distribuidoras_asep_mensual | /opt/airflow/dags/orquestacion_airflow_dag.py | direccion_tecnologia | True     
+                                                                                                                      
+No data found

@@ -1,0 +1,21 @@
+﻿dag_id                               execution_date             task_id                   state    start_date                        end_date
+dag_sig_distribuidoras_asep_mensual  2026-11-26T22:17:34+00:00  descubrir_descargar_ckan  success  2026-11-26T22:17:56.707299+00:00  2026-11-26T22:17:59.801919+00:00
+dag_sig_distribuidoras_asep_mensual  2026-11-26T22:17:34+00:00  extraer_pdf_boletines     success  2026-11-26T22:18:06.026778+00:00  2026-11-26T22:18:10.495598+00:00
+dag_sig_distribuidoras_asep_mensual  2026-11-26T22:17:34+00:00  limpiar_calidad           success  2026-11-26T22:18:25.721812+00:00  2026-11-26T22:18:26.328860+00:00
+dag_sig_distribuidoras_asep_mensual  2026-11-26T22:17:34+00:00  cargar_sql                success  2026-11-26T22:18:47.468759+00:00  2026-11-26T22:18:48.434133+00:00
+dag_sig_distribuidoras_asep_mensual  2026-11-26T22:17:34+00:00  cargar_mongodb            success  2026-11-26T22:19:01.665823+00:00  2026-11-26T22:19:02.871645+00:00
+dag_sig_distribuidoras_asep_mensual  2026-11-26T22:17:34+00:00  gold_kpis_lmdi            success  2026-11-26T22:19:10.491265+00:00  2026-11-26T22:19:11.168355+00:00
+dag_sig_distribuidoras_asep_mensual  2026-11-26T22:17:34+00:00  diagnostico_ia            success  2026-11-26T22:19:25.952655+00:00  2026-11-26T22:19:26.477100+00:00
+dag_sig_distribuidoras_asep_mensual  2026-11-26T22:17:34+00:00  dashboard_y_figuras       success  2026-11-26T22:19:45.686206+00:00  2026-11-26T22:19:50.920919+00:00
+dag_sig_distribuidoras_asep_mensual  2026-11-26T22:17:34+00:00  publicar_s3_opcional      success  2026-11-26T22:20:05.795661+00:00  2026-11-26T22:20:06.371836+00:00
+
+dag_id                               execution_date             task_id                   state    start_date                        end_date
+dag_sig_distribuidoras_asep_mensual  2026-10-20T11:00:00+00:00  descubrir_descargar_ckan  success  2026-11-26T22:17:34.824713+00:00  2026-11-26T22:17:38.519600+00:00
+dag_sig_distribuidoras_asep_mensual  2026-10-20T11:00:00+00:00  extraer_pdf_boletines     success  2026-11-26T22:17:45.039588+00:00  2026-11-26T22:17:49.248339+00:00
+dag_sig_distribuidoras_asep_mensual  2026-10-20T11:00:00+00:00  limpiar_calidad           success  2026-11-26T22:18:17.359425+00:00  2026-11-26T22:18:17.895762+00:00
+dag_sig_distribuidoras_asep_mensual  2026-10-20T11:00:00+00:00  cargar_sql                success  2026-11-26T22:18:32.765109+00:00  2026-11-26T22:18:33.475472+00:00
+dag_sig_distribuidoras_asep_mensual  2026-10-20T11:00:00+00:00  cargar_mongodb            success  2026-11-26T22:18:39.695241+00:00  2026-11-26T22:18:40.778529+00:00
+dag_sig_distribuidoras_asep_mensual  2026-10-20T11:00:00+00:00  gold_kpis_lmdi            success  2026-11-26T22:18:54.612875+00:00  2026-11-26T22:18:55.289451+00:00
+dag_sig_distribuidoras_asep_mensual  2026-10-20T11:00:00+00:00  diagnostico_ia            success  2026-11-26T22:19:18.019767+00:00  2026-11-26T22:19:18.607280+00:00
+dag_sig_distribuidoras_asep_mensual  2026-10-20T11:00:00+00:00  dashboard_y_figuras       success  2026-11-26T22:19:32.819399+00:00  2026-11-26T22:19:38.066895+00:00
+dag_sig_distribuidoras_asep_mensual  2026-10-20T11:00:00+00:00  publicar_s3_opcional      success  2026-11-26T22:19:57.292638+00:00  2026-11-26T22:19:57.906826+00:00

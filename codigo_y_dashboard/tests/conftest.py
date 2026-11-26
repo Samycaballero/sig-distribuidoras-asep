@@ -12,7 +12,9 @@ sys.path.insert(0, str(ROOT))
 
 VARS_EXTERNAS = ("ANTHROPIC_API_KEY", "ANTHROPIC_BASE_URL", "BEDROCK_MODEL_ID", "GENAI_MODE", "S3_BUCKET", "MONGO_STRICT",
                  "GEMINI_API_KEY", "GOOGLE_API_KEY", "GEMINI_MODEL", "GEMINI_BASE_URL", "OLLAMA_MODEL", "OLLAMA_HOST",
-                 "SIG_LLM", "AWS_ACCESS_KEY_ID", "AWS_SECRET_ACCESS_KEY", "AWS_PROFILE", "SIG_DATA_DIR", "SIG_OUT_DIR")
+                 "SIG_LLM", "AWS_ACCESS_KEY_ID", "AWS_SECRET_ACCESS_KEY", "AWS_PROFILE", "SIG_DATA_DIR", "SIG_OUT_DIR",
+                 "AWS_ENDPOINT_URL", "AWS_ENDPOINT_URL_S3", "S3_PREFIX", "AWS_REGION", "MINIO_ROOT_USER",
+                 "MINIO_ROOT_PASSWORD")
 
 
 @pytest.fixture(autouse=True)
@@ -38,7 +40,8 @@ def copiar_bronze(destino):
 def env_corrida(tmp):
     env = {k: v for k, v in os.environ.items() if k not in VARS_EXTERNAS}
     env.update(SIG_DATA_DIR=str(tmp / "data"), SIG_OUT_DIR=str(tmp / "out"), SIG_OFFLINE="1",
-               MONGO_URI="mongodb://127.0.0.1:1", MONGO_TIMEOUT_MS="300", PYTHONIOENCODING="utf-8")
+               MONGO_URI="mongodb://127.0.0.1:1", MONGO_TIMEOUT_MS="300", PYTHONIOENCODING="utf-8",
+               SIG_DOTENV="0")  # el subproceso no es pytest: sin esto cargaria el .env real (S3/MinIO, claves IA)
     return env
 
 

@@ -1,6 +1,6 @@
 {
- "modo": "copia_local",
- "manifiesto": "manifiesto_ckan_2026-11-25.json",
+ "modo": "red",
+ "manifiesto": "manifiesto_ckan_2026-11-26.json",
  "archivos": [
   {
    "archivo": "reclamos_electricidad_2021.csv",
