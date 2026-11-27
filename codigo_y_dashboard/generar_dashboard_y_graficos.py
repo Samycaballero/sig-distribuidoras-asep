@@ -1,7 +1,7 @@
 """Figuras PNG (matplotlib, 300 dpi) y dashboard HTML interactivo autocontenido a partir de la capa gold/silver.
 
 Paleta categórica validada (modo claro y oscuro): EDEMET azul, ENSA naranja, EDECHI verde, siempre en ese orden y con
-los mismos colores en el dashboard y en las figuras. Efectos LMDI: violeta (clientes) y ámbar (consumo por cliente).
+los mismos colores en el dashboard y en las figuras. Efectos LMDI: violeta (clientes) y magenta (consumo por cliente).
 Ninguna cifra se escribe a mano: todo sale de gold (kpi_summary.json, calidad_auditoria.json, CSV) o de silver.
 Uso: python generar_dashboard_y_graficos.py
 """
@@ -25,7 +25,7 @@ import calidad  # noqa: E402
 import config  # noqa: E402
 
 COL = {"EDEMET": "#2a78d6", "ENSA": "#eb6834", "EDECHI": "#1baf7a"}
-C_CLI, C_CON = "#6250d6", "#eda100"
+C_CLI, C_CON = "#6250d6", "#c2417f"
 TXT, TXT2, GRID, BG = "#0b0b0b", "#52514e", "#e4e3df", "#fcfcfb"
 plt.rcParams.update({"font.family": "DejaVu Sans", "axes.edgecolor": GRID, "axes.labelcolor": TXT2, "xtick.color": TXT2,
                      "ytick.color": TXT2, "axes.spines.top": False, "axes.spines.right": False, "axes.grid": True,
